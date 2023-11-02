@@ -1,0 +1,17 @@
+@use "../assets/css/reset.css";
+@use "./components/normalize";
+
+#root {
+  width: 75vw;
+  height: 100vh;
+  margin: 0 auto;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+@media (max-width: 768px) {
+  #root {
+    width: 100vw;
+    height: 100vh;
+  }
+}
