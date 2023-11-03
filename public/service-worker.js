@@ -1,5 +1,5 @@
 const staticCacheName = "site-static";
-const staticCacheNameV2 = "site-static-v2";
+const dynamicCacheName = "site-static-v2";
 const assets = [
   "/",
   "/static/js/bundle.js",
@@ -15,7 +15,7 @@ const assets = [
   "https://fonts.gstatic.com/s/lato/v24/S6u9w4BMUTPHh6UVSwiPGQ.woff2",
 ];
 
-const initializeStaticCache = async (cache, assets) => {
+const initializePrecache = async (cache, assets) => {
   try {
     const cacheInstance = await caches.open(cache);
 
@@ -31,7 +31,7 @@ const putInCache = async (cacheName, request, response) => {
   await cache.put(request, response);
 };
 
-const cacheFirst = async (request, cacheName) => {
+const cacheFirst = async (request, cacheName, fallbackUrl) => {
   const responseFromCache = await caches.match(request);
 
   if (responseFromCache) {
@@ -41,11 +41,22 @@ const cacheFirst = async (request, cacheName) => {
   try {
     const responseFromNetwork = await fetch(request);
 
-    await putInCache(cacheName, request.url, responseFromNetwork.clone());
+    if (responseFromNetwork.ok) {
+      await putInCache(cacheName, request.url, responseFromNetwork.clone());
+    }
 
     return responseFromNetwork;
   } catch (error) {
-    return caches.match("./fallback.html");
+    const fallbackResponse = await caches.match(fallbackUrl);
+
+    if (fallbackResponse) {
+      return fallbackResponse;
+    }
+
+    return new Response("Network error happened!", {
+      status: 500,
+      headers: { "Content-Type": "text/plain" },
+    });
   }
 };
 
@@ -53,7 +64,7 @@ const clearCachesExcept = async (staticCacheName) => {
   const cacheKeys = await caches.keys();
 
   const deletePromises = cacheKeys
-    .filter((key) => key !== staticCacheName && key !== staticCacheNameV2)
+    .filter((key) => key !== staticCacheName && key !== dynamicCacheName)
     .map((key) => caches.delete(key));
 
   await Promise.all(deletePromises);
@@ -61,7 +72,7 @@ const clearCachesExcept = async (staticCacheName) => {
 
 // Install service worker
 self.addEventListener("install", (evt) => {
-  evt.waitUntil(initializeStaticCache(staticCacheName, assets));
+  evt.waitUntil(initializePrecache(staticCacheName, assets));
   self.skipWaiting();
 });
 
@@ -74,5 +85,5 @@ self.addEventListener("activate", (evt) => {
 
 // Fetch event
 self.addEventListener("fetch", (evt) => {
-  evt.respondWith(cacheFirst(evt.request, staticCacheNameV2));
+  evt.respondWith(cacheFirst(evt.request, dynamicCacheName, "./fallback.html"));
 });
