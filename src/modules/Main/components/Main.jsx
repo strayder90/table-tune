@@ -9,11 +9,19 @@ export const Main = () => {
     navigate("/");
   };
 
+  const handleClickToReservations = () => {
+    navigate("/list");
+  };
+
   return (
     <>
       <h1>Welcome to the main page. You have successfully Signed up!</h1>
       <Button color="red" onClick={handleClick}>
         Sign out
+      </Button>
+      <br />
+      <Button color="orange" onClick={handleClickToReservations}>
+        View all reservations
       </Button>
     </>
   );

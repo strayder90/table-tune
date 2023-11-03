@@ -4,6 +4,7 @@ const assets = [
   "/",
   "/static/js/bundle.js",
   "./index.html",
+  "./fallback.html",
   "./manifest.json",
   "./icon-144x144.png",
   "./favicon.ico",
@@ -40,21 +41,20 @@ const cacheFirst = async (request, cacheName) => {
   try {
     const responseFromNetwork = await fetch(request);
 
-    await putInCache(cacheName, request, responseFromNetwork.clone());
+    await putInCache(cacheName, request.url, responseFromNetwork.clone());
 
     return responseFromNetwork;
   } catch (error) {
-    return new Response("Network error happened", {
-      status: 500,
-      headers: { "Content-Type": "text/plain" },
-    });
+    return caches.match("./fallback.html");
   }
 };
 
 const clearCachesExcept = async (staticCacheName) => {
   const cacheKeys = await caches.keys();
 
-  const deletePromises = cacheKeys.filter((key) => key !== staticCacheName).map((key) => caches.delete(key));
+  const deletePromises = cacheKeys
+    .filter((key) => key !== staticCacheName && key !== staticCacheNameV2)
+    .map((key) => caches.delete(key));
 
   await Promise.all(deletePromises);
 };
