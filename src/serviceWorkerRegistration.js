@@ -6,7 +6,7 @@ export const registerServiceWorker = async () => {
       if (registration.installing) {
         console.log("Service worker installing");
       } else if (registration.waiting) {
-        console.log("Service worker installed");
+        console.log("Service worker installed(waiting)");
       } else if (registration.active) {
         console.log("Service worker active");
       }

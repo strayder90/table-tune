@@ -4,6 +4,8 @@ const assets = [
   "/",
   "/static/js/bundle.js",
   "./index.html",
+  "./list",
+  "./main",
   "./fallback.html",
   "./manifest.json",
   "./icon-144x144.png",
