@@ -36,14 +36,14 @@ const putInCache = async (cacheName, request, response) => {
 const cacheFirst = async (request, cacheName, fallbackUrl) => {
   const responseFromCache = await caches.match(request);
 
-  if (responseFromCache) {
+  if (responseFromCache && responseFromCache.ok && responseFromCache.status === 200) {
     return responseFromCache;
   }
 
   try {
     const responseFromNetwork = await fetch(request);
 
-    if (responseFromNetwork.ok) {
+    if (responseFromNetwork && responseFromNetwork.ok && responseFromNetwork.status === 200) {
       await putInCache(cacheName, request.url, responseFromNetwork.clone());
     }
 
