@@ -29,6 +29,7 @@
     "workbox-streams": "^6.6.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "eslint": "^8.45.0",

@@ -16,7 +16,7 @@ const initializePrecache = async (cache, assets) => {
 
     await cacheInstance.addAll(assets);
   } catch (error) {
-    console.error("Error caching assets:", error);
+    throw new Error("Error caching assets:", error);
   }
 };
 
