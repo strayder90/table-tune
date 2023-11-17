@@ -23,7 +23,9 @@ const initializePrecache = async (cache, assets) => {
 const putInCache = async (cacheName, request, response) => {
   const cache = await caches.open(cacheName);
 
-  await cache.put(request, response);
+  const cacheData = await cache.put(request, response);
+
+  return cacheData;
 };
 
 const cacheFirst = async (request, cacheName, fallbackUrl) => {
@@ -55,7 +57,7 @@ const cacheFirst = async (request, cacheName, fallbackUrl) => {
   }
 };
 
-const clearCachesExcept = async (staticCacheName) => {
+const clearCaches = async (staticCacheName) => {
   const cacheKeys = await caches.keys();
 
   const deletePromises = cacheKeys
@@ -75,7 +77,7 @@ self.addEventListener("install", (evt) => {
 self.addEventListener("activate", (evt) => {
   evt.waitUntil(self.clients.claim());
 
-  evt.waitUntil(clearCachesExcept(staticCacheName));
+  evt.waitUntil(clearCaches(staticCacheName));
 });
 
 // Fetch event

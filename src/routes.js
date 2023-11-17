@@ -1,11 +1,11 @@
-import { SignUp } from "./modules/Access/components/Signup";
-import { Main } from "./modules/Main/components/Main";
-import { ReservationsList } from "./modules/Reservations/components/List";
+import Register from "./modules/Access/components/Register";
+import Main from "./modules/Main/components/Main";
+import ReservationsList from "./modules/Reservations/components/List";
 
 const routes = [
   {
     path: "/",
-    element: <SignUp />,
+    element: <Register />,
   },
   {
     path: "main",

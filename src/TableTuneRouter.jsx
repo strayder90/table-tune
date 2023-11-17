@@ -2,10 +2,8 @@ import { useRoutes } from "react-router-dom";
 
 import routes from "./routes";
 
-const TableTuneRouter = () => {
+export default function TableTuneRouter() {
   const appRoutes = useRoutes(routes);
 
   return appRoutes;
-};
-
-export default TableTuneRouter;
+}

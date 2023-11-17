@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 
-export const Main = () => {
+export default function Main() {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -25,4 +25,4 @@ export const Main = () => {
       </Button>
     </>
   );
-};
+}

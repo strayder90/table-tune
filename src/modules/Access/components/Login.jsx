@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 
-export default function SignUp() {
+export default function Login() {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -11,9 +11,9 @@ export default function SignUp() {
 
   return (
     <>
-      <h1>This is Sign up page.</h1>
-      <Button color="green" onClick={handleClick}>
-        Sign up
+      <h1>This is Log in page.</h1>
+      <Button color="purple" onClick={handleClick}>
+        Log in
       </Button>
     </>
   );
