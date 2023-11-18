@@ -1,7 +1,9 @@
 @use "../assets/css/reset.css";
 @use "./components/normalize";
-@use "./components/signup";
 @use "./components/login";
+@use "./components/register";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 #root {
   width: 100vw;
@@ -10,4 +12,5 @@
   background: #ece9e6;
   background: -webkit-linear-gradient(to top, #ffffff, #ece9e6);
   background: linear-gradient(to bottom, #ffffff, #ece9e6);
+  font-family: "Roboto", sans-serif;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Button, Form, Divider } from "semantic-ui-react";
+import { Button, Form, Divider, Input } from "semantic-ui-react";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -25,12 +25,14 @@ export default function Login() {
             </div>
             <Divider />
             <Form onSubmit={handleClick}>
-              <Form.Field>
-                <input type="email" placeholder="Email" required />
-              </Form.Field>
-              <Form.Field>
-                <input type="password" placeholder="Password" required />
-              </Form.Field>
+              <Form.Field id="form-input-control-email" control={Input} type="email" placeholder="Email" required />
+              <Form.Field
+                id="form-input-control-password"
+                control={Input}
+                type="password"
+                placeholder="Password"
+                required
+              />
               <Button className="submitButton" type="submit">
                 Log in
               </Button>

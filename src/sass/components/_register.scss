@@ -27,6 +27,8 @@
   border-radius: 20px;
   box-sizing: border-box;
   padding: 20px;
+  text-align: center;
+  width: 100%;
 }
 
 .register-form_title {
@@ -35,16 +37,16 @@
 }
 
 .register-form a {
-  display: flex;
-  justify-content: center;
-  padding: 1.5em;
+  display: inline-block;
+  margin-top: 20px !important;
   font-size: medium;
-  color: #a35709;
+  color: #a35709 !important;
 }
 
 .register-form ::placeholder {
   opacity: 1 !important;
   color: #817d7d !important;
+  font-weight: 500;
 }
 
 .submitButton {
@@ -55,9 +57,8 @@
   background-color: #1b1a17 !important;
 }
 
-.main {
-  width: 100%;
-  height: 100%;
+.submitButton:hover {
+  background-color: #2f2d28 !important;
 }
 
 @media (max-width: 768px) {
