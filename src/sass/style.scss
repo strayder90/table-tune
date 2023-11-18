@@ -1,17 +1,13 @@
 @use "../assets/css/reset.css";
 @use "./components/normalize";
+@use "./components/signup";
+@use "./components/login";
 
 #root {
-  width: 75vw;
+  width: 100vw;
   height: 100vh;
   margin: 0 auto;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-}
-
-@media (max-width: 768px) {
-  #root {
-    width: 100vw;
-    height: 100vh;
-  }
+  background: #ece9e6;
+  background: -webkit-linear-gradient(to top, #ffffff, #ece9e6);
+  background: linear-gradient(to bottom, #ffffff, #ece9e6);
 }

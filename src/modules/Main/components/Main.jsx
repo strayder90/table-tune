@@ -14,7 +14,7 @@ export default function Main() {
   };
 
   return (
-    <>
+    <div className="main">
       <h1>Welcome to the main page. You have successfully Signed up!</h1>
       <Button color="red" onClick={handleClick}>
         Sign out
@@ -23,6 +23,6 @@ export default function Main() {
       <Button color="orange" onClick={handleClickToReservations}>
         View all reservations
       </Button>
-    </>
+    </div>
   );
 }
