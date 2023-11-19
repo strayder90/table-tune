@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button, Form, Divider, Input } from "semantic-ui-react";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleCreateAccount = () => {
     navigate("/");
   };
 
-  const handleClick = () => {
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    setLoading(false);
+
     navigate("/main");
   };
 
@@ -24,14 +43,24 @@ export default function Login() {
               <p>Ready to make your reservations?</p>
             </div>
             <Divider />
-            <Form onSubmit={handleClick}>
-              <Form.Field id="form-input-control-email" control={Input} type="email" placeholder="Email" required />
+            <Form onSubmit={handleSubmit} loading={loading}>
+              <Form.Field
+                id="form-input-control-email"
+                control={Input}
+                type="email"
+                placeholder="Email"
+                required
+                value={email}
+                onChange={handleEmailChange}
+              />
               <Form.Field
                 id="form-input-control-password"
                 control={Input}
                 type="password"
                 placeholder="Password"
                 required
+                value={password}
+                onChange={handlePasswordChange}
               />
               <Button className="submitButton" type="submit">
                 Log in
