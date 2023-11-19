@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Button, Form, Divider, Input } from "semantic-ui-react";
+import { Button, Form, Divider, Input, Message, Dimmer, Loader } from "semantic-ui-react";
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [registered, setRegistered] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -30,9 +31,15 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!firstName || !lastName || !email || !password) {
+      setRegistered(true);
+
+      return;
+    }
+
     setLoading(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 20000));
 
     setLoading(false);
 
@@ -50,14 +57,22 @@ export default function SignUp() {
               <h2>Create a new account</h2>
               <p>It's qiuck and easy.</p>
             </div>
+
+            {loading && <Message success header="Account successfully created!" />}
+
             <Divider />
-            <Form onSubmit={handleSubmit} loading={loading}>
+            <Form onSubmit={handleSubmit}>
+              {loading && (
+                <Dimmer active inverted>
+                  <Loader inverted>Redirecting to login page...</Loader>
+                </Dimmer>
+              )}
+
               <Form.Group widths={2}>
                 <Form.Field
                   id="form-input-control-first-name"
                   control={Input}
                   placeholder="First name"
-                  required
                   value={firstName}
                   onChange={handleFirstNameChange}
                 />
@@ -65,7 +80,6 @@ export default function SignUp() {
                   id="form-input-control-last-name"
                   control={Input}
                   placeholder="Last name"
-                  required
                   value={lastName}
                   onChange={handleLastNameChange}
                 />
@@ -75,7 +89,6 @@ export default function SignUp() {
                 control={Input}
                 type="email"
                 placeholder="Email"
-                required
                 value={email}
                 onChange={handleEmailChange}
               />
@@ -84,7 +97,6 @@ export default function SignUp() {
                 control={Input}
                 type="password"
                 placeholder="Password"
-                required
                 value={password}
                 onChange={handlePasswordChange}
               />
@@ -93,6 +105,15 @@ export default function SignUp() {
               </Button>
               <Link to="/login">Already have an account?</Link>
             </Form>
+            <Message
+              onDismiss={() => {
+                setRegistered(false);
+              }}
+              negative
+              hidden={!registered}
+            >
+              Please complete all fields before submitting the form.
+            </Message>
           </div>
         </div>
       </div>

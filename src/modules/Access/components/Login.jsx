@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Button, Form, Divider, Input } from "semantic-ui-react";
+import { Button, Form, Divider, Input, Message } from "semantic-ui-react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [registered, setRegistered] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -23,6 +24,12 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!email || !password) {
+      setRegistered(true);
+
+      return;
+    }
 
     setLoading(true);
 
@@ -49,7 +56,6 @@ export default function Login() {
                 control={Input}
                 type="email"
                 placeholder="Email"
-                required
                 value={email}
                 onChange={handleEmailChange}
               />
@@ -58,7 +64,6 @@ export default function Login() {
                 control={Input}
                 type="password"
                 placeholder="Password"
-                required
                 value={password}
                 onChange={handlePasswordChange}
               />
@@ -71,6 +76,15 @@ export default function Login() {
                 Create new account
               </Button>
             </Form>
+            <Message
+              onDismiss={() => {
+                setRegistered(false);
+              }}
+              negative
+              hidden={!registered}
+            >
+              Please complete all fields before you can proceed.
+            </Message>
           </div>
         </div>
       </div>
