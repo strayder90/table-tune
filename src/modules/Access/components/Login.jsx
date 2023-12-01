@@ -33,7 +33,7 @@ export default function Login() {
 
     setLoading(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     setLoading(false);
 
@@ -46,7 +46,8 @@ export default function Login() {
         <div className="register">
           <div className="register-form">
             <div className="register-form_title">
-              <h2>Welcome back</h2>
+              <div className="logo"></div>
+              <h2>Log into Table Tune </h2>
               <p>Ready to make your reservations?</p>
             </div>
             <Divider />

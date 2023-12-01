@@ -39,7 +39,7 @@ export default function SignUp() {
 
     setLoading(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 20000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     setLoading(false);
 
@@ -53,6 +53,7 @@ export default function SignUp() {
 
         <div className="register">
           <div className="register-form">
+            <div className="logo"></div>
             <div className="register-form_title">
               <h2>Create a new account</h2>
               <p>It's qiuck and easy.</p>
