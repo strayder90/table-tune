@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Button, Form, Divider, Input, Message, Icon } from "semantic-ui-react";
-import { validateEmail } from "../utils/helpers";
 
 export default function SignUp() {
   const navigate = useNavigate();
