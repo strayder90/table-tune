@@ -4,35 +4,97 @@ import { Link } from "react-router-dom";
 import { Button, Form, Divider, Input, Message, Dimmer, Loader } from "semantic-ui-react";
 
 export default function SignUp() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [registered, setRegistered] = useState(false);
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [firstName, setFirstName] = useState("");
+  const [firstNameError, setFirstNameError] = useState(false);
+
+  const [lastName, setLastName] = useState("");
+  const [lastNameError, setLastNameError] = useState(false);
+
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+
+  const [messageContent, setMessageContent] = useState("");
+
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
+
+  const [showError, setShowError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
+    setShowError(false);
+    setFirstNameError(false);
+  };
+
+  const handleFirstNameError = () => {
+    if (!firstName) {
+      setFirstNameError(true);
+
+      return;
+    } else {
+      setFirstNameError(false);
+    }
   };
 
   const handleLastNameChange = (e) => {
     setLastName(e.target.value);
+    setShowError(false);
+    setLastNameError(false);
+  };
+
+  const handleLastNameError = () => {
+    if (!lastName) {
+      setLastNameError(true);
+
+      return;
+    } else {
+      setLastNameError(false);
+    }
   };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
+    setShowError(false);
+    setEmailError(false);
+  };
+
+  const handleEmailError = () => {
+    if (!email) {
+      setEmailError(true);
+      setMessageContent("Please enter a valid email address.");
+    } else {
+      setEmailError(false);
+    }
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+    setShowError(false);
+    setPasswordError(false);
+  };
+
+  const handlePasswordError = () => {
+    if (!password) {
+      setPasswordError(true);
+
+      return;
+    } else {
+      setPasswordError(false);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    handleFirstNameError();
+    handleLastNameError();
+    handleEmailError();
+    handlePasswordError();
+
     if (!firstName || !lastName || !email || !password) {
-      setRegistered(true);
+      setShowError(true);
 
       return;
     }
@@ -76,6 +138,7 @@ export default function SignUp() {
                   placeholder="First name"
                   value={firstName}
                   onChange={handleFirstNameChange}
+                  error={firstNameError && { content: "Please enter first name.", pointing: "above" }}
                 />
                 <Form.Field
                   id="form-input-control-last-name"
@@ -83,6 +146,7 @@ export default function SignUp() {
                   placeholder="Last name"
                   value={lastName}
                   onChange={handleLastNameChange}
+                  error={lastNameError && { content: "Please enter last name.", pointing: "above" }}
                 />
               </Form.Group>
               <Form.Field
@@ -92,6 +156,7 @@ export default function SignUp() {
                 placeholder="Email"
                 value={email}
                 onChange={handleEmailChange}
+                error={emailError && { content: `${messageContent}`, pointing: "above" }}
               />
               <Form.Field
                 id="form-input-control-password"
@@ -100,6 +165,7 @@ export default function SignUp() {
                 placeholder="Password"
                 value={password}
                 onChange={handlePasswordChange}
+                error={passwordError && { content: "Please enter a password.", pointing: "above" }}
               />
               <Button className="submitButton" type="submit">
                 Sign Up
@@ -108,10 +174,10 @@ export default function SignUp() {
             </Form>
             <Message
               onDismiss={() => {
-                setRegistered(false);
+                setShowError(false);
               }}
               negative
-              hidden={!registered}
+              hidden={!showError}
             >
               Please complete all fields before submitting the form.
             </Message>

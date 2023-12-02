@@ -5,7 +5,12 @@ import { Button, Form, Divider, Input, Message } from "semantic-ui-react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+
   const [password, setPassword] = useState("");
+  const [passwordError, setpasswordError] = useState(false);
+
+  const [messageContent, setMessageContent] = useState("");
   const [registered, setRegistered] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -18,12 +23,33 @@ export default function Login() {
     setEmail(e.target.value);
   };
 
+  const handleEmailError = () => {
+    if (!email) {
+      setEmailError(true);
+      setMessageContent("Please enter a valid email address.");
+    } else {
+      setEmailError(false);
+    }
+  };
+
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
+  const handlePasswordError = () => {
+    if (!password) {
+      setpasswordError(true);
+      setMessageContent("Please enter password.");
+    } else {
+      setpasswordError(false);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    handleEmailError();
+    handlePasswordError();
 
     if (!email || !password) {
       setRegistered(true);
@@ -55,10 +81,11 @@ export default function Login() {
               <Form.Field
                 id="form-input-control-email"
                 control={Input}
-                type="email"
+                type="text"
                 placeholder="Email"
                 value={email}
                 onChange={handleEmailChange}
+                error={emailError && { content: `${messageContent}`, pointing: "above" }}
               />
               <Form.Field
                 id="form-input-control-password"
@@ -67,6 +94,7 @@ export default function Login() {
                 placeholder="Password"
                 value={password}
                 onChange={handlePasswordChange}
+                error={passwordError && { content: `${messageContent}`, pointing: "above" }}
               />
               <Button className="submitButton" type="submit">
                 Log in
