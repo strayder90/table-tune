@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Button, Form, Divider, Input, Message, Dimmer, Loader } from "semantic-ui-react";
+import { Button, Form, Divider, Input, Message, Icon } from "semantic-ui-react";
+import { validateEmail } from "../utils/helpers";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -13,8 +14,6 @@ export default function SignUp() {
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
-
-  const [messageContent, setMessageContent] = useState("");
 
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
@@ -63,7 +62,6 @@ export default function SignUp() {
   const handleEmailError = () => {
     if (!email) {
       setEmailError(true);
-      setMessageContent("Please enter a valid email address.");
     } else {
       setEmailError(false);
     }
@@ -108,6 +106,22 @@ export default function SignUp() {
     navigate("/login");
   };
 
+  const handleClearFirstName = () => {
+    setFirstName("");
+  };
+
+  const handleClearLastName = () => {
+    setLastName("");
+  };
+
+  const handleClearEmail = () => {
+    setEmail("");
+  };
+
+  const handleClearPassword = () => {
+    setPassword("");
+  };
+
   return (
     <>
       <div className="container">
@@ -121,51 +135,47 @@ export default function SignUp() {
               <p>It's qiuck and easy.</p>
             </div>
 
-            {loading && <Message success header="Account successfully created!" />}
-
             <Divider />
-            <Form onSubmit={handleSubmit}>
-              {loading && (
-                <Dimmer active inverted>
-                  <Loader inverted>Redirecting to login page...</Loader>
-                </Dimmer>
-              )}
-
+            <Form onSubmit={handleSubmit} loading={loading}>
               <Form.Group widths={2}>
                 <Form.Field
                   id="form-input-control-first-name"
                   control={Input}
+                  icon={firstName ? <Icon name="close" link onClick={handleClearFirstName} /> : null}
                   placeholder="First name"
                   value={firstName}
                   onChange={handleFirstNameChange}
-                  error={firstNameError && { content: "Please enter first name.", pointing: "above" }}
+                  error={firstNameError}
                 />
                 <Form.Field
                   id="form-input-control-last-name"
                   control={Input}
+                  icon={lastName ? <Icon name="close" link onClick={handleClearLastName} /> : null}
                   placeholder="Last name"
                   value={lastName}
                   onChange={handleLastNameChange}
-                  error={lastNameError && { content: "Please enter last name.", pointing: "above" }}
+                  error={lastNameError}
                 />
               </Form.Group>
               <Form.Field
                 id="form-input-control-email"
                 control={Input}
+                icon={email ? <Icon name="close" link onClick={handleClearEmail} /> : null}
                 type="email"
                 placeholder="Email"
                 value={email}
                 onChange={handleEmailChange}
-                error={emailError && { content: `${messageContent}`, pointing: "above" }}
+                error={emailError}
               />
               <Form.Field
                 id="form-input-control-password"
                 control={Input}
+                icon={password ? <Icon name="close" link onClick={handleClearPassword} /> : null}
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={handlePasswordChange}
-                error={passwordError && { content: "Please enter a password.", pointing: "above" }}
+                error={passwordError}
               />
               <Button className="submitButton" type="submit">
                 Sign Up
@@ -175,6 +185,10 @@ export default function SignUp() {
             <Message
               onDismiss={() => {
                 setShowError(false);
+                setFirstNameError(false);
+                setLastNameError(false);
+                setEmailError(false);
+                setPasswordError(false);
               }}
               negative
               hidden={!showError}

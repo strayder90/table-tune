@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Button, Form, Divider, Input, Message } from "semantic-ui-react";
+import { Button, Form, Divider, Input, Icon, Message } from "semantic-ui-react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
 
   const [password, setPassword] = useState("");
-  const [passwordError, setpasswordError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
 
-  const [messageContent, setMessageContent] = useState("");
-  const [registered, setRegistered] = useState(false);
+  const [showError, setShowError] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -21,12 +20,13 @@ export default function Login() {
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
+    setShowError(false);
+    setEmailError(false);
   };
 
   const handleEmailError = () => {
     if (!email) {
       setEmailError(true);
-      setMessageContent("Please enter a valid email address.");
     } else {
       setEmailError(false);
     }
@@ -34,14 +34,15 @@ export default function Login() {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+    setShowError(false);
+    setPasswordError(false);
   };
 
   const handlePasswordError = () => {
     if (!password) {
-      setpasswordError(true);
-      setMessageContent("Please enter password.");
+      setPasswordError(true);
     } else {
-      setpasswordError(false);
+      setPasswordError(false);
     }
   };
 
@@ -52,7 +53,7 @@ export default function Login() {
     handlePasswordError();
 
     if (!email || !password) {
-      setRegistered(true);
+      setShowError(true);
 
       return;
     }
@@ -64,6 +65,14 @@ export default function Login() {
     setLoading(false);
 
     navigate("/main");
+  };
+
+  const handleClearEmail = () => {
+    setEmail("");
+  };
+
+  const handleClearPassword = () => {
+    setPassword("");
   };
 
   return (
@@ -81,20 +90,22 @@ export default function Login() {
               <Form.Field
                 id="form-input-control-email"
                 control={Input}
+                icon={email ? <Icon name="close" link onClick={handleClearEmail} /> : null}
                 type="text"
                 placeholder="Email"
                 value={email}
                 onChange={handleEmailChange}
-                error={emailError && { content: `${messageContent}`, pointing: "above" }}
+                error={emailError}
               />
               <Form.Field
                 id="form-input-control-password"
                 control={Input}
+                icon={password ? <Icon name="close" link onClick={handleClearPassword} /> : null}
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={handlePasswordChange}
-                error={passwordError && { content: `${messageContent}`, pointing: "above" }}
+                error={passwordError}
               />
               <Button className="submitButton" type="submit">
                 Log in
@@ -107,10 +118,12 @@ export default function Login() {
             </Form>
             <Message
               onDismiss={() => {
-                setRegistered(false);
+                setShowError(false);
+                setEmailError(false);
+                setPasswordError(false);
               }}
               negative
-              hidden={!registered}
+              hidden={!showError}
             >
               Please complete all fields before you can proceed.
             </Message>
