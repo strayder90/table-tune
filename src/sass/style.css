@@ -439,8 +439,13 @@ template {
     align-items: center;
   }
 }
-.menu-buttons {
+.menu-buttons button {
   float: right;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
 }
 
 #root {

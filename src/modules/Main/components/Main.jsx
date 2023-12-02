@@ -14,8 +14,9 @@ export default function Main() {
   return (
     <>
       <div className="menu-buttons">
-        <Button content="Menu" onClick={() => setVisible(true)} />
         <Button content="Log out" onClick={handleLogOut} />
+        <Button content="Menu" onClick={() => setVisible(true)} />
+        <h2>No content available.</h2>
         <SidebarComponent visible={visible} setVisible={setVisible} />
       </div>
     </>
