@@ -7,10 +7,17 @@ export default function Main() {
   const navigate = useNavigate();
   const [visible, setVisible] = React.useState(false);
 
+  const handleLogOut = () => {
+    navigate("/");
+  };
+
   return (
     <>
-      <Button content="Menu" onClick={() => setVisible(true)} />
-      <SidebarComponent visible={visible} setVisible={setVisible} />
+      <div className="menu-buttons">
+        <Button content="Menu" onClick={() => setVisible(true)} />
+        <Button content="Log out" onClick={handleLogOut} />
+        <SidebarComponent visible={visible} setVisible={setVisible} />
+      </div>
     </>
   );
 }

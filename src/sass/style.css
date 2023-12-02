@@ -439,6 +439,10 @@ template {
     align-items: center;
   }
 }
+.menu-buttons {
+  float: right;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
