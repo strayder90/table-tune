@@ -1,28 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "semantic-ui-react";
+import { SidebarComponent } from "./Sidebar";
 
 export default function Main() {
   const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/");
-  };
-
-  const handleClickToReservations = () => {
-    navigate("/list");
-  };
+  const [visible, setVisible] = React.useState(false);
 
   return (
-    <div className="main">
-      <h1>Welcome to the main page. You have successfully Signed up!</h1>
-      <Button color="red" onClick={handleClick}>
-        Sign out
-      </Button>
-      <br />
-      <Button color="orange" onClick={handleClickToReservations}>
-        View all reservations
-      </Button>
-    </div>
+    <>
+      <Button content="Menu" onClick={() => setVisible(true)} />
+      <SidebarComponent visible={visible} setVisible={setVisible} />
+    </>
   );
 }
