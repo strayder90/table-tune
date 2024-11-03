@@ -1,7 +1,8 @@
 import {
     defineConfig,
     minimal2023Preset as preset,
-} from '@vite-pwa/assets-generator/config'
+// eslint-disable-next-line import/no-unresolved
+} from '@vite-pwa/assets-generator/config';
 
 export default defineConfig({
     headLinkOptions: {
@@ -9,4 +10,4 @@ export default defineConfig({
     },
     preset,
     images: ['public/favicon.svg'],
-})
+});
