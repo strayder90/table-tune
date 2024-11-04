@@ -1,5 +1,11 @@
+import TableTuneRouter from './TableTuneRouter';
+
 const App = () => {
-    return (<h1>Hello world!</h1>);
+    return (
+        <>
+            <TableTuneRouter/>
+        </>
+    );
 };
 
 export default App;
