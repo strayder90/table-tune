@@ -87,8 +87,12 @@
         ],
         "react/jsx-no-duplicate-props": "error",
         "react-hooks/rules-of-hooks": "error",
+        "react/react-in-jsx-scope": "off",
         "no-unused-vars": [
-            "warn"
+            "warn",
+            {
+                "varsIgnorePattern": "^React$"
+            }
         ],
         "eqeqeq": [
             "warn",
