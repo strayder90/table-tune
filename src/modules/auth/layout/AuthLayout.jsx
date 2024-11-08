@@ -1,21 +1,22 @@
 import PropTypes from 'prop-types';
+import {Container, Header, Segment} from 'semantic-ui-react';
 
 const AuthLayout = ({children}) => {
     return (
-        <div className='auth-layout'>
-            <div className='auth-container'>
-                <header className='auth-header'>
-                    <h2>Welcome</h2>
-                    <p>Please log in or sign up to continue</p>
-                </header>
+        <Container text>
+            <Segment className='auth-layout' padded='very'>
+                <Header as='h2' textAlign='center'>
+                    Welcome
+                </Header>
+                <p style={{textAlign: 'center'}}>Please sign up to continue</p>
                 <main className='auth-main'>{children}</main>
-            </div>
-        </div>
+            </Segment>
+        </Container>
     );
 };
 
 AuthLayout.propTypes = {
-    children: PropTypes.object
+    children: PropTypes.node
 };
 
 export default AuthLayout;

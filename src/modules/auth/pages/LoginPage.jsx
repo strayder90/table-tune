@@ -1,11 +1,15 @@
-import AuthLayout from '../layout/AuthLayout.jsx';
-import LoginForm from '../forms/LoginForm.jsx';
+import {Header} from 'semantic-ui-react';
+
+import AuthLayout from '../layout/AuthLayout';
+import AuthorizationForm from '../forms/AuthorizationForm.jsx';
 
 const LoginPage = () => {
     return (
         <AuthLayout>
-            <h1>Log In</h1>
-            <LoginForm/>
+            <Header as='h1' textAlign='center'>
+                Log In
+            </Header>
+            <AuthorizationForm/>
         </AuthLayout>
     );
 };

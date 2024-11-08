@@ -1,10 +1,16 @@
+import {Header} from 'semantic-ui-react';
+
+import AuthLayout from '../layout/AuthLayout';
+import AuthorizationForm from '../forms/AuthorizationForm.jsx';
+
 const LoginForm = () => {
     return (
-        <form>
-            <input type='email' placeholder='Email' required/>
-            <input type='password' placeholder='Password' required/>
-            <button type='submit'>Log In</button>
-        </form>
+        <AuthLayout>
+            <Header as='h1' textAlign='center'>
+                Log In
+            </Header>
+            <AuthorizationForm type='login'/>
+        </AuthLayout>
     );
 };
 
