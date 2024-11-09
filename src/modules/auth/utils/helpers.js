@@ -1,7 +1,5 @@
 import {toast} from 'react-toastify';
 
-import {validateForm} from '../../../utils/formHelpers.js';
-
 export const handleChange = (e, setFormData, setFormErrors) => {
     const {name, value} = e.target;
 
@@ -16,22 +14,15 @@ export const handleChange = (e, setFormData, setFormErrors) => {
     }));
 };
 
-export const handleSubmit = (event, formData, type, navigate, setFormErrors) => {
+export const handleSubmit = (event, formData, formName, navigate) => {
     event.preventDefault();
-
-    const requiredFields = type === 'signup' ? ['email', 'username', 'password'] : ['username', 'password'];
-
-    const errors = validateForm(formData, requiredFields);
-    setFormErrors(errors);
-
-    if (Object.keys(errors).length > 0) return;
 
     const {username, password, email} = formData;
 
-    if (type === 'signup') {
+    if (formName === 'authorizationSignupForm') {
         localStorage.setItem('user', JSON.stringify({username, password, email}));
         navigate('/login');
-    } else if (type === 'login') {
+    } else if (formName === 'authorizationLoginForm') {
         const storedUser = JSON.parse(localStorage.getItem('user'));
         if (storedUser && storedUser.username === username && storedUser.password === password) {
             localStorage.setItem('isAuthenticated', 'true');

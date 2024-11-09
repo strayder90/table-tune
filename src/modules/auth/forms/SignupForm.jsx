@@ -1,15 +1,26 @@
 import {Header} from 'semantic-ui-react';
 
 import AuthLayout from '../layout/AuthLayout';
-import AuthorizationForm from '../forms/AuthorizationForm.jsx';
+import AuthForm from './AuthForm';
+import {useCreateForm} from '../../../utils/formHelpers.jsx';
+import {SignupFormModel} from './SignupFormModel.jsx';
+import {handleChange, handleSubmit} from '../utils/helpers.js';
 
 const SignupForm = () => {
+    const Form = useCreateForm(
+        AuthForm,
+        SignupFormModel,
+        handleChange,
+        handleSubmit,
+        {buttonText: 'Create account'}
+    );
+
     return (
         <AuthLayout>
             <Header as='h1' textAlign='center'>
                 Create account
             </Header>
-            <AuthorizationForm type='signup'/>
+            <Form buttonText='Create account'/>
         </AuthLayout>
     );
 };
