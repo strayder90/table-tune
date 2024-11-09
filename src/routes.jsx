@@ -1,4 +1,4 @@
-import HomePage from './modules/auth/components/HomePage';
+import HomePage from './modules/auth/pages/HomePage.jsx';
 import SignupForm from './modules/auth/forms/SignupForm.jsx';
 import LoginForm from './modules/auth/forms/LoginForm.jsx';
 import AuthGuard from './modules/auth/components/AuthGuard.jsx';
@@ -13,7 +13,7 @@ const routes = [
         element: <LoginForm/>
     },
     {
-        path: '/home',
+        path: '/table-tune',
         element: (
             <AuthGuard>
                 <HomePage/>
