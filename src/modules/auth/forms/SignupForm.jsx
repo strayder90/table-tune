@@ -7,7 +7,7 @@ const SignupForm = () => {
     return (
         <AuthLayout>
             <Header as='h1' textAlign='center'>
-                Sign up
+                Create account
             </Header>
             <AuthorizationForm type='signup'/>
         </AuthLayout>

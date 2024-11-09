@@ -1,52 +1,31 @@
+import {useState} from 'react';
 import {Form, Button} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import {useNavigate} from 'react-router-dom';
-import {toast, ToastContainer} from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
+
+import {handleChange, handleSubmit} from '../utils/helpers.js';
 
 const AuthorizationForm = ({type}) => {
+    const [formData, setFormData] = useState({
+        email: '', username: '', password: ''
+    });
     const navigate = useNavigate();
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const username = formData.get('username');
-        const password = formData.get('password');
-        const email = formData.get('email');
-
-        if (type === 'signup') {
-            localStorage.setItem('user', JSON.stringify({username, password, email}));
-
-            navigate('/login');
-        }
-
-        if (type === 'login') {
-            const storedUser = JSON.parse(localStorage.getItem('user'));
-
-            if (storedUser && storedUser.username === username && storedUser.password === password) {
-                localStorage.setItem('isAuthenticated', 'true');
-
-                navigate('/home');
-            } else {
-                toast.error('Invalid username or password');
-            }
-        }
-    };
-    // TODO: improve error on field if no data provided
 
     return (
         <>
-            <Form onSubmit={handleSubmit}>
-                {type === 'signup' && (
-                    <Form.Input
-                        name='email'
-                        type='email'
-                        placeholder='Email'
-                        label='Email'
-                        icon='mail'
-                        iconPosition='left'
-                        required
-                    />
-                )}
+            <Form onSubmit={(e) => handleSubmit(e, formData, type, navigate)}>
+                {type === 'signup' && (<Form.Input
+                    name='email'
+                    type='email'
+                    placeholder='Email'
+                    label='Email'
+                    icon='mail'
+                    iconPosition='left'
+                    value={formData.email}
+                    onChange={(e) => handleChange(e, setFormData)}
+                    required
+                />)}
                 <Form.Input
                     name='username'
                     type='text'
@@ -54,6 +33,8 @@ const AuthorizationForm = ({type}) => {
                     label='Username'
                     icon='user'
                     iconPosition='left'
+                    value={formData.username}
+                    onChange={(e) => handleChange(e, setFormData)}
                     required
                 />
                 <Form.Input
@@ -63,10 +44,12 @@ const AuthorizationForm = ({type}) => {
                     label='Password'
                     icon='lock'
                     iconPosition='left'
+                    value={formData.password}
+                    onChange={(e) => handleChange(e, setFormData)}
                     required
                 />
                 <Button type='submit' color='blue' fluid>
-                    {type === 'signup' ? 'Sign Up' : 'Log In'}
+                    {type === 'signup' ? 'Create account' : 'Log In'}
                 </Button>
             </Form>
 
