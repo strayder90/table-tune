@@ -1,4 +1,4 @@
-import {SignupFormValidator} from '../utils/formValidators.js';
+import {SignupFormValidator} from '../utils/validators.js';
 
 export const SignupFormModel = () => ({
     formName: 'authorizationSignupForm',
@@ -6,25 +6,29 @@ export const SignupFormModel = () => ({
         {
             key: 'email',
             name: 'email',
-            label: 'Email',
+            type: 'email',
+            label: 'Email *',
             placeholder: 'Enter your email',
-            required: true,
-            type: 'email'
+            icon: 'mail',
+            defaultValue: ''
         },
         {
             key: 'username',
             name: 'username',
-            label: 'Username',
+            type: 'text',
+            label: 'Username *',
             placeholder: 'Enter your username',
-            required: true
+            icon: 'user',
+            defaultValue: ''
         },
         {
             key: 'password',
             name: 'password',
-            label: 'Password',
+            type: 'password',
+            label: 'Password *',
             placeholder: 'Enter your password',
-            required: true,
-            type: 'password'
+            icon: 'lock',
+            defaultValue: ''
         }
     ],
     validate: SignupFormValidator,

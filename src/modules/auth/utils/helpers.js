@@ -14,10 +14,19 @@ export const handleChange = (e, setFormData, setFormErrors) => {
     }));
 };
 
-export const handleSubmit = (event, formData, formName, navigate) => {
+export const handleSubmit = (event, formData, formModel, setFormErrors, navigate) => {
+    const {formName, validate} = formModel();
     event.preventDefault();
 
     const {username, password, email} = formData;
+
+    const errors = validate(formData);
+
+    if (Object.keys(errors).length) {
+        setFormErrors(errors);
+
+        return;
+    }
 
     if (formName === 'authorizationSignupForm') {
         localStorage.setItem('user', JSON.stringify({username, password, email}));

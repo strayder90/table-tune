@@ -1,48 +1,22 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
+import {handleChange, handleSubmit} from '../modules/auth/utils/helpers.js';
 
-export const useCreateForm = (FormComponent, formModel, handleChange, handleSubmit, params = {}) => {
-    const {fields, validate} = formModel();
-    const [formData, setFormData] = useState(fields.reduce((acc, field) => ({...acc, [field.key]: ''}), {}));
+export const useCreateForm = (FormComponent, formModel, params = {}) => {
+    const {fields} = formModel();
+    const initialValues = fields.reduce((acc, field) => ({...acc, [field.key]: field.defaultValue ?? ''}), {});
+    const [formData, setFormData] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
     const navigate = useNavigate();
-
-    const handleFieldChange = (e) => {
-        if (handleChange) {
-            handleChange(e, setFormData, setFormErrors);
-        } else {
-            const {name, value} = e.target;
-            setFormData((prevData) => ({...prevData, [name]: value}));
-            setFormErrors((prevErrors) => ({
-                ...prevErrors,
-                [name]: value ? '' : prevErrors[name]
-            }));
-        }
-    };
-
-    const handleFormSubmit = (e) => {
-        if (handleSubmit) {
-            e.preventDefault();
-            const errors = validate(formData);
-
-            if (Object.keys(errors).length) {
-                setFormErrors(errors);
-
-                return;
-            }
-
-            handleSubmit(e, formData, formModel().formName, navigate);
-        }
-    };
 
     const FormWrapper = () => (
         <>
             <FormComponent
                 formData={formData}
                 formErrors={formErrors}
-                onChange={handleFieldChange}
-                onSubmit={handleFormSubmit}
+                onChange={(e) => handleChange(e, setFormData, setFormErrors)}
+                onSubmit={(e) => handleSubmit(e, formData, formModel, setFormErrors, navigate)}
                 fields={fields}
                 {...params}
             />

@@ -1,4 +1,4 @@
-import {LoginFormValidator} from '../utils/formValidators.js';
+import {LoginFormValidator} from '../utils/validators.js';
 
 export const LoginFormModel = () => ({
     formName: 'authorizationLoginForm',
@@ -6,18 +6,20 @@ export const LoginFormModel = () => ({
         {
             key: 'username',
             name: 'username',
-            label: 'Username',
+            type: 'text',
+            label: 'Username *',
             placeholder: 'Enter your username',
-            required: true,
-            type: 'text'
+            icon: 'user',
+            defaultValue: ''
         },
         {
             key: 'password',
             name: 'password',
-            label: 'Password',
+            type: 'password',
+            label: 'Password *',
             placeholder: 'Enter your password',
-            required: true,
-            type: 'password'
+            icon: 'lock',
+            defaultValue: ''
         }
     ],
     validate: LoginFormValidator,

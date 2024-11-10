@@ -4,14 +4,11 @@ import AuthLayout from '../layout/AuthLayout';
 import AuthForm from './AuthForm';
 import {useCreateForm} from '../../../utils/formHelpers.jsx';
 import {LoginFormModel} from './LoginFormModel.jsx';
-import {handleChange, handleSubmit} from '../utils/helpers.js';
 
 const LoginForm = () => {
     const Form = useCreateForm(
         AuthForm,
         LoginFormModel,
-        handleChange,
-        handleSubmit,
         {buttonText: 'Log in'}
     );
 

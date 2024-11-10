@@ -8,26 +8,27 @@ const AuthForm = ({
     onChange,
     onSubmit,
     buttonText,
-    iconType,
     fields = []
 }) => (
-    // TODO: improve icon it should be more dynamic
     <>
         <Form onSubmit={onSubmit}>
-            {fields.map((field) => (
-                <Form.Input
-                    key={field.key}
-                    name={field.name}
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    label={field.label}
-                    icon={iconType ? iconType[field.name] : field.type === 'password' ? 'lock' : 'user'}
-                    iconPosition='left'
-                    value={formData[field.name]}
-                    onChange={onChange}
-                    error={formErrors[field.name] ? {content: formErrors[field.name], pointing: 'below'} : null}
-                />
-            ))}
+            {
+                fields.map((field) => (
+                    <Form.Input
+                        key={field.key}
+                        name={field.name}
+                        type={field.type}
+                        label={field.label}
+                        placeholder={field.placeholder}
+                        required={field.required || false}
+                        icon={field.icon}
+                        iconPosition='left'
+                        value={formData[field.name]}
+                        onChange={onChange}
+                        error={formErrors[field.name] ? {content: formErrors[field.name], pointing: 'below'} : null}
+                    />
+                ))
+            }
             <Button type='submit' color='blue' fluid>
                 {buttonText}
             </Button>
@@ -37,13 +38,13 @@ const AuthForm = ({
 );
 
 AuthForm.propTypes = {
-    formData: PropTypes.object.isRequired,
-    formErrors: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired,
-    buttonText: PropTypes.string.isRequired,
+    formData: PropTypes.object,
+    formErrors: PropTypes.object,
+    onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
+    buttonText: PropTypes.string,
     iconType: PropTypes.object,
-    fields: PropTypes.array.isRequired
+    fields: PropTypes.array
 };
 
 export default AuthForm;
