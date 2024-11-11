@@ -3,23 +3,21 @@ import {toast} from 'react-toastify';
 export const handleChange = (e, setFormData, setFormErrors) => {
     const {name, value} = e.target;
 
-    setFormData((prevData) => ({
-        ...prevData,
-        [name]: value
-    }));
-
     setFormErrors((prevErrors) => ({
         ...prevErrors,
         [name]: value ? '' : prevErrors[name]
     }));
+
+    setFormData((prevData) => ({
+        ...prevData,
+        [name]: value
+    }));
 };
 
-export const handleSubmit = (event, formData, formModel, setFormErrors, navigate) => {
+export const handleSubmit = (e, formData, formModel, setFormErrors, navigate) => {
+    e.preventDefault();
     const {formName, validate} = formModel();
-    event.preventDefault();
-
     const {username, password, email} = formData;
-
     const errors = validate(formData);
 
     if (Object.keys(errors).length) {

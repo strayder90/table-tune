@@ -7,8 +7,8 @@ const AuthForm = ({
     formErrors,
     onChange,
     onSubmit,
-    buttonText,
-    fields = []
+    fields,
+    buttonText
 }) => (
     <>
         <Form onSubmit={onSubmit}>
