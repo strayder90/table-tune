@@ -1,18 +1,13 @@
-export const SignupFormValidator = (data) => {
-    const errors = {};
+import {z} from 'zod';
 
-    if (!data.email) errors.email = 'Email is required';
-    if (!data.username) errors.username = 'Username is required';
-    if (!data.password) errors.password = 'Password is required';
-
-    return errors;
+export const SignupFormValidators = {
+    email: z.string(),
+    username: z.string().min(3, 'Username must have at least 3 characters'),
+    password: z.string().min(3, 'Password should be at least 3 characters'),
+    confirmPassword: z.string()
 };
 
-export const LoginFormValidator = (data) => {
-    const errors = {};
-
-    if (!data.username) errors.username = 'Username is required';
-    if (!data.password) errors.password = 'Password is required';
-
-    return errors;
+export const LoginFormValidators = {
+    username: z.string().min(3, 'Username must have at least 3 characters'),
+    password: z.string().min(3, 'Password should be at least 3 characters'),
 };

@@ -1,26 +1,26 @@
-import {LoginFormValidator} from '../utils/validators.js';
+import {logInSchema} from '../../../utils/formSchemas.jsx';
 
 export const LoginFormModel = () => ({
-    formName: 'authorizationLoginForm',
+    formName: 'LoginForm',
+    formSchemaValidator: logInSchema,
     fields: [
         {
             key: 'username',
             name: 'username',
-            type: 'text',
+            defaultValue: '',
             label: 'Username *',
-            placeholder: 'Enter your username',
             icon: 'user',
-            defaultValue: ''
+            type: 'text',
+            placeholder: 'Enter your username'
         },
         {
             key: 'password',
             name: 'password',
-            type: 'password',
+            defaultValue: '',
             label: 'Password *',
-            placeholder: 'Enter your password',
             icon: 'lock',
-            defaultValue: ''
-        }
+            type: 'password',
+            placeholder: 'Enter your password'
+        },
     ],
-    validate: LoginFormValidator,
 });

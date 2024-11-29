@@ -1,41 +1,62 @@
 import {toast} from 'react-toastify';
 
-export const handleChange = (e, setFormData, setFormErrors) => {
-    const {name, value} = e.target;
+export const handleSignupFormSubmit = (data, navigate) => {
+    if (!data) return;
+    const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    setFormErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: value ? '' : prevErrors[name]
-    }));
+    const newUser = {email: data.email, username: data.username, password: data.password};
+    users.push(newUser);
 
-    setFormData((prevData) => ({
-        ...prevData,
-        [name]: value
-    }));
+    localStorage.setItem('users', JSON.stringify(users));
+
+    navigate('/login');
 };
 
-export const handleSubmit = (e, formData, formModel, setFormErrors, navigate) => {
-    e.preventDefault();
-    const {formName, validate} = formModel();
-    const {username, password, email} = formData;
-    const errors = validate(formData);
 
-    if (Object.keys(errors).length) {
-        setFormErrors(errors);
+export const handleLoginFormSubmit = (data, navigate) => {
+    if (!data) return;
 
+    const wrongUser = validateLoginCredentials(data.username, data.password);
+
+    if (wrongUser) {
         return;
     }
 
-    if (formName === 'authorizationSignupForm') {
-        localStorage.setItem('user', JSON.stringify({username, password, email}));
-        navigate('/login');
-    } else if (formName === 'authorizationLoginForm') {
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        if (storedUser && storedUser.username === username && storedUser.password === password) {
-            localStorage.setItem('isAuthenticated', 'true');
-            navigate('/table-tune');
-        } else {
-            toast.error('Invalid username or password');
-        }
+    localStorage.setItem('isAuthenticated', JSON.stringify(true));
+
+    navigate('/table-tune');
+};
+
+
+export const validateUsersSignupCredentials = (email, username) => {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const existingEmail = users.some(user => user.email === email);
+    const existingUsername = users.some(user => user.username === username);
+
+    if (existingEmail) {
+        return {
+            message: 'Email is already in use.',
+            path: 'email'
+        };
     }
+
+    if (existingUsername) {
+        return {
+            message: 'Username is already in use.',
+            path: 'username'
+        };
+    }
+
+    return null;
+};
+
+export const validateLoginCredentials = (username, password) => {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const existingUser = users.find(user => user.username === username && user.password === password);
+
+    if (!existingUser) {
+        return toast.error('Invalid username or password');
+    }
+
+    return null;
 };

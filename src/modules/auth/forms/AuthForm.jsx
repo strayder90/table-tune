@@ -1,50 +1,62 @@
 import {Form, Button} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import {ToastContainer} from 'react-toastify';
+import {useNavigate} from 'react-router-dom';
+import {useForm} from 'react-hook-form';
+import {zodResolver} from '@hookform/resolvers/zod';
 
-const AuthForm = ({
-    formData,
-    formErrors,
-    onChange,
-    onSubmit,
-    fields,
-    buttonText
-}) => (
-    <>
-        <Form onSubmit={onSubmit}>
-            {
-                fields.map((field) => (
-                    <Form.Input
+import CustomInput from '../../auth/components/CustomInput.jsx';
+import {handleSignupFormSubmit, handleLoginFormSubmit} from '../utils/helpers.js';
+
+const AuthForm = ({fields, formSchemaValidator, formName, buttonText}) => {
+    const {
+        handleSubmit,
+        formState: {errors},
+        control,
+        reset
+    } = useForm({
+        resolver: zodResolver(formSchemaValidator)
+    });
+    const navigate = useNavigate();
+
+    const onSubmit = (data) => {
+        if (formName === 'SignupForm') {
+            handleSignupFormSubmit(data, navigate);
+        } else if (formName === 'LoginForm') {
+            handleLoginFormSubmit(data, navigate);
+        }
+
+        reset();
+    };
+
+    return (
+        <>
+            <Form onSubmit={handleSubmit(onSubmit)}>
+                {fields.map((field) => (
+                    <CustomInput
                         key={field.key}
                         name={field.name}
-                        type={field.type}
+                        control={control}
+                        defaultValue={field.defaultValue}
                         label={field.label}
-                        placeholder={field.placeholder}
-                        required={field.required || false}
                         icon={field.icon}
-                        iconPosition='left'
-                        value={formData[field.name]}
-                        onChange={onChange}
-                        error={formErrors[field.name] ? {content: formErrors[field.name], pointing: 'below'} : null}
+                        type={field.type}
+                        placeholder={field.placeholder}
+                        errors={errors}
                     />
-                ))
-            }
-            <Button type='submit' color='blue' fluid>
-                {buttonText}
-            </Button>
-        </Form>
-        <ToastContainer/>
-    </>
-);
+                ))}
+                <Button primary type='submit'>
+                    {buttonText}
+                </Button>
+            </Form>
+        </>
+    );
+};
 
 AuthForm.propTypes = {
-    formData: PropTypes.object,
-    formErrors: PropTypes.object,
-    onChange: PropTypes.func,
-    onSubmit: PropTypes.func,
-    buttonText: PropTypes.string,
-    iconType: PropTypes.object,
-    fields: PropTypes.array
+    fields: PropTypes.array.isRequired,
+    formSchemaValidator: PropTypes.object,
+    formName: PropTypes.string,
+    buttonText: PropTypes.string.isRequired,
 };
 
 export default AuthForm;

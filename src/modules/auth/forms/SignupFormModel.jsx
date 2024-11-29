@@ -1,35 +1,44 @@
-import {SignupFormValidator} from '../utils/validators.js';
+import {signUpSchema} from '../../../utils/formSchemas.jsx';
 
 export const SignupFormModel = () => ({
-    formName: 'authorizationSignupForm',
+    formName: 'SignupForm',
+    formSchemaValidator: signUpSchema,
     fields: [
         {
             key: 'email',
             name: 'email',
-            type: 'email',
+            defaultValue: '',
             label: 'Email *',
-            placeholder: 'Enter your email',
             icon: 'mail',
-            defaultValue: ''
+            type: 'text',
+            placeholder: 'Enter your email'
         },
         {
             key: 'username',
             name: 'username',
-            type: 'text',
+            defaultValue: '',
             label: 'Username *',
-            placeholder: 'Enter your username',
             icon: 'user',
-            defaultValue: ''
+            type: 'text',
+            placeholder: 'Enter your username'
         },
         {
             key: 'password',
             name: 'password',
-            type: 'password',
+            defaultValue: '',
             label: 'Password *',
-            placeholder: 'Enter your password',
             icon: 'lock',
-            defaultValue: ''
+            type: 'password',
+            placeholder: 'Enter your password'
+        },
+        {
+            key: 'confirmPassword',
+            name: 'confirmPassword',
+            defaultValue: '',
+            label: 'Confirm password *',
+            icon: 'lock',
+            type: 'password',
+            placeholder: 'Confirm password'
         }
     ],
-    validate: SignupFormValidator,
 });

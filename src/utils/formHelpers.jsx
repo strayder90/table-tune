@@ -1,23 +1,12 @@
-import React, {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-
-import {handleChange, handleSubmit} from '../modules/auth/utils/helpers.js';
-
-export const useCreateForm = (FormComponent, formModel, params = {}) => {
-    const {fields} = formModel();
-    const initialValues = Object.fromEntries(fields.map(field => [field.key, field.defaultValue ?? '']));
-    const [formData, setFormData] = useState(initialValues);
-    const [formErrors, setFormErrors] = useState({});
-    const navigate = useNavigate();
+export const useCreateForm = (FormComponent, Model, params = {}) => {
+    const {formName, fields, formSchemaValidator} = Model();
 
     const FormWrapper = () => (
         <>
             <FormComponent
-                formData={formData}
-                formErrors={formErrors}
-                onChange={(e) => handleChange(e, setFormData, setFormErrors)}
-                onSubmit={(e) => handleSubmit(e, formData, formModel, setFormErrors, navigate)}
+                formName={formName}
                 fields={fields}
+                formSchemaValidator={formSchemaValidator}
                 {...params}
             />
         </>

@@ -6,18 +6,14 @@ import {useCreateForm} from '../../../utils/formHelpers.jsx';
 import {LoginFormModel} from './LoginFormModel.jsx';
 
 const LoginForm = () => {
-    const Form = useCreateForm(
-        AuthForm,
-        LoginFormModel,
-        {buttonText: 'Log in'}
-    );
+    const Form = useCreateForm(AuthForm, LoginFormModel, {buttonText: 'Log in'});
 
     return (
         <AuthLayout>
             <Header as='h1' textAlign='center'>
-                Log In
+                Use your account to log in
             </Header>
-            <Form buttonText='Log In'/>
+            <Form/>
         </AuthLayout>
     );
 };
