@@ -2,7 +2,7 @@ import {Header} from 'semantic-ui-react';
 
 import AuthLayout from '../layout/AuthLayout';
 import AuthForm from './AuthForm';
-import {useCreateForm} from '../../../utils/formHelpers.jsx';
+import {useCreateForm} from '@/utils/formHelpers.jsx';
 import {SignupFormModel} from './SignupFormModel.jsx';
 
 const SignupForm = () => {

@@ -1,4 +1,4 @@
-import {signUpSchema} from '../../../utils/formSchemas.jsx';
+import {signUpSchema} from '@/utils/formSchemas.jsx';
 
 export const SignupFormModel = () => ({
     formName: 'SignupForm',

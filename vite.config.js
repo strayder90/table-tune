@@ -1,6 +1,9 @@
 import react from '@vitejs/plugin-react';
 import {VitePWA} from 'vite-plugin-pwa';
 import {defineConfig} from 'vite';
+import {resolve} from 'path';
+
+const root = resolve(__dirname, './src/');
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -92,6 +95,13 @@ export default defineConfig({
             },
         }),
     ],
+    resolve: {
+        alias: {
+            '@': resolve(root),
+            '@modules': resolve(root, 'modules'),
+            '@utils': resolve(root, 'utils'),
+        }
+    },
     test: {
         globals: true,
         environment: 'jsdom',
