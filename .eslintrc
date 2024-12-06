@@ -4,7 +4,8 @@
         "browser": true,
         "es2020": true,
         "es6": true,
-        "commonjs": true
+        "commonjs": true,
+        "jest": true
     },
     "extends": [
         "eslint:recommended",
@@ -12,7 +13,8 @@
         "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended",
         "plugin:import/errors",
-        "plugin:import/warnings"
+        "plugin:import/warnings",
+        "plugin:jest/recommended"
     ],
     "ignorePatterns": [
         "dist",
@@ -38,7 +40,8 @@
         }
     },
     "plugins": [
-        "react-refresh"
+        "react-refresh",
+        "jest"
     ],
     "rules": {
         "jsx-quotes": [
