@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint-fix": "eslint . --ext js,jsx --fix",
     "preview": "vite preview",
-    "test": "jest --coverage --coverageReporters=html",
+    "test": "jest --coverage --coverageReporters=html --maxWorkers=4",
     "build-css": "sass src/",
     "watch-css": "npm run build-css && sass src/ --watch"
   },
