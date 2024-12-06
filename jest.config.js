@@ -5,4 +5,6 @@ export default {
         '^.+\\.jsx?$': 'babel-jest',
     },
     moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
+    collectCoverage: true,
+    coverageReporters: ['html'],
 };

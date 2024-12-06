@@ -60,3 +60,8 @@ export const validateLoginCredentials = (username, password) => {
 
     return null;
 };
+
+
+export const sum = (a, b) => {
+    return a + b;
+};
