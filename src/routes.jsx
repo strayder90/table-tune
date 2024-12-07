@@ -9,11 +9,11 @@ import FallbackPage from './modules/auth/pages/FallbackPage.jsx';
 const routes = [
     {
         path: '/',
-        element: <SignupForm/>
+        element: <LoginForm/>
     },
     {
-        path: '/login',
-        element: <LoginForm/>
+        path: '/signup',
+        element: <SignupForm/>
     },
     {
         path: '/table-tune',

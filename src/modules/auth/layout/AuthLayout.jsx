@@ -5,7 +5,7 @@ import {Container, Segment} from 'semantic-ui-react';
 const AuthLayout = ({children}) => {
     return (
         <Container text>
-            <Segment className='auth-layout' padded='very'>
+            <Segment className='--auth-layout' padded='very'>
                 <main className='auth-main'>{children}</main>
             </Segment>
         </Container>

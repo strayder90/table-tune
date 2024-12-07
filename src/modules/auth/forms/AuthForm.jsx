@@ -45,7 +45,7 @@ const AuthForm = ({fields, formSchemaValidator, formName, buttonText}) => {
                         errors={errors}
                     />
                 ))}
-                <Button primary type='submit'>
+                <Button className='--form-button-text-size' primary type='submit' fluid>
                     {buttonText}
                 </Button>
             </Form>
