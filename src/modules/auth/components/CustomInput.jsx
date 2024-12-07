@@ -1,5 +1,4 @@
-import React from 'react';
-import {forwardRef} from 'react';
+import React, {forwardRef} from 'react';
 import {Controller} from 'react-hook-form';
 import {Form} from 'semantic-ui-react';
 import PropTypes from 'prop-types';

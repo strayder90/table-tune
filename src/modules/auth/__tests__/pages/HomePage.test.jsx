@@ -2,9 +2,9 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import {render, screen} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
+import {userEvent} from '@testing-library/user-event';
 
 import HomePage from '@modules/auth/pages/HomePage.jsx';
-import {userEvent} from '@testing-library/user-event';
 
 const mockNavigate = vi.fn();
 vi.doMock('react-router-dom', () => ({
