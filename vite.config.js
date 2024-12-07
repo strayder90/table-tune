@@ -102,11 +102,4 @@ export default defineConfig({
             '@utils': resolve(root, 'utils'),
         }
     },
-    test: {
-        globals: true,
-        environment: 'jsdom',
-        coverage: {
-            reporter: ['text', 'html'],
-        },
-    },
 });
