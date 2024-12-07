@@ -1,7 +1,5 @@
 import {defineConfig} from 'vitest/config';
 import {resolve} from 'path';
-
-const root = resolve(__dirname, './src/');
 export default defineConfig({
     test: {
         globals: true,
@@ -14,12 +12,11 @@ export default defineConfig({
             branches: 90, // Minimum percentage of branches covered
             statements: 90 // Minimum percentage of statements covered
         },
-        resolve: {
-            alias: {
-                '@modules': resolve(root, './src/modules'),
-                '@utils': resolve(root, './src/utils'),
-                '@': resolve(root, './src')
-            }
-        }
+        alias: {
+            '@': resolve(__dirname, 'src'),
+            '@modules': resolve(__dirname, 'src/modules'),
+            '@utils': resolve(__dirname, 'src/utils'),
+        },
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }
 });
