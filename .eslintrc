@@ -5,7 +5,8 @@
         "es2020": true,
         "es6": true,
         "commonjs": true,
-        "jest": true
+        "jest": true,
+        "node": true
     },
     "extends": [
         "eslint:recommended",
@@ -18,7 +19,8 @@
     ],
     "ignorePatterns": [
         "dist",
-        "dev-dist"
+        "dev-dist",
+        "vite.config.js"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -36,12 +38,27 @@
                     ".ts",
                     ".tsx"
                 ]
+            },
+            "alias": {
+                "map": [
+                    ["@modules", "./src/modules"],
+                    ["@utils", "./src/utils"],
+                    ["@", "./src"]
+                ],
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
             }
         }
     },
     "plugins": [
         "react-refresh",
-        "jest"
+        "jest",
+        "testing-library",
+        "vitest"
     ],
     "rules": {
         "jsx-quotes": [
@@ -53,22 +70,16 @@
             "warn",
             {
                 "groups": [
-                    [
-                        "builtin",
-                        "external"
-                    ],
+                    ["builtin", "external"],
                     "internal",
-                    [
-                        "parent",
-                        "sibling"
-                    ],
+                    ["parent", "sibling"],
                     "index"
                 ],
                 "newlines-between": "always"
             }
         ],
         "import/named": "warn",
-        "import/namespace": "warn",
+        "import/namespace": "off",
         "import/default": "error",
         "import/export": "error",
         "no-useless-return": "warn",
@@ -129,6 +140,11 @@
             {
                 "allowConstantExport": true
             }
-        ]
+        ],
+        "testing-library/await-async-queries": "error",
+        "testing-library/no-await-sync-queries": "error",
+        "testing-library/no-debugging-utils": "warn",
+        "testing-library/no-dom-import": "off",
+        "testing-library/no-container": "warn"
     }
 }

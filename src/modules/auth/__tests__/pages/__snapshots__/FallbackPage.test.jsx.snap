@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Displays fallback page if no match is found 1`] = `
+<div>
+  <div>
+    <h1>
+      404 - Page Not Found
+    </h1>
+    <p>
+      The page you're looking for does not exist.
+    </p>
+  </div>
+</div>
+`;

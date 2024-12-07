@@ -1,10 +1,10 @@
 export default {
     verbose: true,
-    testEnvironment: 'jsdom',
+    testEnvironment: 'happy-dom',
     transform: {
         '^.+\\.jsx?$': 'babel-jest',
     },
     moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
     collectCoverage: true,
-    coverageReporters: ['html'],
+    coverageReporters: ['text', 'html', 'json'],
 };

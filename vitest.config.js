@@ -9,10 +9,10 @@ export default defineConfig({
         coverage: {
             reporter: ['text', 'html', 'json'],
             provider: 'v8',
-            lines: 80, // Minimum percentage of lines covered
-            functions: 80, // Minimum percentage of functions covered
-            branches: 80, // Minimum percentage of branches covered
-            statements: 80 // Minimum percentage of statements covered
+            lines: 90, // Minimum percentage of lines covered
+            functions: 90, // Minimum percentage of functions covered
+            branches: 90, // Minimum percentage of branches covered
+            statements: 90 // Minimum percentage of statements covered
         },
         resolve: {
             alias: {
