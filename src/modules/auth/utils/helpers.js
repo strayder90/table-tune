@@ -9,7 +9,7 @@ export const handleSignupFormSubmit = (data, navigate) => {
 
     localStorage.setItem('users', JSON.stringify(users));
 
-    navigate('/login');
+    navigate('/');
 };
 
 

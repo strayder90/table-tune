@@ -9,6 +9,9 @@ import pluginImport from 'eslint-plugin-import';
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
+    pluginJs.configs.recommended,
+    pluginReact.configs.flat.recommended,
+    pluginVitest.configs.recommended,
     {
         ignores: [
             'dist/**',
@@ -18,9 +21,6 @@ export default [
             'node_modules/**',
         ]
     },
-    pluginJs.configs.recommended,
-    pluginReact.configs.flat.recommended,
-    pluginVitest.configs.recommended,
     {
         files: ['**/*.{js,jsx}'],
         languageOptions: {

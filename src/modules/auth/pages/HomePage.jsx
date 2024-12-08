@@ -8,7 +8,7 @@ const HomePage = () => {
     const handleLogout = () => {
         localStorage.removeItem('isAuthenticated');
 
-        navigate('/login');
+        navigate('/');
     };
 
     return (
