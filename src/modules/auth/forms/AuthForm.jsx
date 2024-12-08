@@ -17,6 +17,7 @@ const AuthForm = ({multiple, fields, formSchemaValidator, formName, buttonText})
     } = useForm({
         resolver: zodResolver(formSchemaValidator)
     });
+
     const navigate = useNavigate();
 
     const onSubmit = (data) => {

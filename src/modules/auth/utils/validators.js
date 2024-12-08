@@ -1,13 +1,28 @@
 import {z} from 'zod';
 
 export const SignupFormValidators = {
-    email: z.string(),
-    username: z.string().min(3, 'Username must have at least 3 characters'),
-    password: z.string().min(5, 'Password should be at least 5 characters'),
-    confirmPassword: z.string()
+    firstName: z.string().refine(value => value.trim() !== '', {
+        message: 'First name is required',
+    }),
+    lastName: z.string().refine(value => value.trim() !== '', {
+        message: 'Last name is required',
+    }),
+    email: z.string().refine(value => value.trim() !== '', {
+        message: 'Email is required',
+    }),
+    username: z.string().refine(value => value.trim() !== '', {
+        message: 'Username is required',
+    }),
+    password: z.string().refine(value => value.trim() !== '', {
+        message: 'Password is required',
+    }),
 };
 
 export const LoginFormValidators = {
-    username: z.string().min(3, 'Username must have at least 3 characters'),
-    password: z.string().min(5, 'Password should be at least 5 characters'),
+    username: z.string().refine(value => value.trim() !== '', {
+        message: 'Username is required',
+    }),
+    password: z.string().refine(value => value.trim() !== '', {
+        message: 'Password is required',
+    }),
 };

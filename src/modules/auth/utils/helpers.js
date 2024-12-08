@@ -28,10 +28,26 @@ export const handleLoginFormSubmit = (data, navigate) => {
 };
 
 
-export const validateUsersSignupCredentials = (email, username) => {
+export const validateUsersSignupCredentials = ({firstName, lastName, email, username}) => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
+    const existingFirstName = users.some(user => user.firstName === firstName);
+    const existingLastName = users.some(user => user.lastName === lastName);
     const existingEmail = users.some(user => user.email === email);
     const existingUsername = users.some(user => user.username === username);
+
+    if (existingFirstName) {
+        return {
+            message: 'First name is already in use.',
+            path: 'firstName'
+        };
+    }
+
+    if (existingLastName) {
+        return {
+            message: 'Last name is already in use.',
+            path: 'lastName'
+        };
+    }
 
     if (existingEmail) {
         return {
