@@ -17,10 +17,11 @@ const SignupForm = () => {
             <Header as='h1' textAlign='center'>
                 Create a new account
             </Header>
-            <p className='--custom-align-center'>It’s quick and easy.</p>
+            <p className='--custom-margin-align-center'>It’s quick and easy.</p>
+            <Divider/>
             <Form/>
             <Divider horizontal>Or</Divider>
-            <div className='--custom-align-center'>
+            <div className='--custom-margin-align-center'>
                 <Link to='/'>Already have an account?</Link>
             </div>
         </AuthLayout>

@@ -3,6 +3,24 @@ import {signUpSchema} from '@/utils/formSchemas.jsx';
 export const SignupFormModel = () => ({
     formName: 'SignupForm',
     formSchemaValidator: signUpSchema,
+    multiple: [
+        {
+            key: 'firstName',
+            name: 'firstName',
+            defaultValue: '',
+            label: 'First name *',
+            type: 'text',
+            placeholder: 'Enter your first name'
+        },
+        {
+            key: 'lastName',
+            name: 'lastName',
+            defaultValue: '',
+            label: 'Last name *',
+            type: 'text',
+            placeholder: 'Enter last name'
+        }
+    ],
     fields: [
         {
             key: 'email',

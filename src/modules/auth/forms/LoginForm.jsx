@@ -18,15 +18,12 @@ const LoginForm = () => {
 
     return (
         <AuthLayout>
-            <Header as='h1' textAlign='center'>
-                Use your account to log in
-            </Header>
             <Form/>
-            <div className='--custom-align-center'>
+            <div className='--custom-margin-align-center'>
                 <Link to='#'>Forgot password?</Link>
             </div>
             <Divider horizontal>Or</Divider>
-            <div className='--custom-align-center'>
+            <div className='--custom-margin-align-center'>
                 <Button className='--custom-button-submit' onClick={handleRedirect} positive>Create new account</Button>
             </div>
         </AuthLayout>
