@@ -2,9 +2,10 @@ import {toast} from 'react-toastify';
 
 export const handleSignupFormSubmit = (data, navigate) => {
     if (!data) return;
+    const {firstName, lastName, email, username, password} = data;
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    const newUser = {email: data.email, username: data.username, password: data.password};
+    const newUser = {firstName, lastName, email, username, password};
     users.push(newUser);
 
     localStorage.setItem('users', JSON.stringify(users));

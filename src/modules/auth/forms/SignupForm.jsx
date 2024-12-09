@@ -8,16 +8,15 @@ import AuthLayout from '../layout/AuthLayout';
 import AuthForm from './AuthForm';
 import {SignupFormModel} from './SignupFormModel.jsx';
 
-
 const SignupForm = () => {
     const Form = useCreateForm(AuthForm, SignupFormModel, {buttonText: 'Create account'});
 
     return (
         <AuthLayout>
-            <Header as='h1' textAlign='center'>
+            <Header as='h1' className='--custom-margin-align-center'>
                 Create a new account
             </Header>
-            <p className='--custom-margin-align-center'>It’s quick and easy.</p>
+            <h5 className='--custom-margin-align-center'>It’s quick and easy.</h5>
             <Divider/>
             <Form/>
             <Divider horizontal>Or</Divider>
