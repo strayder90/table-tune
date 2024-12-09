@@ -407,13 +407,44 @@ body {
   max-width: 437px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 20px 30px rgba(0, 0, 0, 0.1) !important;
   border-radius: 8px !important;
-  justify-items: baseline !important;
   padding: 2em !important;
 }
 
+.ui.text.container {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 600px) {
+  .ui.text.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 !important;
+  }
+  main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+  }
+  .--auth-layout {
+    height: 100vh !important;
+    width: 100vw !important;
+  }
+}
 .--custom-margin-align-center {
   text-align: center;
-  margin: 0.7em;
+  margin-top: 1em;
+}
+
+.--custom-margin-align-center a {
+  font-size: 1.1em;
 }
 
 .--custom-button-submit {
@@ -426,6 +457,20 @@ body {
 
 .--form-button-text-size {
   font-size: 1.1em !important;
+}
+
+.--form-tip-font-size {
+  font-size: 1.1em;
+  color: #7f7f7f;
+}
+
+.--form-input-field input {
+  border: 1px solid #c9c9c9 !important;
+}
+
+.--form-input-field input::placeholder {
+  color: #b4b4b4 !important;
+  font-size: 1.2em !important;
 }
 
 /*# sourceMappingURL=style.css.map */

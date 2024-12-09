@@ -25,6 +25,7 @@ const CustomInput = forwardRef(({
                 defaultValue={defaultValue}
                 render={({field}) => (
                     <Form.Input
+                        className='--form-input-field'
                         {...field}
                         label={label}
                         icon={icon}

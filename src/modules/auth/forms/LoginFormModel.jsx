@@ -8,19 +8,17 @@ export const LoginFormModel = () => ({
             key: 'username',
             name: 'username',
             defaultValue: '',
-            label: 'Username *',
             icon: 'user',
             type: 'text',
-            placeholder: 'Enter your username'
+            placeholder: 'Username'
         },
         {
             key: 'password',
             name: 'password',
             defaultValue: '',
-            label: 'Password *',
             icon: 'lock',
             type: 'password',
-            placeholder: 'Enter your password'
+            placeholder: 'Password'
         },
     ],
 });

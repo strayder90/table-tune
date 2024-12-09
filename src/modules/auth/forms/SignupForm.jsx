@@ -1,5 +1,5 @@
 import React from 'react';
-import {Divider, Header} from 'semantic-ui-react';
+import {Divider, Header, Image} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 
 import {useCreateForm} from '@/utils/formHelpers.jsx';
@@ -13,10 +13,18 @@ const SignupForm = () => {
 
     return (
         <AuthLayout>
-            <Header as='h1' className='--custom-margin-align-center'>
-                Create a new account
+            <Header as='h2' icon textAlign='center'>
+                <Image
+                    src='/favicon.svg'
+                    size='massive'
+                    circular
+                    alt='Logo'
+                />
             </Header>
-            <h5 className='--custom-margin-align-center'>It’s quick and easy.</h5>
+            <h1 className='--custom-margin-align-center'>
+                Create a new account
+            </h1>
+            <p className='--custom-margin-align-center --form-tip-font-size'>It’s quick and easy.</p>
             <Divider/>
             <Form/>
             <Divider horizontal>Or</Divider>

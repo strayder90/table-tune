@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Divider, Header} from 'semantic-ui-react';
+import {Button, Divider, Header, Image} from 'semantic-ui-react';
 import {Link, useNavigate} from 'react-router-dom';
 
 import {useCreateForm} from '@/utils/formHelpers.jsx';
@@ -18,6 +18,14 @@ const LoginForm = () => {
 
     return (
         <AuthLayout>
+            <Header as='h2' icon textAlign='center'>
+                <Image
+                    src='../../../public/favicon.svg'
+                    size='massive'
+                    circular
+                    alt='Logo'
+                />
+            </Header>
             <Form/>
             <div className='--custom-margin-align-center'>
                 <Link to='#'>Forgot password?</Link>
