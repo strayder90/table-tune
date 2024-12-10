@@ -1,11 +1,31 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import {Container, Header, Button, Image, Grid, Icon} from 'semantic-ui-react';
 
 const FallbackPage = () => {
     return (
-        <div>
-            <h1>404 - Page Not Found</h1>
-            <p>The page you&#39;re looking for does not exist.</p>
-        </div>
+        <Container className='fallback-page-container'>
+            <Grid centered className='fallback-page-grid'>
+                <Grid.Row columns={2}>
+                    <Grid.Column className='fallback-page-image'>
+                        <Image src='/404.jpg' fluid size='large'/>
+                    </Grid.Column>
+                    <Grid.Column className='fallback-page-text'>
+                        <Header as='h1' className='fallback-page-heading'>
+                            A W W W... Don&#39;t worry!
+                        </Header>
+                        <h3>It&#39;s just a 404 Error!</h3>
+                        <h3>The page you are looking for might have been removed or deleted.</h3>
+                    </Grid.Column>
+                    <Link to='/tabletune'>
+                        <Button size='large' color='yellow' className='fallback-page-button'>
+                            <Icon name='angle double left'/>
+                            Go back to Home
+                        </Button>
+                    </Link>
+                </Grid.Row>
+            </Grid>
+        </Container>
     );
 };
 

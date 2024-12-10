@@ -16,7 +16,7 @@ const routes = [
         element: <SignupForm/>
     },
     {
-        path: '/table-tune',
+        path: '/tabletune',
         element: (
             <AuthGuard>
                 <HomePage/>
