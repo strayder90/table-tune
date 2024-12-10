@@ -454,7 +454,8 @@ body {
 }
 
 .--form-button-text-size {
-  font-size: 1.1em !important;
+  font-size: 1.3em !important;
+  letter-spacing: 0.05em;
 }
 
 .--form-tip-font-size {

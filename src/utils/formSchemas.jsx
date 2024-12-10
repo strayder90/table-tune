@@ -6,14 +6,9 @@ import {LoginFormValidators, SignupFormValidators} from '@modules/auth/utils/val
 import {emailRegex} from './regexExpressions.js';
 
 export const signUpSchema = z.object(SignupFormValidators).superRefine((data, ctx) => {
-    const {firstName, lastName, email, username, password, confirmPassword} = data;
+    const {email, username, password, confirmPassword} = data;
 
-    const validatedExistingUser = validateUsersSignupCredentials({
-        firstName,
-        lastName,
-        email,
-        username,
-    });
+    const validatedExistingUser = validateUsersSignupCredentials({email, username});
 
     if (validatedExistingUser) {
         ctx.addIssue({

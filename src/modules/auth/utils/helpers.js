@@ -1,11 +1,21 @@
 import {toast} from 'react-toastify';
 
+import {generateNumericID} from '@/utils/utils.js';
+
 export const handleSignupFormSubmit = (data, navigate) => {
     if (!data) return;
     const {firstName, lastName, email, username, password} = data;
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    const newUser = {firstName, lastName, email, username, password};
+    const newUser = {
+        id: generateNumericID(),
+        firstName,
+        lastName,
+        email,
+        username,
+        password
+    };
+
     users.push(newUser);
 
     localStorage.setItem('users', JSON.stringify(users));
@@ -17,9 +27,9 @@ export const handleSignupFormSubmit = (data, navigate) => {
 export const handleLoginFormSubmit = (data, navigate) => {
     if (!data) return;
 
-    const wrongUser = validateLoginCredentials(data.username, data.password);
+    const wrongUserCredentials = validateLoginCredentials(data.username, data.password);
 
-    if (wrongUser) {
+    if (wrongUserCredentials) {
         return;
     }
 
@@ -29,26 +39,10 @@ export const handleLoginFormSubmit = (data, navigate) => {
 };
 
 
-export const validateUsersSignupCredentials = ({firstName, lastName, email, username}) => {
+export const validateUsersSignupCredentials = ({email, username}) => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
-    const existingFirstName = users.some(user => user.firstName === firstName);
-    const existingLastName = users.some(user => user.lastName === lastName);
     const existingEmail = users.some(user => user.email === email);
     const existingUsername = users.some(user => user.username === username);
-
-    if (existingFirstName) {
-        return {
-            message: 'First name is already in use.',
-            path: 'firstName'
-        };
-    }
-
-    if (existingLastName) {
-        return {
-            message: 'Last name is already in use.',
-            path: 'lastName'
-        };
-    }
 
     if (existingEmail) {
         return {
