@@ -78,6 +78,12 @@ export const validateLoginCredentials = (username, password) => {
     return null;
 };
 
+export const isOnlyStrings = (input) => {
+    const regex = /^[a-zA-Z\s\u00C0-\u024F]+$/;
+
+    return regex.test(input);
+};
+
 
 export const sum = (a, b) => {
     return a + b;
