@@ -1,22 +1,14 @@
 import {toast} from 'react-toastify';
 
-import {generateNumericID} from '@/utils/utils.js';
+import {prepareDataForSubmit} from '@/utils/formHelpers.jsx';
 
 export const handleSignupFormSubmit = (data, navigate) => {
     if (!data) return;
-    const {firstName, lastName, email, username, password} = data;
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    const newUser = {
-        id: generateNumericID(),
-        firstName,
-        lastName,
-        email,
-        username,
-        password
-    };
+    const preparedUser = prepareDataForSubmit(data);
 
-    users.push(newUser);
+    users.push(preparedUser);
 
     localStorage.setItem('users', JSON.stringify(users));
 
