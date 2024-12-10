@@ -7,7 +7,7 @@
     "start": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "lint-fix": "eslint . --fix | grep -q '.' && echo '' || echo Linter is done...",
+    "lint-fix": "eslint . --fix",
     "preview": "vite preview",
     "test": "vitest --coverage",
     "build-css": "sass src/",

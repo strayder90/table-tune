@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Button, FormGroup, Header, HeaderContent, Icon} from 'semantic-ui-react';
+import {Form, Button, FormGroup} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import {useNavigate} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
