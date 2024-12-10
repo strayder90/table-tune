@@ -4,15 +4,13 @@
 }
 
 .--custom-margin-align-center a {
-  font-size: 1.1em;
+  font-size: 17px !important;
+  line-height: 20px !important;
 }
 
 .--custom-button-submit {
-  font-size: 1.2em !important;
-  padding: 10px 20px;
-  width: auto;
-  min-width: 300px;
-  height: 50px;
+  font-size: 18px !important;
+  line-height: 22.68px !important;
 }
 
 .--form-button-text-size {
@@ -29,6 +27,6 @@
 }
 
 .--form-input-field input::placeholder {
-  color: #b4b4b4 !important;
-  font-size: 1.2em !important;
+  color: #777777 !important;
+  font-size: 15px !important;
 }

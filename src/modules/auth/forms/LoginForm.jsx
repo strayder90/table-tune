@@ -20,7 +20,7 @@ const LoginForm = () => {
         <AuthLayout>
             <Header as='h2' icon textAlign='center'>
                 <Image
-                    src='../../../public/favicon.svg'
+                    src='../../../favicon.svg'
                     size='massive'
                     circular
                     alt='Logo'
