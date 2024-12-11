@@ -1,30 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Outlet} from 'react-router-dom';
-import {Button, Segment, SidebarPusher} from 'semantic-ui-react';
 
 import {AppSidebar} from '@modules/dashboard/components/AppSidebar.jsx';
-import {handleShowSidebar} from '@modules/dashboard/utils/helpers.js';
 import {BottomNav} from '@modules/dashboard/components/BottomNav.jsx';
+import {Navbar} from '@modules/dashboard/components/Navbar.jsx';
 
 const Dashboard = () => {
-    const [visible, setVisible] = useState(false);
-
     return (
         <>
-            <div>
-                <AppSidebar visible={visible} setVisible={setVisible}/>
-
-                <SidebarPusher dimmed={visible}>
-                    <Segment basic>
-                        <Outlet/>
-
-                        <BottomNav />
-                    </Segment>
-                </SidebarPusher>
+            <Navbar />
+            <div className='dashboard-layout'>
+                <div className='--appSidebar'>
+                    <AppSidebar/>
+                </div>
+                <div className='main-content'>
+                    <Outlet/>
+                    <BottomNav/>
+                </div>
             </div>
-            <Button onClick={() => handleShowSidebar(visible, setVisible)}>
-                Menu
-            </Button>
         </>
     );
 };

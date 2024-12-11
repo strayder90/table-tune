@@ -5,9 +5,9 @@ import {Icon} from 'semantic-ui-react';
 export const BottomNav = () => {
     return (
         <nav className='bottom-nav'>
-            <NavLink to='/tabletune' className='nav-item'>
+            <NavLink to='/tabletune' end className='nav-item'>
                 <Icon name='table'/>
-                <span>Table</span>
+                <span>Tables</span>
             </NavLink>
             <NavLink to='/tabletune/events' className='nav-item'>
                 <Icon name='calendar alternate outline'/>

@@ -10,6 +10,7 @@ import CrewPage from '@modules/dashboard/pages/CrewPage.jsx';
 import EventsPage from '@modules/dashboard/pages/EventsPage.jsx';
 import ReservationPage from '@modules/dashboard/pages/ReservationPage.jsx';
 import MenuPage from '@modules/dashboard/pages/MenuPage.jsx';
+import UserSettingsPage from '@modules/dashboard/pages/UserSettings.jsx';
 
 const routes = [
     {
@@ -47,6 +48,10 @@ const routes = [
             {
                 path: '/tabletune/menu',
                 element: <MenuPage/>
+            },
+            {
+                path: '/tabletune/user-settings',
+                element: <UserSettingsPage/>
             }
         ]
     },

@@ -1,11 +1,9 @@
 import React from 'react';
 import {Icon, Menu, Sidebar} from 'semantic-ui-react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import {handleShowSidebar} from '@modules/dashboard/utils/helpers.js';
-
-export const AppSidebar = ({visible, setVisible}) => {
+export const AppSidebar = () => {
     return (
         <>
             <Sidebar
@@ -14,37 +12,34 @@ export const AppSidebar = ({visible, setVisible}) => {
                 animation='overlay'
                 icon='labeled'
                 inverted
-                onHide={() => {setVisible(false);}}
                 vertical
-                visible={visible}
+                visible
                 width='thin'
             >
-                <Menu.Item className='logo-item' onClick={() => setVisible(false)}>
-                    <h2>TableTune</h2>
-                </Menu.Item>
-                <Menu.Item as={Link} onClick={() => handleShowSidebar(visible, setVisible)} to='/tabletune'>
-                    <Icon name='table'/>
-                    <span>Table</span>
-                </Menu.Item>
-                <Menu.Item as={Link} onClick={() => handleShowSidebar(visible, setVisible)} to='/tabletune/events'>
-                    <Icon name='calendar alternate outline'/>
+                <NavLink to='#'>
+                    <h2>TT</h2>
+                </NavLink>
+                <NavLink end to='/tabletune' className='nav-item'>
+                    <Icon size='large' name='table'/>
+                    <span>Tables</span>
+                </NavLink>
+                <NavLink to='/tabletune/events' className='nav-item'>
+                    <Icon size='large' name='calendar alternate outline'/>
                     <span>Events</span>
-                </Menu.Item>
-                <Menu.Item as={Link} onClick={() => handleShowSidebar(visible, setVisible)}
-                           to='/tabletune/reservations'>
-                    <Icon name='list alternate outline'/>
-                    <span>Reservations</span>
-                </Menu.Item>
-                <Menu.Item as={Link} onClick={() => handleShowSidebar(visible, setVisible)} to='/tabletune/crew'>
-                    <Icon name='users'/>
+                </NavLink>
+                <NavLink to='/tabletune/reservations' className='nav-item'>
+                    <Icon size='large' name='list alternate outline'/>
+                    <span>List</span>
+                </NavLink>
+                <NavLink to='/tabletune/crew' className='nav-item'>
+                    <Icon size='large' name='users'/>
                     <span>Crew</span>
-                </Menu.Item>
+                </NavLink>
             </Sidebar>
         </>
     );
 };
 
 AppSidebar.propTypes = {
-    visible: PropTypes.bool,
-    setVisible: PropTypes.func
+    visible: PropTypes.bool, setVisible: PropTypes.func
 };

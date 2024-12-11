@@ -1,3 +1,58 @@
 .--appSidebar {
-  width: 10em !important;
+  width: 5em !important;
+  display: flex !important;
+  text-align: center !important;
+  align-items: center !important;
+  overflow: hidden;
+}
+
+.--appSidebar h2 {
+  padding: 0.1em 1em !important;
+  font-size: 2em;
+  color: #ffffff;
+  border-bottom: 1px solid #424242;
+}
+
+.--appSidebar .nav-item {
+  margin: 0.8em !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 14px;
+  width: 100% !important;
+  //border-bottom: 1px solid #2f2f2f;
+  transition: color 0.3s;
+}
+
+.--appSidebar .nav-item span {
+  margin-top: 0.5em;
+}
+
+.--appSidebar .nav-item.active {
+  color: #F0BB78;
+}
+
+a:hover {
+  color: #F0BB78 !important;
+}
+
+.dashboard-layout {
+  display: flex;
+}
+
+.main-content {
+  flex: 1;
+  height: 100vh;
+}
+
+@media (max-width: 600px) {
+  .--appSidebar {
+    display: none !important;
+  }
+
+  .--sidebar {
+    width: 0;
+  }
 }
