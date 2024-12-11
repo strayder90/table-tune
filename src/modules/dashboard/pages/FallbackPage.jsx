@@ -15,7 +15,7 @@ const FallbackPage = () => {
                             A W W W... Don&#39;t worry!
                         </Header>
                         <h3>It&#39;s just a 404 Error!</h3>
-                        <h3>The page you are looking for might have been removed or deleted.</h3>
+                        <h3>The page you are looking for might have been removed, deleted or non existing.</h3>
                     </Grid.Column>
                     <Link to='/tabletune'>
                         <Button size='large' color='yellow' className='fallback-page-button'>

@@ -4,7 +4,7 @@ import {render, screen} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
 import {userEvent} from '@testing-library/user-event';
 
-import HomePage from '@modules/auth/pages/HomePage.jsx';
+import HomePage from '@modules/dashboard/pages/HomePage.jsx';
 
 const mockNavigate = vi.fn();
 vi.doMock('react-router-dom', () => ({

@@ -1,6 +1,8 @@
-@use "../assets/css/reset.css";
-@use "./components/normalize";
-@use "./components/main";
-@use "./layout/auth-layout";
-@use "./forms/form-utils";
-@use "./pages/_fallback-page";
+@use '../assets/css/reset.css';
+@use './components/normalize';
+@use './components/main';
+@use 'modules/auth/layout/auth-layout';
+@use 'modules/auth/forms/auth_form-utils';
+@use 'modules/dashboard/pages/fallback-page';
+@use 'modules/dashboard/components/appSidebar';
+@use 'modules/dashboard/components/bottomNav';
