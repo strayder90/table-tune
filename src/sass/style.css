@@ -661,10 +661,6 @@ a:hover {
   margin-top: 3em !important;
 }
 
-.--event-card {
-  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 .main-content .header {
   font-size: 1.5em !important;
   color: #543A14 !important;
@@ -686,19 +682,63 @@ a:hover {
 }
 
 .ui.six.column.grid .column {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+}
+
+.ui.fluid.card {
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .image-wrapper {
-  height: 30em;
+  height: 35em;
   overflow: hidden;
 }
 
 .event-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   object-position: center;
+}
+
+p {
+  display: inline;
+  font-size: 1.2em !important;
+  margin-right: 5px !important;
+}
+
+.main-content .description.--custom-card-description-negative {
+  margin-top: 1em;
+  font-size: 1.3em !important;
+  font-weight: bolder !important;
+  color: #FF5000 !important;
+}
+
+.main-content .description.--custom-card-description-positive {
+  margin-top: 1em;
+  font-size: 1.3em !important;
+  font-weight: bolder !important;
+  color: #00A500 !important;
+}
+
+@media screen and (max-width: 600px) {
+  .ui.six.column.grid {
+    margin: 0 -1.1em 3em -1em !important;
+  }
+  .ui.six.column.grid .column {
+    margin-bottom: 1.3em;
+  }
+}
+.--pagination-container {
+  margin: 3em;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .--pagination-container {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
