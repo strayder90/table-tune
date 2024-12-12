@@ -3,18 +3,20 @@ import {CardHeader, CardDescription, CardContent, Card, Icon, Image, Button, But
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const doIt = () => {
+import {DEFAULT_NO_IMAGE} from '@/utils/constants.js';
+
+const editEvent = () => {
     console.log('edit');
 };
 
-const doItElse = () => {
+const deleteEvent = () => {
     console.log('delete');
 };
 
 const EventCard = ({image, title, date, entry}) => (
-    <Card fluid>
+    <Card color={entry ? 'red' : 'green'} fluid>
         <div className='image-wrapper'>
-            <Image src={image} className='event-image'/>
+            <Image src={image ? image : DEFAULT_NO_IMAGE} className='event-image'/>
         </div>
         <CardContent>
             <CardHeader>{title}</CardHeader>
@@ -36,10 +38,10 @@ const EventCard = ({image, title, date, entry}) => (
             </Link>
             <div className='icon-container'>
                 <ButtonGroup>
-                    <Button onClick={doIt} basic>
+                    <Button onClick={editEvent} basic>
                         <Icon name='edit' color='orange' size='large'/>
                     </Button>
-                    <Button onClick={doItElse} basic>
+                    <Button onClick={deleteEvent} basic>
                         <Icon name='trash' color='black' size='large'/>
                     </Button>
                 </ButtonGroup>
@@ -52,7 +54,7 @@ EventCard.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    entry: PropTypes.number.isRequired
+    entry: PropTypes.number
 };
 
 export default EventCard;

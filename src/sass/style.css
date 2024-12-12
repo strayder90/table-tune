@@ -686,7 +686,7 @@ a:hover {
 }
 
 .ui.fluid.card {
-  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
 .image-wrapper {
@@ -735,6 +735,12 @@ p {
 }
 
 @media screen and (max-width: 600px) {
+  .image-wrapper {
+    display: none;
+  }
+  .ui.fluid.card {
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  }
   .ui.six.column.grid {
     margin: 0 -1.1em 3em -1em !important;
   }
@@ -742,6 +748,35 @@ p {
     margin-bottom: 1.3em;
   }
 }
+.--event-form-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.ui.input {
+  width: 15%;
+  border: 1px solid #969696 !important;
+  border-radius: 2em !important;
+}
+
+.ui.input input {
+  border-radius: 2em !important;
+}
+
+.ui.input input::placeholder {
+  color: #969696 !important;
+  font-size: 18px !important;
+}
+
+.--event-form-section button {
+  margin-left: auto;
+  background: #F0BB78 !important;
+  border-radius: 2em !important;
+}
+
 .--pagination-container {
   margin: 3em;
   display: flex;
@@ -749,6 +784,25 @@ p {
 }
 
 @media screen and (max-width: 600px) {
+  .--event-form-section {
+    flex-direction: row;
+    align-items: start;
+  }
+  .ui.input {
+    width: 50%;
+    border: 1px solid #969696 !important;
+    border-radius: 2em !important;
+  }
+  .ui.input input {
+    border-radius: 2em !important;
+  }
+  .ui.input input::placeholder {
+    color: #969696 !important;
+    font-size: 18px !important;
+  }
+  .--event-form-section > button {
+    align-self: end;
+  }
   .--pagination-container {
     display: none;
   }
