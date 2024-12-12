@@ -1,0 +1,39 @@
+.--event-card {
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.main-content .header {
+  font-size: 1.5em !important;
+  color: #543A14 !important;
+}
+
+.main-content .description {
+  font-size: 1.2em !important;
+  color: #543A14 !important;
+}
+
+.main-content .extra {
+  font-size: 1em !important;
+  color: #543A14 !important;
+  font-weight: bold !important;
+}
+
+.ui.six.column.grid {
+  margin: 0.5em;
+}
+
+.ui.six.column.grid .column{
+  margin-bottom: 1em;
+}
+
+.image-wrapper {
+  height: 30em;
+  overflow: hidden;
+}
+
+.event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}

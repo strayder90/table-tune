@@ -42,11 +42,12 @@ export default [
                 },
                 alias: {
                     map: [
+                        ['@assets', './src/assets'],
                         ['@modules', './src/modules'],
                         ['@utils', './src/utils'],
                         ['@', './src']
                     ],
-                    extensions: ['.js', '.jsx', '.ts', '.tsx']
+                    extensions: ['.js', '.jsx', '.ts', '.tsx', '.jpg']
                 }
             }
         },

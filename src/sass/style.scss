@@ -7,3 +7,5 @@
 @use 'modules/dashboard/components/appSidebar';
 @use 'modules/dashboard/components/bottomNav';
 @use 'modules/dashboard/components/navbar';
+@use 'modules/dashboard/layout/dashboard';
+@use 'modules/events/components/eventCard';

@@ -4,6 +4,7 @@
   text-align: center !important;
   align-items: center !important;
   overflow: hidden;
+  z-index: 1000;
 }
 
 .--appSidebar h2 {
@@ -34,17 +35,22 @@
   color: #F0BB78;
 }
 
+//.canvas-container {
+//  width: 50% !important;
+//  height: 50% !important;
+//}
+//
+//.lower-canvas {
+//  width: 100% !important;
+//  height: 100% !important;
+//}
+//.upper-canvas {
+//  width: 100% !important;
+//  height: 100% !important;
+//}
+
 a:hover {
   color: #F0BB78 !important;
-}
-
-.dashboard-layout {
-  display: flex;
-}
-
-.main-content {
-  flex: 1;
-  height: 100vh;
 }
 
 @media (max-width: 600px) {

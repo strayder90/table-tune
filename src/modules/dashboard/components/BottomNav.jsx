@@ -5,17 +5,17 @@ import {Icon} from 'semantic-ui-react';
 export const BottomNav = () => {
     return (
         <nav className='bottom-nav'>
-            <NavLink to='/tabletune' end className='nav-item'>
-                <Icon name='table'/>
-                <span>Tables</span>
+            <NavLink to='/tabletune/reservations' className='nav-item'>
+                <Icon name='list alternate outline'/>
+                <span>List</span>
             </NavLink>
             <NavLink to='/tabletune/events' className='nav-item'>
                 <Icon name='calendar alternate outline'/>
                 <span>Events</span>
             </NavLink>
-            <NavLink to='/tabletune/reservations' className='nav-item'>
-                <Icon name='list alternate outline'/>
-                <span>Reservations</span>
+            <NavLink to='/tabletune' end className='nav-item'>
+                <Icon name='table'/>
+                <span>Tables</span>
             </NavLink>
             <NavLink to='/tabletune/crew' className='nav-item'>
                 <Icon name='users'/>
