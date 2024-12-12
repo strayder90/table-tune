@@ -1,7 +1,15 @@
 import React from 'react';
-import {CardHeader, CardDescription, CardContent, Card, Icon, Image} from 'semantic-ui-react';
+import {CardHeader, CardDescription, CardContent, Card, Icon, Image, Button, ButtonGroup} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+const doIt = () => {
+    console.log('edit');
+};
+
+const doItElse = () => {
+    console.log('delete');
+};
 
 const EventCard = ({image, title, date, entry}) => (
     <Card fluid>
@@ -26,6 +34,16 @@ const EventCard = ({image, title, date, entry}) => (
                 <Icon name='comment alternate outline'/>
                 Do I work?
             </Link>
+            <div className='icon-container'>
+                <ButtonGroup>
+                    <Button onClick={doIt} basic>
+                        <Icon name='edit' color='orange' size='large'/>
+                    </Button>
+                    <Button onClick={doItElse} basic>
+                        <Icon name='trash' color='black' size='large'/>
+                    </Button>
+                </ButtonGroup>
+            </div>
         </CardContent>
     </Card>
 );

@@ -721,6 +721,19 @@ p {
   color: #00A500 !important;
 }
 
+.icon-container {
+  float: right;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.icon-container .ui.basic.button {
+  margin-left: 1em;
+  padding: 0;
+}
+
 @media screen and (max-width: 600px) {
   .ui.six.column.grid {
     margin: 0 -1.1em 3em -1em !important;
