@@ -9,11 +9,12 @@ export const Navbar = () => {
             {/*    <Icon size='big' name='add square'/>*/}
             {/*</NavLink>*/}
             <NavLink to='/tabletune/user-settings' className='nav-item'>
-                <Icon name='user'/>
+                <Icon name='user outline'/>
                 <span>John Doe</span>
             </NavLink>
             <NavLink to='/' className='nav-item'>
-                <Icon size='big' name='log out'/>
+                <Icon name='log out'/>
+                <span>Log out</span>
             </NavLink>
         </nav>
     );

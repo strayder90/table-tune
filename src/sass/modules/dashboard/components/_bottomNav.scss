@@ -1,3 +1,5 @@
+@use '../../../app/abstracts' as a;
+
 .bottom-nav {
   display: none;
 }
@@ -8,37 +10,31 @@
     bottom: 0;
     left: 0;
     width: 100% !important;
-    height: 3.75em !important;
+    height: 4em !important;
     background-color: #1b1c1d;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    z-index: 1000;
-  }
-
-  .bottom-nav .icon {
-    text-align: right;
   }
 
   .nav-item {
-    color: #ffffff;
-    text-decoration: none;
+    width: 5em;
+    color: a.$white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 14px;
-    transition: color 0.4s;
+    transition: color 0.3s;
   }
 
   .nav-item.active {
-    color: #F0BB78;
-  }
-
-  .nav-item span {
-    margin-top: 5px;
+    color: a.$beige;
   }
 
   .bottom-nav .icon {
-    font-size: 1.5em;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em !important;
   }
 }

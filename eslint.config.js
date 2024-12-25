@@ -7,7 +7,6 @@ import pluginTestingLibrary from 'eslint-plugin-testing-library';
 import pluginVitest from 'eslint-plugin-vitest';
 import pluginImport from 'eslint-plugin-import';
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
     pluginJs.configs.recommended,
     pluginReact.configs.flat.recommended,
@@ -44,6 +43,7 @@ export default [
                     map: [
                         ['@assets', './src/assets'],
                         ['@modules', './src/modules'],
+                        ['@appComponents', './src/modules/app/components'],
                         ['@utils', './src/utils'],
                         ['@', './src']
                     ],

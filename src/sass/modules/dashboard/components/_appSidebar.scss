@@ -1,3 +1,5 @@
+@use '../../../app/abstracts' as a;
+
 .--appSidebar {
   width: 5em !important;
   display: flex !important;
@@ -9,31 +11,43 @@
 
 .--appSidebar h2 {
   padding: 0.1em 1em !important;
-  font-size: 2em;
-  color: #ffffff;
-  border-bottom: 1px solid #424242;
+  font-size: a.$font-size-xxxlarge;
+  color: a.$beige;
+  border-bottom: 1px solid a.$darker-gray;
 }
 
 .--appSidebar .nav-item {
-  margin: 0.8em !important;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 14px;
-  width: 100% !important;
-  //border-bottom: 1px solid #2f2f2f;
-  transition: color 0.3s;
+  color: a.$white;
+  font-size: a.$font-size-medium;
+  transition: color 0.3s, transform 0.1s ease-in;
 }
 
-.--appSidebar .nav-item span {
-  margin-top: 0.5em;
+.--appSidebar .nav-item:hover {
+  transform: scale(1.1);
 }
 
 .--appSidebar .nav-item.active {
-  color: #F0BB78;
+  color: a.$beige;
 }
+
+.--appSidebar .nav-item:hover {
+  color: a.$beige !important;
+}
+
+.--appSidebar .nav-item .icon {
+  margin: 0 !important;
+}
+
+@media (max-width: 600px) {
+  .--appSidebar {
+    display: none !important;
+  }
+}
+
 
 //.canvas-container {
 //  width: 50% !important;
@@ -48,17 +62,3 @@
 //  width: 100% !important;
 //  height: 100% !important;
 //}
-
-a:hover {
-  color: #F0BB78 !important;
-}
-
-@media (max-width: 600px) {
-  .--appSidebar {
-    display: none !important;
-  }
-
-  .--sidebar {
-    width: 0;
-  }
-}

@@ -21,6 +21,11 @@ export default defineConfig({
                 display: 'standalone',
                 icons: [
                     {
+                        src: 'favicon.ico',
+                        type: 'image/x-icon',
+                        sizes: '48x48'
+                    },
+                    {
                         src: 'icon-72x72.png',
                         type: 'image/png',
                         sizes: '72x72'
@@ -94,6 +99,7 @@ export default defineConfig({
         alias: {
             '@': resolve(__dirname, 'src'),
             '@modules': resolve(__dirname, 'src/modules'),
+            '@appComponents': resolve(__dirname, 'src/modules/app/components'),
             '@utils': resolve(__dirname, 'src/utils'),
         }
     },

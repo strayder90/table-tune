@@ -1,15 +1,17 @@
+@use '../../../app/abstracts' as a;
+
 .--custom-margin-align-center {
   text-align: center;
   margin-top: 1em;
 }
 
 .--custom-margin-align-center a {
-  font-size: 17px !important;
+  font-size: a.$font-size-large !important;
   line-height: 20px !important;
 }
 
 .--custom-button-submit {
-  font-size: 18px !important;
+  font-size: a.$font-size-large !important;
   line-height: 22.68px !important;
 }
 
@@ -19,8 +21,9 @@
 }
 
 .--form-tip-font-size {
-  font-size: 1.1em;
-  color: #7f7f7f;
+  display: flex;
+  justify-content: center;
+  color: a.$gray;
 }
 
 .--form-input-field input {
@@ -28,6 +31,6 @@
 }
 
 .--form-input-field input::placeholder {
-  color: #777777 !important;
-  font-size: 15px !important;
+  color: a.$gray !important;
+  font-size: a.$font-size-large !important;
 }

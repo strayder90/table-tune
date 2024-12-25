@@ -9,16 +9,12 @@ export const AppSidebar = () => {
             <Sidebar
                 className='--appSidebar'
                 as={Menu}
-                animation='overlay'
-                icon='labeled'
                 inverted
                 vertical
                 visible
-                width='thin'
+                width='very thin'
             >
-                <NavLink to='#'>
-                    <h2>TT</h2>
-                </NavLink>
+                <h2>TT</h2>
                 <NavLink end to='/tabletune' className='nav-item'>
                     <Icon size='large' name='table'/>
                     <span>Tables</span>
@@ -29,7 +25,7 @@ export const AppSidebar = () => {
                 </NavLink>
                 <NavLink to='/tabletune/reservations' className='nav-item'>
                     <Icon size='large' name='list alternate outline'/>
-                    <span>List</span>
+                    <span>Bookings</span>
                 </NavLink>
                 <NavLink to='/tabletune/crew' className='nav-item'>
                     <Icon size='large' name='users'/>

@@ -15,6 +15,7 @@ export default defineConfig({
         alias: {
             '@': resolve(__dirname, 'src'),
             '@modules': resolve(__dirname, 'src/modules'),
+            '@appComponents': resolve(__dirname, 'src/modules/app/components'),
             '@utils': resolve(__dirname, 'src/utils'),
         },
         extensions: ['.js', '.jsx', '.ts', '.tsx'],

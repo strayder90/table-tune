@@ -16,7 +16,7 @@ const deleteEvent = () => {
 const EventCard = ({image, title, date, entry}) => (
     <Card color={entry ? 'red' : 'green'} fluid>
         <div className='image-wrapper'>
-            <Image src={image ? image : DEFAULT_NO_IMAGE} className='event-image'/>
+            <Image className='event-image' src={image ? image : DEFAULT_NO_IMAGE}/>
         </div>
         <CardContent>
             <CardHeader>{title}</CardHeader>
@@ -26,7 +26,6 @@ const EventCard = ({image, title, date, entry}) => (
             <p>Entry: </p>
             <CardDescription
                 className={entry ? '--custom-card-description-negative' : '--custom-card-description-positive'}
-                style={{display: 'inline'}}
             >
                 {entry ? `${entry}€` : 'Free'}
             </CardDescription>

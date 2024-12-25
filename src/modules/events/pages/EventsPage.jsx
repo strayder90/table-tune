@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
-import {GridRow, GridColumn, Grid, Pagination, Button, Icon, Input} from 'semantic-ui-react';
+import {GridRow, GridColumn, Grid, Pagination} from 'semantic-ui-react';
 
 import EventCard from '@modules/events/components/EventCard.jsx';
 import {EVENTS_PER_PAGE} from '@/utils/constants.js';
 import {rangeOfEventsToBeDisplayed} from '@modules/events/utils/helpers.js';
+import HeaderRenderer from '@appComponents/HeaderRenderer.jsx';
+import EventFilters from '@modules/events/components/EventFilters.jsx';
+import EventIndexButtons from '@modules/events/components/EventIndexButtons.jsx';
 
 import {events} from '../data/events.js';
 
@@ -30,25 +33,16 @@ const EventsPage = () => {
 
     return (
         <>
-            <Grid columns={6}>
-                <div className='--event-form-section'>
-                    <Input
-                        icon={!searchQuery ? 'search' : null}
-                        placeholder='Search...'
-                        value={searchQuery}
-                        onChange={(e) => handleSearch(e.target.value)}
-                        error={searchQuery && !filteredEvents.length}
-                    />
-
-                    <Button icon labelPosition='left'>
-                        <Icon name='add'/>
-                        Add new Event
-                    </Button>
-                </div>
-
+            <HeaderRenderer
+                className='--event-form-section'
+                pageTitle={'Andreana Cekic - FR, 13.12.2024 - 20€'}
+                filters={EventFilters}
+                buttons={EventIndexButtons}
+            />
+            <Grid className='--event-content-section' columns={6}>
                 <GridRow>
                     {currentEvents.map((event) => (
-                        <GridColumn key={event.id} mobile={16} computer={4} largeScreen={4}>
+                        <GridColumn key={event.id} mobile={16} computer={4}>
                             <EventCard
                                 image={event.image}
                                 title={event.title}

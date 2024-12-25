@@ -1,34 +1,29 @@
-.main-content .header {
-  font-size: 1.5em !important;
-  color: #543A14 !important;
+@use '../../../app/abstracts' as a;
+
+.main-content header h1 {
+  color: a.$brown !important;
 }
 
-.main-content .description {
-  font-size: 1.2em !important;
-  color: #543A14 !important;
+.--event-content-section .header {
+  font-size: a.$font-size-xxlarge !important;
+  color: a.$brown !important;
 }
 
-.main-content .extra {
-  font-size: 1em !important;
-  color: #543A14 !important;
+.--event-content-section .description {
+  font-size: a.$font-size-large !important;
+  color: a.$brown !important;
+}
+
+.--event-content-section .content a {
   font-weight: bold !important;
 }
 
-.ui.six.column.grid {
-  margin: 0.5em;
-}
-
-.ui.six.column.grid .column {
-  margin-bottom: 1.5em;
-}
-
-.ui.fluid.card {
-  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+.--event-content-section .card {
+  margin-bottom: 1.5em !important;
 }
 
 .image-wrapper {
   height: 35em;
-  overflow: hidden;
 }
 
 .event-image {
@@ -38,35 +33,36 @@
   object-position: center;
 }
 
-p {
+.--event-content-section p {
   display: inline;
-  font-size: 1.2em !important;
+  font-size: a.$font-size-large !important;
   margin-right: 5px !important;
 }
 
-.main-content .description.--custom-card-description-negative {
+.--event-content-section .description.--custom-card-description-negative {
+  display: inline;
   margin-top: 1em;
-  font-size: 1.3em !important;
+  font-size: a.$font-size-xlarge !important;
   font-weight: bolder !important;
-  color: #FF5000 !important;
+  color: a.$red !important;
 }
 
-.main-content .description.--custom-card-description-positive {
+.--event-content-section .description.--custom-card-description-positive {
+  display: inline;
   margin-top: 1em;
-  font-size: 1.3em !important;
+  font-size: a.$font-size-xlarge !important;
   font-weight: bolder !important;
-  color: #00A500 !important;
+  color: a.$green !important;
 }
 
-.icon-container {
+.--event-content-section .icon-container {
   float: right;
   display: flex;
-  gap: 10px;
   cursor: pointer;
   align-items: center;
 }
 
-.icon-container .ui.basic.button {
+.--event-content-section .icon-container .ui.basic.button {
   margin-left: 1em;
   padding: 0;
 }
@@ -76,15 +72,11 @@ p {
     display: none;
   }
 
-  .ui.fluid.card {
-    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-  }
-
-  .ui.six.column.grid {
-    margin: 0 -1.1em 3em -1em !important;
-  }
-
-  .ui.six.column.grid .column {
-    margin-bottom: 1.3em;
-  }
+  //.ui.six.column.grid {
+  //  margin: 0 -1.1em 3em -1em !important;
+  //}
+  //
+  //.ui.six.column.grid .column {
+  //  margin-bottom: 1.3em;
+  //}
 }

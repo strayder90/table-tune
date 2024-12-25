@@ -1,39 +1,42 @@
+@use '../../../app/abstracts' as a;
+
 .--navbar {
-  width: 100% !important;
-  height: 3rem !important;
+  width: 100%;
+  height: 3rem;
   background-color: #1b1c1d;
   display: flex;
-  justify-content: right;
+  justify-content: end;
   align-items: center;
   position: fixed;
   z-index: 1000;
 }
 
 .--navbar .nav-item {
-  color: #ffffff;
-  text-decoration: none;
+  color: a.$white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 14px;
   transition: color 0.3s;
-  padding: 10px !important;
+  margin-top: 5px;
+  padding: 1em !important;
+}
+
+.--navbar .nav-item span {
+  margin-top: 1.5px;
+  font-size: 16px;
 }
 
 .--navbar .nav-item.active {
-  color: #F0BB78;
+  color: a.$beige;
 }
 
-.--navbar .nav-item:hover {
-  color: #F0BB78;
+.--navbar .nav-item:hover {;
+  color: a.$beige;
 }
 
-.nav-item span {
-  margin-top: 5px;
-}
-
-.bottom-nav .icon {
-  font-size: 1.5em;
+.--navbar .icon {
+  margin: 0;
+  font-size: 1.2em;
 }
 
 @media (max-width: 600px) {

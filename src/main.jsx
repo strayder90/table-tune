@@ -3,7 +3,7 @@ import {createRoot} from 'react-dom/client';
 import {BrowserRouter} from 'react-router-dom';
 import './assets/css/reset.css';
 
-import ErrorBoundary from '@/components/ErrorBoundary.jsx';
+import ErrorBoundary from '@appComponents/ErrorBoundary.jsx';
 
 import App from './App.jsx';
 

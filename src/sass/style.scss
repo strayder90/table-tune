@@ -1,6 +1,5 @@
 @use '../assets/css/reset.css';
-@use './components/normalize';
-@use './components/main';
+@use 'app/components/normalize';
 @use 'modules/auth/layout/auth-layout';
 @use 'modules/auth/forms/auth_form-utils';
 @use 'modules/dashboard/pages/fallback-page';
@@ -9,4 +8,5 @@
 @use 'modules/dashboard/components/navbar';
 @use 'modules/dashboard/layout/dashboard';
 @use 'modules/events/components/eventCard';
+@use 'modules/events/components/eventIndexButtons';
 @use 'modules/events/pages/eventsPage';

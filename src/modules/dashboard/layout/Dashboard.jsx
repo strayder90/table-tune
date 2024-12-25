@@ -8,16 +8,18 @@ import {Navbar} from '@modules/dashboard/components/Navbar.jsx';
 const Dashboard = () => {
     return (
         <>
-            <Navbar />
+            <Navbar/>
+
             <div className='dashboard-layout'>
                 <div className='--appSidebar'>
                     <AppSidebar/>
                 </div>
                 <div className='main-content'>
                     <Outlet/>
-                    <BottomNav/>
                 </div>
             </div>
+
+            <BottomNav/>
         </>
     );
 };

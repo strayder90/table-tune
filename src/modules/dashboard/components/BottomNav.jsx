@@ -7,7 +7,7 @@ export const BottomNav = () => {
         <nav className='bottom-nav'>
             <NavLink to='/tabletune/reservations' className='nav-item'>
                 <Icon name='list alternate outline'/>
-                <span>List</span>
+                <span>Bookings</span>
             </NavLink>
             <NavLink to='/tabletune/events' className='nav-item'>
                 <Icon name='calendar alternate outline'/>
