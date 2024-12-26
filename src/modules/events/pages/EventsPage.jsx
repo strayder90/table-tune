@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {GridRow, GridColumn, Grid, Pagination} from 'semantic-ui-react';
+import {GridRow, GridColumn, Grid, Pagination, Message} from 'semantic-ui-react';
 
 import {useEventFilters} from '@modules/events/hooks/useEventFilters';
 import EventCard from '@modules/events/components/EventCard.jsx';
@@ -23,7 +23,7 @@ const EventsPage = () => {
     const handlePageChange = (e, {activePage}) => setActivePage(activePage);
 
     const renderEventCards = (currentEvents) =>
-        currentEvents.map((event) => (
+        currentEvents?.map((event) => (
             <GridColumn key={event.id} mobile={16} computer={4}>
                 <EventCard
                     image={event.image}
@@ -44,20 +44,28 @@ const EventsPage = () => {
                 filtersProps={{searchQuery, handleSearch}}
             />
 
-            <Grid className='--event-content-section' columns={6}>
-                <GridRow>{renderEventCards(currentEvents)}</GridRow>
-            </Grid>
+            {currentEvents && filteredEvents.length > 0 ? (
+                <>
+                    <Grid className='--event-content-section' columns={6}>
+                        <GridRow>{renderEventCards(currentEvents)}</GridRow>
+                    </Grid>
 
-            {filteredEvents.length > 0 && (
-                <div className='--pagination-container'>
-                    <Pagination
-                        defaultActivePage={1}
-                        firstItem={null}
-                        lastItem={null}
-                        totalPages={calculateTotalPages(filteredEvents.length, EVENTS_PER_PAGE)}
-                        onPageChange={handlePageChange}
-                    />
-                </div>
+                    <div className='--pagination-container'>
+                        <Pagination
+                            defaultActivePage={1}
+                            firstItem={null}
+                            lastItem={null}
+                            totalPages={calculateTotalPages(filteredEvents.length, EVENTS_PER_PAGE)}
+                            onPageChange={handlePageChange}
+                        />
+                    </div>
+                </>
+            ) : (
+                <Message
+                    className='--no-events-message'
+                    icon='calendar times outline'
+                    header='No events found'
+                />
             )}
         </>
     );

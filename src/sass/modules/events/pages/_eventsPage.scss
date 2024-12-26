@@ -30,6 +30,14 @@
   justify-content: center;
 }
 
+.--no-events-message {
+  padding: 1em !important;
+}
+
+.--no-events-message .content {
+  font-size: a.$font-size-xlarge !important;
+}
+
 @media screen and (max-width: 600px) {
   .main-content header h1 {
     font-size: a.$font-size-xxlarge !important;

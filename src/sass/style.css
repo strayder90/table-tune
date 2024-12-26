@@ -764,6 +764,14 @@ template {
   justify-content: center;
 }
 
+.--no-events-message {
+  padding: 1em !important;
+}
+
+.--no-events-message .content {
+  font-size: 1.3em !important;
+}
+
 @media screen and (max-width: 600px) {
   .main-content header h1 {
     font-size: 1.5em !important;
