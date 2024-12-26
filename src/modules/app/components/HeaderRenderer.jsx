@@ -5,8 +5,9 @@ import {Header} from 'semantic-ui-react';
 const HeaderRenderer = ({
     className = '',
     pageTitle = '',
+    buttons = null,
     filters = null,
-    buttons = null
+    filtersProps  = {}
 }) => {
     return (
         <>
@@ -23,7 +24,7 @@ const HeaderRenderer = ({
 
             {filters && buttons && (
                 <section className={className}>
-                    {React.createElement(filters)}
+                    {React.createElement(filters, filtersProps)}
                     {React.createElement(buttons)}
                 </section>
             )}
@@ -34,6 +35,7 @@ const HeaderRenderer = ({
 HeaderRenderer.propTypes = {
     pageTitle: PropTypes.string,
     filters: PropTypes.func,
+    filtersProps: PropTypes.object,
     buttons: PropTypes.func,
     className: PropTypes.string
 };
