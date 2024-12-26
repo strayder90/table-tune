@@ -765,11 +765,17 @@ template {
 }
 
 .--no-events-message {
-  padding: 1em !important;
+  background: linear-gradient(150deg, #f8f8f8, #ececec) !important;
 }
 
 .--no-events-message .content {
-  font-size: 1.3em !important;
+  font-size: 1.3em;
+  color: #543A14;
+  letter-spacing: 0.5px;
+}
+
+.--no-events-message .icon {
+  color: #543A14;
 }
 
 @media screen and (max-width: 600px) {

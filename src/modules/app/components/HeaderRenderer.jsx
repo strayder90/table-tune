@@ -7,7 +7,7 @@ const HeaderRenderer = ({
     pageTitle = '',
     buttons = null,
     filters = null,
-    filtersProps  = {}
+    filtersProps = {}
 }) => {
     return (
         <>
@@ -22,12 +22,10 @@ const HeaderRenderer = ({
                 </Header>
             </header>
 
-            {filters && buttons && (
-                <section className={className}>
-                    {React.createElement(filters, filtersProps)}
-                    {React.createElement(buttons)}
-                </section>
-            )}
+            <section className={className}>
+                {filters && React.createElement(filters, filtersProps)}
+                {buttons && React.createElement(buttons)}
+            </section>
         </>
     );
 };
