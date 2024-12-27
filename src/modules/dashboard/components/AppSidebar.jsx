@@ -15,7 +15,7 @@ export const AppSidebar = () => {
                 width='very thin'
             >
                 <h2>TT</h2>
-                <NavLink end to='/tabletune' className='nav-item'>
+                <NavLink end to='/tabletune/tables' className='nav-item'>
                     <Icon size='large' name='table'/>
                     <span>Tables</span>
                 </NavLink>

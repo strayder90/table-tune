@@ -2,8 +2,7 @@ import {z} from 'zod';
 
 import {validateUsersSignupCredentials} from '@modules/auth/utils/helpers.js';
 import {LoginFormValidators, SignupFormValidators} from '@modules/auth/utils/validators.js';
-
-import {emailRegex} from './regexExpressions.js';
+import {emailRegex} from '@utils/regexExpressions.js';
 
 export const signUpSchema = z.object(SignupFormValidators).superRefine((data, ctx) => {
     const {email, username, password, confirmPassword} = data;

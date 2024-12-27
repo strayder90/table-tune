@@ -1,32 +1,19 @@
 import React from 'react';
-import {Dropdown, DropdownItem, DropdownMenu} from 'semantic-ui-react';
+import {Button} from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
-const dummyOptions = [
-    {key: 'add', icon: 'add', text: 'Add event', value: 'add'},
-    {key: 'edit', icon: 'edit', text: 'Edit event', value: 'edit'},
-    {key: 'delete', icon: 'delete', text: 'Delete event', value: 'delete'}
-];
-
-const EventIndexButtons = () => {
+const EventIndexButtons = ({addNewEvent}) => {
     return (
-        <>
-            <Dropdown
-                text='Menu'
-                className='icon --event-index-dropdownButtons'
-                direction='left'
-                floating
-                labeled
-                button
-            >
-                <DropdownMenu>
-                    {dummyOptions.map((option) => (
-                        <DropdownItem key={option.value} {...option} />
-                    ))}
-                </DropdownMenu>
-            </Dropdown>
-        </>
+        <Button
+            onClick={addNewEvent}
+        >
+            Add new event
+        </Button>
     );
 };
 
-EventIndexButtons.propTypes = {};
+EventIndexButtons.propTypes = {
+    addNewEvent: PropTypes.func
+};
+
 export default EventIndexButtons;

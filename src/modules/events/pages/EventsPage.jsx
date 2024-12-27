@@ -4,24 +4,21 @@ import {GridRow, GridColumn, Grid, Pagination, Message} from 'semantic-ui-react'
 import {useEventFilters} from '@modules/events/hooks/useEventFilters';
 import EventCard from '@modules/events/components/EventCard.jsx';
 import {EVENTS_PER_PAGE} from '@/utils/constants.js';
-import {
-    rangeOfEventsToBeDisplayed,
-    calculateTotalPages
-} from '@modules/events/utils/helpers.js';
+import {rangeOfEventsToBeDisplayed, calculateTotalPages} from '@modules/events/utils/helpers.js';
 import HeaderRenderer from '@appComponents/HeaderRenderer.jsx';
 import EventFilters from '@modules/events/components/EventFilters.jsx';
 import EventIndexButtons from '@modules/events/components/EventIndexButtons.jsx';
+import AddEventForm from '@modules/events/forms/AddEventForm.jsx';
+import {showFormModal} from '@utils/formHelpers.jsx';
 
 import {events} from '../data/events.js';
 
 const EventsPage = () => {
     const [activePage, setActivePage] = useState(1);
     const {searchQuery, filteredEvents, handleSearch} = useEventFilters(events);
-
+    const [modalOpen, setModalOpen] = useState(false);
     const currentEvents = rangeOfEventsToBeDisplayed(filteredEvents, activePage);
-
     const handlePageChange = (e, {activePage}) => setActivePage(activePage);
-
     const renderEventCards = (currentEvents) =>
         currentEvents?.map((event) => (
             <GridColumn key={event.id} mobile={16} computer={4}>
@@ -33,6 +30,8 @@ const EventsPage = () => {
                 />
             </GridColumn>
         ));
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => setModalOpen(false);
 
     return (
         <>
@@ -40,6 +39,7 @@ const EventsPage = () => {
                 className='--event-form-section'
                 pageTitle={'Andreana Cekic - FR, 13.12.2024 - 20€'}
                 buttons={EventIndexButtons}
+                buttonsProps={{addNewEvent: openModal}}
                 filters={EventFilters}
                 filtersProps={{searchQuery, handleSearch}}
             />
@@ -67,6 +67,15 @@ const EventsPage = () => {
                     header='No events found'
                 />
             )}
+
+            {
+                showFormModal({
+                    open: modalOpen,
+                    onClose: closeModal,
+                    title: 'Add Event',
+                    children: <AddEventForm onClose={closeModal} />
+                })
+            }
         </>
     );
 };

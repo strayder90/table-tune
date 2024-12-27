@@ -30,30 +30,30 @@ const routes = [
         ),
         children: [
             {
-                path: '/tabletune',
+                path: 'tables',
                 element: <HomePage/>
             },
             {
-                path: '/tabletune/events',
-                element: <EventsPage/>
+                path: 'events',
+                element: <EventsPage/>,
             },
             {
-                path: '/tabletune/reservations',
+                path: 'reservations',
                 element: <ReservationPage/>
             },
             {
-                path: '/tabletune/crew',
+                path: 'crew',
                 element: <CrewPage/>
             },
             {
-                path: '/tabletune/menu',
+                path: 'menu',
                 element: <MenuPage/>
             },
             {
-                path: '/tabletune/user-settings',
+                path: 'user-settings',
                 element: <UserSettingsPage/>
-            }
-        ]
+            },
+        ],
     },
     {
         path: '*',

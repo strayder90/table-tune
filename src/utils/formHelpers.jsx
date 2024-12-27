@@ -1,4 +1,5 @@
 import React from 'react';
+import {Modal} from 'semantic-ui-react';
 
 import {generateNumericID} from '@/utils/utils.js';
 
@@ -27,4 +28,15 @@ export const prepareDataForSubmit = (data) => {
         id: generateNumericID(),
         ...data
     };
+};
+
+export const showFormModal = ({open, onClose, header, children}) => {
+    return (
+        <Modal open={open} onClose={onClose} size='tiny'>
+            <Modal.Header>{header}</Modal.Header>
+            <Modal.Content>
+                {children}
+            </Modal.Content>
+        </Modal>
+    );
 };

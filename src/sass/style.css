@@ -750,6 +750,11 @@ template {
   font-size: 1.3em !important;
 }
 
+.--event-form-section button {
+  color: #543A14 !important;
+  background: #F0BB78 !important;
+}
+
 .--event-content-section {
   margin: 0 !important;
 }

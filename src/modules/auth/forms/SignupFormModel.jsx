@@ -1,4 +1,4 @@
-import {signUpSchema} from '@/utils/formSchemas.jsx';
+import {signUpSchema} from '@modules/auth/utils/formSchemas.jsx';
 
 export const SignupFormModel = () => ({
     formName: 'SignupForm',
@@ -17,7 +17,7 @@ export const SignupFormModel = () => ({
             defaultValue: '',
             type: 'text',
             placeholder: 'Last name'
-        }
+        },
     ],
     fields: [
         {

@@ -13,7 +13,7 @@ export const BottomNav = () => {
                 <Icon name='calendar alternate outline'/>
                 <span>Events</span>
             </NavLink>
-            <NavLink to='/tabletune' end className='nav-item'>
+            <NavLink to='/tabletune/tables' end className='nav-item'>
                 <Icon name='table'/>
                 <span>Tables</span>
             </NavLink>

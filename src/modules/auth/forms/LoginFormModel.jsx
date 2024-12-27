@@ -1,4 +1,4 @@
-import {logInSchema} from '@/utils/formSchemas.jsx';
+import {logInSchema} from '@modules/auth/utils/formSchemas.jsx';
 
 export const LoginFormModel = () => ({
     formName: 'LoginForm',
