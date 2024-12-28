@@ -19,7 +19,6 @@ const EventForm = ({multiple, fields, formSchemaValidator, formName, buttonTextS
         resolver: zodResolver(formSchemaValidator)
     });
 
-    // TODO: it does not know which button is submit and which is cancel
     const onSubmit = (data) => {
         if (formName === 'add') {
             const formData = prepareDataForSubmit(data);
@@ -51,10 +50,10 @@ const EventForm = ({multiple, fields, formSchemaValidator, formName, buttonTextS
                             errors={errors}
                         />
                     ))}
-                <ButtonGroup>
-                    <Button onClick={closeModal}>{buttonTextCancel}</Button>
-                    <ButtonOr />
+                <ButtonGroup widths={2} floated='right'>
                     <Button primary>{buttonTextSave}</Button>
+                    <ButtonOr />
+                    <Button onClick={closeModal}>{buttonTextCancel}</Button>
                 </ButtonGroup>
             </Form>
         </>

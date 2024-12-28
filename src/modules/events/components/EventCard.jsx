@@ -1,9 +1,7 @@
 import React from 'react';
-import {CardHeader, CardDescription, CardContent, Card, Icon, Image, Button, ButtonGroup} from 'semantic-ui-react';
+import {CardHeader, CardDescription, CardContent, Card, Icon, Button, ButtonGroup} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-import {DEFAULT_NO_IMAGE} from '@/utils/constants.js';
 
 const editEvent = () => {
     console.log('edit');
@@ -13,11 +11,8 @@ const deleteEvent = () => {
     console.log('delete');
 };
 
-const EventCard = ({image, title, date, entry}) => (
+const EventCard = ({title, date, entry}) => (
     <Card color={entry ? 'red' : 'green'} fluid>
-        <div className='image-wrapper'>
-            <Image className='event-image' src={image ? image : DEFAULT_NO_IMAGE}/>
-        </div>
         <CardContent>
             <CardHeader>{title}</CardHeader>
             <CardDescription>
@@ -50,7 +45,6 @@ const EventCard = ({image, title, date, entry}) => (
 );
 
 EventCard.propTypes = {
-    image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     entry: PropTypes.number

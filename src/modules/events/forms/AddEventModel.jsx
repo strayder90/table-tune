@@ -5,13 +5,6 @@ export const AddEventModel = () => ({
     formSchemaValidator: addEventSchema,
     fields: [
         {
-            key: 'image',
-            name: 'image',
-            defaultValue: '',
-            icon: 'file image',
-            type: 'file',
-        },
-        {
             key: 'title',
             name: 'title',
             defaultValue: '',

@@ -15,10 +15,14 @@ import {events} from '../data/events.js';
 
 const EventsPage = () => {
     const [activePage, setActivePage] = useState(1);
+    const [isVisible, setIsVisible] = useState(false);
     const {searchQuery, filteredEvents, handleSearch} = useEventFilters(events);
-    const [modalOpen, setModalOpen] = useState(false);
     const currentEvents = rangeOfEventsToBeDisplayed(filteredEvents, activePage);
+
+    const toggleModalShow = () => setIsVisible((prevState) => !prevState);
+
     const handlePageChange = (e, {activePage}) => setActivePage(activePage);
+
     const renderEventCards = (currentEvents) =>
         currentEvents?.map((event) => (
             <GridColumn key={event.id} mobile={16} computer={4}>
@@ -30,8 +34,6 @@ const EventsPage = () => {
                 />
             </GridColumn>
         ));
-    const openModal = () => setModalOpen(true);
-    const closeModal = () => setModalOpen(false);
 
     return (
         <>
@@ -39,14 +41,14 @@ const EventsPage = () => {
                 className='--event-form-section'
                 pageTitle={'Andreana Cekic - FR, 13.12.2024 - 20€'}
                 buttons={EventIndexButtons}
-                buttonsProps={{addNewEvent: openModal}}
+                buttonsProps={{addNewEvent: toggleModalShow}}
                 filters={EventFilters}
                 filtersProps={{searchQuery, handleSearch}}
             />
 
             {currentEvents && filteredEvents.length > 0 ? (
                 <>
-                    <Grid className='--event-content-section' columns={6}>
+                    <Grid className='--event-content-section'>
                         <GridRow>{renderEventCards(currentEvents)}</GridRow>
                     </Grid>
 
@@ -70,10 +72,11 @@ const EventsPage = () => {
 
             {
                 showFormModal({
-                    open: modalOpen,
-                    onClose: closeModal,
-                    title: 'Add Event',
-                    children: <AddEventForm onClose={closeModal} />
+                    className: '--addEventForm__modal',
+                    isVisible: isVisible,
+                    onClose: toggleModalShow,
+                    header: 'Add new Event',
+                    children: <AddEventForm onClose={toggleModalShow}/>
                 })
             }
         </>

@@ -70,6 +70,11 @@ export const isOnlyStrings = (input) => {
     return regex.test(input);
 };
 
+export const isOnlyNumbers = (input) => {
+    const regex = /^[0-9]+$/;
+
+    return regex.test(input);
+};
 
 export const sum = (a, b) => {
     return a + b;

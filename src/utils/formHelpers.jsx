@@ -30,9 +30,14 @@ export const prepareDataForSubmit = (data) => {
     };
 };
 
-export const showFormModal = ({open, onClose, header, children}) => {
+export const showFormModal = ({className, isVisible, onClose, header, children}) => {
     return (
-        <Modal open={open} onClose={onClose} size='tiny'>
+        <Modal
+            className={className}
+            open={isVisible}
+            onClose={onClose}
+            size='tiny'
+        >
             <Modal.Header>{header}</Modal.Header>
             <Modal.Content>
                 {children}

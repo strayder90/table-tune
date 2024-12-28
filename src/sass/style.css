@@ -655,6 +655,7 @@ template {
 .main-content {
   flex: 1;
   margin-top: 3em;
+  margin-bottom: 3em;
 }
 
 .main-content header h1 {
@@ -783,6 +784,25 @@ template {
   color: #543A14;
 }
 
+.modal {
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  transition: opacity 1s ease, transform 1s ease !important;
+}
+
+.modal--visible {
+  opacity: 1;
+  pointer-events: initial;
+  transform: scale(1);
+}
+
+.modal--invisible {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+}
+
 @media screen and (max-width: 600px) {
   .main-content header h1 {
     font-size: 1.5em !important;
@@ -798,6 +818,9 @@ template {
   .--pagination-container {
     display: none;
   }
+}
+.--addEventForm__modal {
+  padding: 1em;
 }
 
 /*# sourceMappingURL=style.css.map */
