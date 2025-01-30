@@ -2,6 +2,8 @@ import React, {forwardRef} from 'react';
 import {Controller} from 'react-hook-form';
 import {Form} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const CustomInput = forwardRef(({
     key,
@@ -24,16 +26,30 @@ const CustomInput = forwardRef(({
                 rules={rules}
                 defaultValue={defaultValue}
                 render={({field}) => (
-                    <Form.Input
-                        className='--form-input-field'
-                        {...field}
-                        label={label}
-                        icon={icon}
-                        type={type}
-                        placeholder={placeholder}
-                        ref={ref}
-                        error={errors[name] ? {content: errors[name]?.message,  pointing: 'below'} : null}
-                    />
+                    <>
+                        {type === 'date' ? (
+                            <DatePicker
+                                className='--form-input-field'
+                                {...field}
+                                selected={field.value ? new Date(field.value) : null}
+                                onChange={(date) => field.onChange(date)}
+                                placeholderText={placeholder}
+                                dateFormat='dd-MM-yyyy'
+                                ref={ref}
+                            />
+                        ) : (
+                            <Form.Input
+                                className='--form-input-field'
+                                {...field}
+                                label={label}
+                                icon={icon}
+                                type={type}
+                                placeholder={placeholder}
+                                ref={ref}
+                                error={errors[name] ? {content: errors[name]?.message, pointing: 'below'} : null}
+                            />
+                        )}
+                    </>
                 )}
             />
         </>

@@ -13,20 +13,20 @@ export const AddEventModel = () => ({
             placeholder: 'Title'
         },
         {
-            key: 'date',
-            name: 'date',
-            defaultValue: '',
-            icon: 'calendar alternate outline',
-            type: 'string',
-            placeholder: 'Date'
-        },
-        {
             key: 'entry',
             name: 'entry',
             defaultValue: '',
             icon: 'money bill alternate outline',
             type: 'string',
             placeholder: 'Entry'
+        },
+        {
+            key: 'date',
+            name: 'date',
+            defaultValue: '',
+            icon: 'calendar alternate outline',
+            type: 'date',
+            placeholder: 'Date'
         },
     ],
 });

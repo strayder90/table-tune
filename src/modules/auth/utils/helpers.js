@@ -27,7 +27,7 @@ export const handleLoginFormSubmit = (data, navigate) => {
 
     localStorage.setItem('isAuthenticated', JSON.stringify(true));
 
-    navigate('/tabletune');
+    navigate('/tabletune/tables');
 };
 
 

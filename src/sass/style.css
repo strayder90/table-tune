@@ -460,6 +460,10 @@ template {
   color: #969696;
 }
 
+.--form-input-field {
+  margin-bottom: 1em !important;
+}
+
 .--form-input-field input {
   border: 1px solid #c9c9c9 !important;
 }
@@ -821,6 +825,16 @@ template {
 }
 .--addEventForm__modal {
   padding: 1em;
+}
+
+.--addEventForm__modal input {
+  width: 100% !important;
+  font-size: 18px !important;
+  border: 1px solid #c9c9c9 !important;
+}
+
+.--addEventForm__modal input::placeholder {
+  color: #969696 !important;
 }
 
 /*# sourceMappingURL=style.css.map */

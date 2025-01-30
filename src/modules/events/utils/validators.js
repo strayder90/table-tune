@@ -8,8 +8,6 @@ export const AddEventFormValidators = {
     }).refine(value => isOnlyStrings(value), {
         message: 'Title must contain only letters',
     }),
-    date: z.string().refine(value => value.trim() !== '', {
-        message: 'Date is required',
-    }),
+    date: z.date(),
     entry: z.string()
 };
