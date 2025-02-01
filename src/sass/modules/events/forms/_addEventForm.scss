@@ -6,10 +6,16 @@
 
 .--addEventForm__modal input {
   width: 100% !important;
-  font-size: a.$font-size-large !important;
   border: 1px solid #c9c9c9 !important;
 }
 
 .--addEventForm__modal input::placeholder {
   color: a.$gray !important;
+  font-size: a.$font-size-large !important;
+}
+
+.--addEventForm__submitButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
 }

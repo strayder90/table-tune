@@ -9,7 +9,15 @@ import {prepareDataForSubmit} from '@utils/formHelpers.jsx';
 
 import {events} from '../data/events.js';
 
-const EventForm = ({multiple, fields, formSchemaValidator, formName, buttonTextSave, buttonTextCancel, closeModal}) => {
+const EventForm = ({
+    multiple,
+    fields,
+    formSchemaValidator,
+    formName,
+    buttonTextSave,
+    buttonTextCancel,
+    closeModal
+}) => {
     const {
         handleSubmit,
         formState: {errors},
@@ -50,11 +58,15 @@ const EventForm = ({multiple, fields, formSchemaValidator, formName, buttonTextS
                             errors={errors}
                         />
                     ))}
-                <ButtonGroup widths={2} floated='right'>
-                    <Button primary>{buttonTextSave}</Button>
-                    <ButtonOr />
-                    <Button onClick={closeModal}>{buttonTextCancel}</Button>
-                </ButtonGroup>
+                {/*<ButtonGroup widths={2} floated='right'>*/}
+                {/*    <Button primary>{buttonTextSave}</Button>*/}
+                {/*    <ButtonOr />*/}
+                {/*    <Button onClick={closeModal}>{buttonTextCancel}</Button>*/}
+                {/*</ButtonGroup>*/}
+                <div className='--addEventForm__submitButtons'>
+                    <Button size='large' primary>{buttonTextSave}</Button>
+                    <Button size='large' onClick={closeModal}>{buttonTextCancel}</Button>
+                </div>
             </Form>
         </>
     );

@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 
 const EventIndexButtons = ({addNewEvent}) => {
     return (
-        <Button
-            onClick={addNewEvent}
-        >
+        <Button onClick={addNewEvent}>
             Add new event
         </Button>
     );

@@ -20,7 +20,7 @@ const EventCard = ({title, date, entry}) => (
             </CardDescription>
             <p>Entry: </p>
             <CardDescription
-                className={entry ? '--custom-card-description-negative' : '--custom-card-description-positive'}
+                className={entry ? '--custom-card-description__negative' : '--custom-card-description__positive'}
             >
                 {entry ? `${entry}€` : 'Free'}
             </CardDescription>

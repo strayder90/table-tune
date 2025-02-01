@@ -39,7 +39,7 @@
   margin-right: 5px !important;
 }
 
-.--event-content-section .description.--custom-card-description-negative {
+.--event-content-section .description.--custom-card-description__negative {
   display: inline;
   margin-top: 1em;
   font-size: a.$font-size-xlarge !important;
@@ -47,7 +47,7 @@
   color: a.$red !important;
 }
 
-.--event-content-section .description.--custom-card-description-positive {
+.--event-content-section .description.--custom-card-description__positive {
   display: inline;
   margin-top: 1em;
   font-size: a.$font-size-xlarge !important;

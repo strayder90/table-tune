@@ -536,7 +536,7 @@ template {
 }
 
 .--appSidebar h2 {
-  padding: 0.1em 1em !important;
+  padding: 0.21em 1em !important;
   font-size: 2em;
   color: #F0BB78;
   border-bottom: 1px solid #424242;
@@ -610,7 +610,7 @@ template {
 }
 .--navbar {
   width: 100%;
-  height: 3rem;
+  height: 3.5rem;
   background-color: #1b1c1d;
   display: flex;
   justify-content: end;
@@ -658,7 +658,7 @@ template {
 
 .main-content {
   flex: 1;
-  margin-top: 3em;
+  margin-top: 3.5em;
   margin-bottom: 3em;
 }
 
@@ -701,7 +701,7 @@ template {
   margin-right: 5px !important;
 }
 
-.--event-content-section .description.--custom-card-description-negative {
+.--event-content-section .description.--custom-card-description__negative {
   display: inline;
   margin-top: 1em;
   font-size: 1.3em !important;
@@ -709,7 +709,7 @@ template {
   color: #e31414 !important;
 }
 
-.--event-content-section .description.--custom-card-description-positive {
+.--event-content-section .description.--custom-card-description__positive {
   display: inline;
   margin-top: 1em;
   font-size: 1.3em !important;
@@ -829,12 +829,18 @@ template {
 
 .--addEventForm__modal input {
   width: 100% !important;
-  font-size: 18px !important;
   border: 1px solid #c9c9c9 !important;
 }
 
 .--addEventForm__modal input::placeholder {
   color: #969696 !important;
+  font-size: 18px !important;
+}
+
+.--addEventForm__submitButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
