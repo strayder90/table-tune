@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {Dimmer, Loader} from 'semantic-ui-react';
+import {toast} from 'react-toastify';
 
 const AuthGuard = ({children}) => {
     const navigate = useNavigate();
@@ -13,10 +14,11 @@ const AuthGuard = ({children}) => {
 
             if (!isAuthenticated) {
                 navigate('/');
+                toast.warn('Please log in to continue to this page.');
             } else {
                 setLoading(false);
             }
-        }, 3000);
+        }, 1000);
 
         return () => clearTimeout(timeout);
     }, [navigate]);
