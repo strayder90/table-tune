@@ -24,7 +24,7 @@ const AuthGuard = ({children}) => {
     if (loading) {
         return (
             <Dimmer active inverted>
-                <Loader>Loading</Loader>
+                <Loader size='huge'>Loading</Loader>
             </Dimmer>
         );
     }
