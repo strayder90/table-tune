@@ -511,14 +511,14 @@ template {
 .--appSidebar {
   width: 5em !important;
   display: flex !important;
-  text-align: center !important;
-  align-items: center !important;
+  text-align: center;
+  align-items: center;
   overflow: hidden;
   z-index: 1000;
 }
 
 .--appSidebar h2 {
-  padding: 0.21em 1em !important;
+  padding: 0.21em 1em;
   font-size: 2em;
   color: #F0BB78;
   border-bottom: 1px solid #424242;
@@ -592,7 +592,7 @@ template {
 }
 .--navbar {
   width: 100%;
-  height: 3.5rem;
+  height: 3.5em;
   background-color: #1b1c1d;
   display: flex;
   justify-content: end;
@@ -608,12 +608,12 @@ template {
   align-items: center;
   transition: color 0.3s;
   margin-top: 5px;
-  padding: 1em !important;
+  padding: 1em;
 }
 
 .--navbar .nav-item span {
-  margin-top: 1.5px;
-  font-size: 16px;
+  margin-top: 3px;
+  font-size: 14px;
 }
 
 .--navbar .nav-item.active {
@@ -626,7 +626,7 @@ template {
 
 .--navbar .icon {
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 @media (max-width: 600px) {
@@ -634,11 +634,11 @@ template {
     display: none !important;
   }
 }
-.dashboard-layout {
+.--dashboard-layout {
   display: flex;
 }
 
-.main-content {
+.--dashboard-layout .main-content {
   flex: 1;
   margin-top: 3.5em;
   margin-bottom: 3em;

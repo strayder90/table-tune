@@ -10,7 +10,7 @@ const Dashboard = () => {
         <>
             <Navbar/>
 
-            <div className='dashboard-layout'>
+            <div className='--dashboard-layout'>
                 <div className='--appSidebar'>
                     <AppSidebar/>
                 </div>

@@ -1,8 +1,8 @@
-.dashboard-layout {
+.--dashboard-layout {
   display: flex;
 }
 
-.main-content {
+.--dashboard-layout .main-content {
   flex: 1;
   margin-top: 3.5em;
   margin-bottom: 3em;

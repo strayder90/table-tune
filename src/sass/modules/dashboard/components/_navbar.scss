@@ -2,8 +2,8 @@
 
 .--navbar {
   width: 100%;
-  height: 3.5rem;
-  background-color: #1b1c1d;
+  height: 3.5em;
+  background-color: a.$dark-gray;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -18,12 +18,12 @@
   align-items: center;
   transition: color 0.3s;
   margin-top: 5px;
-  padding: 1em !important;
+  padding: 1em;
 }
 
 .--navbar .nav-item span {
-  margin-top: 1.5px;
-  font-size: 16px;
+  margin-top: 3px;
+  font-size: a.$font-size-medium;
 }
 
 .--navbar .nav-item.active {
@@ -36,7 +36,7 @@
 
 .--navbar .icon {
   margin: 0;
-  font-size: 1.2em;
+  font-size: a.$font-size-xlarge;
 }
 
 @media (max-width: 600px) {

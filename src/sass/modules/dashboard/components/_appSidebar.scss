@@ -3,14 +3,14 @@
 .--appSidebar {
   width: 5em !important;
   display: flex !important;
-  text-align: center !important;
-  align-items: center !important;
+  text-align: center;
+  align-items: center;
   overflow: hidden;
   z-index: 1000;
 }
 
 .--appSidebar h2 {
-  padding: 0.21em 1em !important;
+  padding: 0.21em 1em;
   font-size: a.$font-size-xxxlarge;
   color: a.$beige;
   border-bottom: 1px solid a.$darker-gray;
@@ -47,18 +47,3 @@
     display: none !important;
   }
 }
-
-
-//.canvas-container {
-//  width: 50% !important;
-//  height: 50% !important;
-//}
-//
-//.lower-canvas {
-//  width: 100% !important;
-//  height: 100% !important;
-//}
-//.upper-canvas {
-//  width: 100% !important;
-//  height: 100% !important;
-//}
