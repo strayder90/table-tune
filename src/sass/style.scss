@@ -1,7 +1,6 @@
 @use '../assets/css/reset.css';
 @use 'app/components/normalize';
 @use 'modules/auth/layout/auth-layout';
-@use 'modules/auth/forms/auth_form-utils';
 @use 'modules/dashboard/pages/fallback-page';
 @use 'modules/dashboard/components/appSidebar';
 @use 'modules/dashboard/components/bottomNav';

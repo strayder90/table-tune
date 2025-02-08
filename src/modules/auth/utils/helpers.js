@@ -38,15 +38,15 @@ export const validateUsersSignupCredentials = ({email, username}) => {
 
     if (existingEmail) {
         return {
-            message: 'Email is already in use.',
-            path: 'email'
+            path: 'email',
+            message: 'Email is already in use.'
         };
     }
 
     if (existingUsername) {
         return {
-            message: 'Username is already in use.',
-            path: 'username'
+            path: 'username',
+            message: 'Username is already in use.'
         };
     }
 

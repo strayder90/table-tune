@@ -9,7 +9,6 @@ const CustomInput = forwardRef(({
     key,
     name,
     control,
-    rules,
     defaultValue,
     label,
     icon,
@@ -23,13 +22,11 @@ const CustomInput = forwardRef(({
                 key={key}
                 name={name}
                 control={control}
-                rules={rules}
                 defaultValue={defaultValue}
                 render={({field}) => (
                     <>
                         {type === 'date' ? (
                             <DatePicker
-                                className='--form-input-field'
                                 {...field}
                                 selected={field.value ? new Date(field.value) : null}
                                 onChange={(date) => field.onChange(date)}
@@ -39,7 +36,6 @@ const CustomInput = forwardRef(({
                             />
                         ) : (
                             <Form.Input
-                                className='--form-input-field'
                                 {...field}
                                 label={label}
                                 icon={icon}
@@ -62,9 +58,6 @@ CustomInput.propTypes = {
     key: PropTypes.string,
     name: PropTypes.string,
     control: PropTypes.object,
-    rules: PropTypes.shape({
-        required: PropTypes.string
-    }),
     defaultValue: PropTypes.string,
     label: PropTypes.string,
     icon: PropTypes.string,

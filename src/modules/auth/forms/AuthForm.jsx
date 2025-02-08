@@ -5,7 +5,8 @@ import {useNavigate} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
 
-import CustomInput from '../../auth/components/CustomInput.jsx';
+import CustomInput from '@appComponents/CustomInput.jsx';
+
 import {handleSignupFormSubmit, handleLoginFormSubmit} from '../utils/helpers.js';
 
 const AuthForm = ({multiple, fields, formSchemaValidator, formName, buttonText}) => {
@@ -65,7 +66,7 @@ const AuthForm = ({multiple, fields, formSchemaValidator, formName, buttonText})
                             errors={errors}
                         />
                     ))}
-                <Button className='--form-button-text-size' primary type='submit' fluid>
+                <Button primary type='submit' fluid>
                     {buttonText}
                 </Button>
             </Form>

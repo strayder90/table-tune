@@ -4,7 +4,7 @@ import {useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {Button, ButtonGroup, ButtonOr, Form} from 'semantic-ui-react';
 
-import CustomInput from '@modules/auth/components/CustomInput.jsx';
+import CustomInput from '@appComponents/CustomInput.jsx';
 import {prepareDataForSubmit} from '@utils/formHelpers.jsx';
 
 import {events} from '../data/events.js';

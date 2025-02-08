@@ -1,7 +1,7 @@
 import React from 'react';
 import {Modal} from 'semantic-ui-react';
 
-import {generateNumericID} from '@/utils/utils.js';
+import {formatDate, generateNumericID} from '@/utils/utils.js';
 
 export const useCreateForm = (FormComponent, Model, params = {}) => {
     const {formName, fields, formSchemaValidator, multiple = []} = Model();
@@ -26,9 +26,12 @@ export const useCreateForm = (FormComponent, Model, params = {}) => {
 export const prepareDataForSubmit = (data) => {
     return {
         id: generateNumericID(),
-        ...data
+        date: formatDate(data.date),
+        entry: data.entry,
+        title: data.title,
     };
 };
+
 
 export const showFormModal = ({className, isVisible, onClose, header, children}) => {
     return (

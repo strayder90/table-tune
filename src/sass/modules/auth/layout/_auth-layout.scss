@@ -1,39 +1,61 @@
-.--auth-layout {
-  margin: 5rem auto !important;
-  width: 100%;
-  max-width: 437px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 20px 30px rgba(0, 0, 0, 0.1) !important;
-  border-radius: 8px !important;
-  padding: 2em !important;
-}
+@use '../../../app/abstracts' as a;
 
-.ui.text.container {
-  width: 100%;
+.--auth-layout-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 600px) {
-  .ui.text.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0 !important;
-  }
+.--auth-layout {
+  max-width: 437px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 20px 30px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+}
 
-  main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90vw;
+.--auth-main input::placeholder {
+  color: a.$gray !important;
+  font-size: a.$font-size-large !important;
+}
+
+.--auth-main button {
+  font-size: a.$font-size-large !important;
+  letter-spacing: 0.05em;
+}
+
+.--auth-main h1 {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.--auth-main h1 + p {
+  color: a.$gray;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.--auth-main p {
+  text-align: center;
+  margin-top: 1em;
+  font-size: a.$font-size-large !important;
+  line-height: 20px !important;
+}
+
+@media screen and (max-width: 600px) {
+  .--auth-layout-container {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: translateX(0);
+    margin: 0 auto;
   }
 
   .--auth-layout {
-    height: 100vh !important;
-    width: 100vw !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+    margin: 0 !important;
+    height: 100vh;
   }
 }
