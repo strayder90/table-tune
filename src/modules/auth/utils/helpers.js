@@ -1,6 +1,6 @@
 import {toast} from 'react-toastify';
 
-import {prepareDataForSubmit} from '@/utils/formHelpers.jsx';
+import {prepareDataForSubmit} from '@modules/events/utils/helpers.js';
 
 export const handleSignupFormSubmit = (data, navigate) => {
     if (!data) return;

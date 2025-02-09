@@ -23,7 +23,7 @@ export const AddEventModel = () => ({
         {
             key: 'date',
             name: 'date',
-            defaultValue: '',
+            defaultValue: new Date(),
             icon: 'calendar alternate outline',
             type: 'date',
             placeholder: 'Date'

@@ -5,9 +5,10 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import {Button, ButtonGroup, ButtonOr, Form} from 'semantic-ui-react';
 
 import CustomInput from '@appComponents/CustomInput.jsx';
-import {prepareDataForSubmit} from '@utils/formHelpers.jsx';
 
 import {events} from '../data/events.js';
+
+import {prepareDataForSubmit} from '@modules/events/utils/helpers.js';
 
 const EventForm = ({
     multiple,
@@ -58,15 +59,15 @@ const EventForm = ({
                             errors={errors}
                         />
                     ))}
-                {/*<ButtonGroup widths={2} floated='right'>*/}
-                {/*    <Button primary>{buttonTextSave}</Button>*/}
-                {/*    <ButtonOr />*/}
-                {/*    <Button onClick={closeModal}>{buttonTextCancel}</Button>*/}
-                {/*</ButtonGroup>*/}
-                <div className='--addEventForm__submitButtons'>
-                    <Button size='large' primary>{buttonTextSave}</Button>
-                    <Button size='large' onClick={closeModal}>{buttonTextCancel}</Button>
-                </div>
+                <ButtonGroup className='--addEventForm__submitButtons' widths={2} floated='right'>
+                    <Button primary>{buttonTextSave}</Button>
+                    <ButtonOr />
+                    <Button onClick={closeModal}>{buttonTextCancel}</Button>
+                </ButtonGroup>
+                {/*<div className='--addEventForm__submitButtons'>*/}
+                {/*    <Button size='large' primary>{buttonTextSave}</Button>*/}
+                {/*    <Button size='large' onClick={closeModal}>{buttonTextCancel}</Button>*/}
+                {/*</div>*/}
             </Form>
         </>
     );

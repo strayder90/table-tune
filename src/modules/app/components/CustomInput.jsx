@@ -3,6 +3,7 @@ import {Controller} from 'react-hook-form';
 import {Form} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
+
 import 'react-datepicker/dist/react-datepicker.css';
 
 const CustomInput = forwardRef(({
@@ -28,8 +29,7 @@ const CustomInput = forwardRef(({
                         {type === 'date' ? (
                             <DatePicker
                                 {...field}
-                                selected={field.value ? new Date(field.value) : null}
-                                onChange={(date) => field.onChange(date)}
+                                selected={field.value ? new Date(field.value) : defaultValue}
                                 placeholderText={placeholder}
                                 dateFormat='dd-MM-yyyy'
                                 ref={ref}

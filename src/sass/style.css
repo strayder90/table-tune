@@ -711,11 +711,6 @@ template {
   padding: 0;
 }
 
-@media screen and (max-width: 600px) {
-  .image-wrapper {
-    display: none;
-  }
-}
 .--event-index-dropdownButtons {
   margin: 0 !important;
   align-content: center;
@@ -806,7 +801,7 @@ template {
   }
 }
 .--addEventForm__modal {
-  padding: 1em;
+  padding: 0.5em;
 }
 
 .--addEventForm__modal input {
@@ -820,9 +815,7 @@ template {
 }
 
 .--addEventForm__submitButtons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 5px;
+  margin: 10px auto !important;
 }
 
 /*# sourceMappingURL=style.css.map */

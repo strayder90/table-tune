@@ -1,7 +1,7 @@
 @use '../../../app/abstracts' as a;
 
 .--addEventForm__modal {
-  padding: 1em;
+  padding: 0.5em;
 }
 
 .--addEventForm__modal input {
@@ -15,7 +15,5 @@
 }
 
 .--addEventForm__submitButtons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 5px;
+  margin: 10px auto !important;
 }
