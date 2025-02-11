@@ -1,6 +1,6 @@
 import {toast} from 'react-toastify';
 
-import {prepareDataForSubmit} from '@modules/events/utils/helpers.js';
+import {generateNumericID} from '@utils/utils.js';
 
 export const handleSignupFormSubmit = (data, navigate) => {
     if (!data) return;
@@ -78,4 +78,11 @@ export const isOnlyNumbers = (input) => {
 
 export const sum = (a, b) => {
     return a + b;
+};
+
+export const prepareDataForSubmit = (data) => {
+    return {
+        id: generateNumericID(),
+        ...data,
+    };
 };

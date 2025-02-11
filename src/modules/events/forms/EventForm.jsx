@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useForm} from 'react-hook-form';
-import {zodResolver} from '@hookform/resolvers/zod';
 import {Button, ButtonGroup, ButtonOr, Form, FormGroup} from 'semantic-ui-react';
 
 import CustomInput from '@appComponents/CustomInput.jsx';
 import {prepareDataForSubmit} from '@modules/events/utils/helpers.js';
+import useDefaultForm from '@modules/app/hooks/useDefaultForm.jsx';
 
 import {events} from '../data/events.js';
 
@@ -20,32 +19,43 @@ const EventForm = ({
 }) => {
     const {
         handleSubmit,
-        formState: {errors},
         control,
-        reset
-    } = useForm({
-        resolver: zodResolver(formSchemaValidator)
+        errors
+    } = useDefaultForm({
+        formSchemaValidator,
+        onSubmit: (data) => {
+            if (formName === 'add') {
+                const formData = prepareDataForSubmit(data);
+                events.unshift(formData);
+                closeModal();
+            } else if (formName === 'edit') {
+                console.log('in edit');
+            }
+        },
+        multiple
     });
 
-    const onSubmit = (data) => {
-        if (formName === 'add') {
-            const formData = prepareDataForSubmit(data);
-
-            events.unshift(formData);
-            closeModal();
-        } else if (formName === 'edit') {
-            console.log('in edit');
-        }
-
-        reset();
-    };
-
     return (
-        <>
-            <Form onSubmit={handleSubmit(onSubmit)}>
-                {fields
-                    .filter((field) => !multiple || !multiple.some((mf) => mf.key === field.key))
-                    .map((field) => (
+        <Form onSubmit={handleSubmit}>
+            {fields
+                .filter((field) => !multiple || !multiple.some((mf) => mf.key === field.key))
+                .map((field) => (
+                    <CustomInput
+                        key={field.key}
+                        name={field.name}
+                        control={control}
+                        defaultValue={field.defaultValue}
+                        label={field.label}
+                        icon={field.icon}
+                        type={field.type}
+                        placeholder={field.placeholder}
+                        hidden={field.hidden}
+                        errors={errors}
+                    />
+                ))}
+            {multiple && (
+                <FormGroup>
+                    {multiple.map((field) => (
                         <CustomInput
                             key={field.key}
                             name={field.name}
@@ -55,38 +65,17 @@ const EventForm = ({
                             icon={field.icon}
                             type={field.type}
                             placeholder={field.placeholder}
-                            hidden={field.hidden}
                             errors={errors}
                         />
                     ))}
-                {multiple && (
-                    <FormGroup>
-                        {multiple.map((field) => (
-                            <CustomInput
-                                key={field.key}
-                                name={field.name}
-                                control={control}
-                                defaultValue={field.defaultValue}
-                                label={field.label}
-                                icon={field.icon}
-                                type={field.type}
-                                placeholder={field.placeholder}
-                                errors={errors}
-                            />
-                        ))}
-                    </FormGroup>
-                )}
-                <ButtonGroup className='--addEventForm__submitButtons' widths={2} floated='right'>
-                    <Button primary>{buttonTextSave}</Button>
-                    <ButtonOr />
-                    <Button onClick={closeModal}>{buttonTextCancel}</Button>
-                </ButtonGroup>
-                {/*<div className='--addEventForm__submitButtons'>*/}
-                {/*    <Button size='large' primary>{buttonTextSave}</Button>*/}
-                {/*    <Button size='large' onClick={closeModal}>{buttonTextCancel}</Button>*/}
-                {/*</div>*/}
-            </Form>
-        </>
+                </FormGroup>
+            )}
+            <ButtonGroup className='--addEventForm__submitButtons' widths={2} floated='right'>
+                <Button primary>{buttonTextSave}</Button>
+                <ButtonOr/>
+                <Button onClick={closeModal}>{buttonTextCancel}</Button>
+            </ButtonGroup>
+        </Form>
     );
 };
 
@@ -97,6 +86,7 @@ EventForm.propTypes = {
     formName: PropTypes.string.isRequired,
     buttonTextSave: PropTypes.string.isRequired,
     buttonTextCancel: PropTypes.string.isRequired,
-    closeModal: PropTypes.func.isRequired,
+    closeModal: PropTypes.func.isRequired
 };
+
 export default EventForm;

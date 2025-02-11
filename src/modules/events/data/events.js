@@ -4,7 +4,7 @@ export const events = [
     {id: 3, image: '/src/assets/images/Edita & Cvija.jpg', title: 'Edita & Cvija', supportedByDj: 'Dex', date: '15.12.2024', isEventSupportedByDj: true},
     {id: 4, image: '/src/assets/images/Ladies night.jpg', title: 'Ladies Night', date: '16.12.2024', entry: 25},
     {id: 5, image: '/src/assets/images/Barbara Bobak.jpg', title: 'Barbara Bobak', date: '18.12.2024'},
-    {id: 6, image: '/src/assets/images/Breskvica.jpg', title: 'Breskvica', date: '13.12.2024', entry: 15},
+    {id: 6, image: '/src/assets/images/Breskvica.jpg', title: 'Breskvica', supportedByDj: 'Alex', date: '13.12.2024', entry: 15, isEventSupportedByDj: true},
     {id: 7, image: '/src/assets/images/Djani.jpg', title: 'Djani', date: '14.12.2024', entry: 10},
     {id: 8, image: '/src/assets/images/Edita & Cvija.jpg', title: 'Edita & Cvija', date: '15.12.2024'},
     {id: 9, image: '/src/assets/images/Ladies night.jpg', title: 'Ladies Night', date: '16.12.2024'},
