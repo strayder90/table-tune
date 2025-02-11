@@ -652,6 +652,7 @@ template {
   display: flex;
   flex-direction: column;
   height: 100%;
+  margin-bottom: 1.5em !important;
 }
 
 .--event-content-section .content {
@@ -659,7 +660,7 @@ template {
 }
 
 .--event-content-section .extra {
-  padding: 0 0 0.5em 0.5em !important;
+  padding: 0.5em 0 0.5em 0.5em !important;
 }
 
 .--event-content-section .column {
@@ -678,10 +679,6 @@ template {
 
 .--event-content-section .content a {
   font-weight: bold !important;
-}
-
-.--event-content-section .card {
-  margin-bottom: 1.5em !important;
 }
 
 .--event-content-section p {
