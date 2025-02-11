@@ -22,17 +22,6 @@
   margin-bottom: 1.5em !important;
 }
 
-.image-wrapper {
-  height: 35em;
-}
-
-.event-image {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  object-position: center;
-}
-
 .--event-content-section p {
   display: inline;
   font-size: a.$font-size-large !important;
@@ -65,18 +54,4 @@
 .--event-content-section .icon-container .ui.basic.button {
   margin-left: 1em;
   padding: 0;
-}
-
-@media screen and (max-width: 600px) {
-  //.image-wrapper {
-  //  display: none;
-  //}
-
-  //.ui.six.column.grid {
-  //  margin: 0 -1.1em 3em -1em !important;
-  //}
-  //
-  //.ui.six.column.grid .column {
-  //  margin-bottom: 1.3em;
-  //}
 }

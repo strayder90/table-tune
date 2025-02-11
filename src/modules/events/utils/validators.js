@@ -9,9 +9,7 @@ export const AddEventFormValidators = {
     }).refine(value => isOnlyStrings(value), {
         message: 'Title must contain only letters'
     }),
-    entry: z.string().refine(value => value.trim() !== '', {
-        message: 'Entry price is required'
-    }).refine(value => isOnlyNumbers(value), {
+    entry: z.string().optional().refine(value => value ? isOnlyNumbers(value) : true, {
         message: 'Price must be only numbers'
     }),
     date: z.date().refine(value => formatDate(value), {

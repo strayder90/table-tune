@@ -666,17 +666,6 @@ template {
   margin-bottom: 1.5em !important;
 }
 
-.image-wrapper {
-  height: 35em;
-}
-
-.event-image {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  object-position: center;
-}
-
 .--event-content-section p {
   display: inline;
   font-size: 18px !important;
