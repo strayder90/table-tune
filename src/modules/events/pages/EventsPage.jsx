@@ -11,7 +11,7 @@ import EventIndexButtons from '@modules/events/components/EventIndexButtons.jsx'
 import AddEventForm from '@modules/events/forms/AddEventForm.jsx';
 import {showFormModal} from '@utils/formHelpers.jsx';
 
-import {events} from '../data/events.js';
+import {events} from '../../../DB/events/events.js';
 
 const EventsPage = () => {
     const [activePage, setActivePage] = useState(1);
