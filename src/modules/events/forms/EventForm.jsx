@@ -37,22 +37,6 @@ const EventForm = ({
 
     return (
         <Form onSubmit={handleSubmit}>
-            {fields
-                .filter((field) => !multiple || !multiple.some((mf) => mf.key === field.key))
-                .map((field) => (
-                    <CustomInput
-                        key={field.key}
-                        name={field.name}
-                        control={control}
-                        defaultValue={field.defaultValue}
-                        label={field.label}
-                        icon={field.icon}
-                        type={field.type}
-                        placeholder={field.placeholder}
-                        hidden={field.hidden}
-                        errors={errors}
-                    />
-                ))}
             {multiple && (
                 <FormGroup>
                     {multiple.map((field) => (
@@ -70,6 +54,22 @@ const EventForm = ({
                     ))}
                 </FormGroup>
             )}
+            {fields
+                .filter((field) => !multiple || !multiple.some((mf) => mf.key === field.key))
+                .map((field) => (
+                    <CustomInput
+                        key={field.key}
+                        name={field.name}
+                        control={control}
+                        defaultValue={field.defaultValue}
+                        label={field.label}
+                        icon={field.icon}
+                        type={field.type}
+                        placeholder={field.placeholder}
+                        hidden={field.hidden}
+                        errors={errors}
+                    />
+                ))}
             <ButtonGroup className='--addEventForm__submitButtons' widths={2} floated='right'>
                 <Button primary>{buttonTextSave}</Button>
                 <ButtonOr/>
