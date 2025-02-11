@@ -648,6 +648,24 @@ template {
   color: #543A14 !important;
 }
 
+.--event-content-section .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.--event-content-section .content {
+  padding-bottom: 0 !important;
+}
+
+.--event-content-section .extra {
+  padding: 0 0 0.5em 0.5em !important;
+}
+
+.--event-content-section .column {
+  padding-bottom: 1em;
+}
+
 .--event-content-section .header {
   font-size: 1.5em !important;
   color: #543A14 !important;
@@ -791,6 +809,26 @@ template {
 }
 .--addEventForm__modal {
   padding: 0.5em;
+}
+
+.--addEventForm__modal .content .fields {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.--addEventForm__modal .content .fields .react-datepicker-wrapper {
+  margin-left: 7px;
+}
+
+.--addEventForm__modal .content .fields .field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+
+.--addEventForm__modal .content .fields .checkbox {
+  margin-right: 7px;
 }
 
 .--addEventForm__modal input {

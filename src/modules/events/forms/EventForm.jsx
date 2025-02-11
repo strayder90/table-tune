@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
-import {Button, ButtonGroup, ButtonOr, Form} from 'semantic-ui-react';
+import {Button, ButtonGroup, ButtonOr, Form, FormGroup} from 'semantic-ui-react';
 
 import CustomInput from '@appComponents/CustomInput.jsx';
+import {prepareDataForSubmit} from '@modules/events/utils/helpers.js';
 
 import {events} from '../data/events.js';
-
-import {prepareDataForSubmit} from '@modules/events/utils/helpers.js';
 
 const EventForm = ({
     multiple,
@@ -56,9 +55,27 @@ const EventForm = ({
                             icon={field.icon}
                             type={field.type}
                             placeholder={field.placeholder}
+                            hidden={field.hidden}
                             errors={errors}
                         />
                     ))}
+                {multiple && (
+                    <FormGroup>
+                        {multiple.map((field) => (
+                            <CustomInput
+                                key={field.key}
+                                name={field.name}
+                                control={control}
+                                defaultValue={field.defaultValue}
+                                label={field.label}
+                                icon={field.icon}
+                                type={field.type}
+                                placeholder={field.placeholder}
+                                errors={errors}
+                            />
+                        ))}
+                    </FormGroup>
+                )}
                 <ButtonGroup className='--addEventForm__submitButtons' widths={2} floated='right'>
                     <Button primary>{buttonTextSave}</Button>
                     <ButtonOr />

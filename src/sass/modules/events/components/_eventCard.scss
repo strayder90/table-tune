@@ -4,6 +4,24 @@
   color: a.$brown !important;
 }
 
+.--event-content-section .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.--event-content-section .content {
+  padding-bottom: 0 !important;
+}
+
+.--event-content-section .extra {
+  padding: 0 0 0.5em 0.5em !important;
+}
+
+.--event-content-section .column {
+  padding-bottom: 1em;
+}
+
 .--event-content-section .header {
   font-size: a.$font-size-xxlarge !important;
   color: a.$brown !important;

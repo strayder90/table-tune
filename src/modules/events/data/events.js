@@ -1,7 +1,7 @@
 export const events = [
-    {id: 1, image: '/src/assets/images/Andreana Cekic.jpg', title: 'Andreana Cekic', date: '13.12.2024', entry: 20},
+    {id: 1, image: '/src/assets/images/Andreana Cekic.jpg', title: 'Andreana Cekic', supportedByDj: 'Infinity', date: '13.12.2024', entry: 20, isEventSupportedByDj: true},
     {id: 2, image: '/src/assets/images/Djani.jpg', title: 'Djani', date: '14.12.2024'},
-    {id: 3, image: '/src/assets/images/Edita & Cvija.jpg', title: 'Edita & Cvija', date: '15.12.2024'},
+    {id: 3, image: '/src/assets/images/Edita & Cvija.jpg', title: 'Edita & Cvija', supportedByDj: 'Dex', date: '15.12.2024', isEventSupportedByDj: true},
     {id: 4, image: '/src/assets/images/Ladies night.jpg', title: 'Ladies Night', date: '16.12.2024', entry: 25},
     {id: 5, image: '/src/assets/images/Barbara Bobak.jpg', title: 'Barbara Bobak', date: '18.12.2024'},
     {id: 6, image: '/src/assets/images/Breskvica.jpg', title: 'Breskvica', date: '13.12.2024', entry: 15},

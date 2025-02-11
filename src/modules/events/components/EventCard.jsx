@@ -11,18 +11,21 @@ const deleteEvent = () => {
     console.log('delete');
 };
 
-const EventCard = ({title, date, entry}) => (
+const EventCard = ({title, supportedByDj, entry, date, isEventSupportedByDj = false}) => (
     <Card color={entry ? 'red' : 'green'} fluid>
         <CardContent>
             <CardHeader>{title}</CardHeader>
-            <CardDescription>
-                {`Date: ${date}`}
-            </CardDescription>
+            {isEventSupportedByDj && <CardDescription>
+                {`Dj: ${supportedByDj}`}
+            </CardDescription>}
             <p>Entry: </p>
             <CardDescription
                 className={entry ? '--custom-card-description__negative' : '--custom-card-description__positive'}
             >
                 {entry ? `${entry}€` : 'Free'}
+            </CardDescription>
+            <CardDescription>
+                {`Date: ${date}`}
             </CardDescription>
         </CardContent>
         <CardContent extra>
@@ -46,8 +49,10 @@ const EventCard = ({title, date, entry}) => (
 
 EventCard.propTypes = {
     title: PropTypes.string.isRequired,
+    supportedByDj: PropTypes.string.isRequired,
+    entry: PropTypes.number,
     date: PropTypes.string.isRequired,
-    entry: PropTypes.number
+    isEventSupportedByDj: PropTypes.bool,
 };
 
 export default EventCard;

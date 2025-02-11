@@ -29,8 +29,10 @@ const EventsPage = () => {
                 <EventCard
                     image={event.image}
                     title={event.title}
-                    date={event.date}
+                    supportedByDj={event.supportedByDj}
                     entry={event.entry}
+                    date={event.date}
+                    isEventSupportedByDj={event.isEventSupportedByDj}
                 />
             </GridColumn>
         ));
