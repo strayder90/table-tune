@@ -6,6 +6,7 @@ const CustomModal = ({
     className,
     header,
     isVisible,
+    dimmer,
     content,
     onClose
 }) => {
@@ -14,7 +15,7 @@ const CustomModal = ({
             className={className}
             open={isVisible}
             onClose={onClose}
-            dimmer={'blurring'}
+            dimmer={dimmer ? dimmer : ''}
             size='tiny'
         >
             <Modal.Header>{header}</Modal.Header>
@@ -29,6 +30,7 @@ CustomModal.propTypes = {
     className: PropTypes.string,
     header: PropTypes.string,
     isVisible: PropTypes.bool,
+    dimmer: PropTypes.string,
     content: PropTypes.node,
     onClose: PropTypes.func
 };
