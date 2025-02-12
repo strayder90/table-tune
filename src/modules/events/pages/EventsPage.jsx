@@ -73,8 +73,8 @@ const EventsPage = () => {
                 <CustomModal
                     className='--addEventForm__modal'
                     header='Add new Event'
-                    isVisible={isVisible}
                     content={<AddEventForm onClose={() => setIsVisible(false)}/>}
+                    isVisible={isVisible}
                     onClose={() => setIsVisible(false)}
                 />
             }
