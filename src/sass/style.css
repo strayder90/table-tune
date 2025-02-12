@@ -857,4 +857,16 @@ template {
   margin: 10px auto !important;
 }
 
+@media (max-width: 600px) {
+  .--addEventForm__modal .fields {
+    margin-bottom: 1em !important;
+  }
+  .--addEventForm__modal span i {
+    display: none;
+  }
+  .--addEventForm__modal .content .fields .react-datepicker-wrapper {
+    width: 50%;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
