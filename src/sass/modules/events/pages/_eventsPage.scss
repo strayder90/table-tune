@@ -49,25 +49,6 @@
   color: a.$brown;;
 }
 
-.modal {
-  position: absolute;
-  width: 100%;
-  justify-content: center;
-  transition: opacity 1s ease, transform 1s ease !important;
-}
-
-.modal--visible {
-  opacity: 1;
-  pointer-events: initial;
-  transform: scale(1);
-}
-
-.modal--invisible {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.95);
-}
-
 @media screen and (max-width: 600px) {
   .main-content header h1 {
     font-size: a.$font-size-xxlarge !important;

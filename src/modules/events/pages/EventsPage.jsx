@@ -9,17 +9,14 @@ import HeaderRenderer from '@appComponents/HeaderRenderer.jsx';
 import EventFilters from '@modules/events/components/EventFilters.jsx';
 import EventIndexButtons from '@modules/events/components/EventIndexButtons.jsx';
 import AddEventForm from '@modules/events/forms/AddEventForm.jsx';
-import {showFormModal} from '@utils/formHelpers.jsx';
-
-import {events} from '../../../DB/events/events.js';
+import {events} from '@/DB/events/events.js';
+import CustomModal from '@appComponents/CustomModal.jsx';
 
 const EventsPage = () => {
     const [activePage, setActivePage] = useState(1);
     const [isVisible, setIsVisible] = useState(false);
     const {searchQuery, filteredEvents, handleSearch} = useEventFilters(events);
     const currentEvents = rangeOfEventsToBeDisplayed(filteredEvents, activePage);
-
-    const toggleModalShow = () => setIsVisible((prevState) => !prevState);
 
     const handlePageChange = (e, {activePage}) => setActivePage(activePage);
 
@@ -43,7 +40,7 @@ const EventsPage = () => {
                 className='--event-form-section'
                 pageTitle={'Andreana Cekic - FR, 13.12.2024 - 20€'}
                 buttons={EventIndexButtons}
-                buttonsProps={{addNewEvent: toggleModalShow}}
+                buttonsProps={{addNewEvent: setIsVisible}}
                 filters={EventFilters}
                 filtersProps={{searchQuery, handleSearch}}
             />
@@ -73,13 +70,13 @@ const EventsPage = () => {
             )}
 
             {
-                showFormModal({
-                    className: '--addEventForm__modal',
-                    isVisible: isVisible,
-                    onClose: toggleModalShow,
-                    header: 'Add new Event',
-                    children: <AddEventForm onClose={toggleModalShow}/>
-                })
+                <CustomModal
+                    className='--addEventForm__modal'
+                    header='Add new Event'
+                    isVisible={isVisible}
+                    content={<AddEventForm onClose={() => setIsVisible(false)}/>}
+                    onClose={() => setIsVisible(false)}
+                />
             }
         </>
     );

@@ -769,25 +769,6 @@ template {
   color: #543A14;
 }
 
-.modal {
-  position: absolute;
-  width: 100%;
-  justify-content: center;
-  transition: opacity 1s ease, transform 1s ease !important;
-}
-
-.modal--visible {
-  opacity: 1;
-  pointer-events: initial;
-  transform: scale(1);
-}
-
-.modal--invisible {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.95);
-}
-
 @media screen and (max-width: 600px) {
   .main-content header h1 {
     font-size: 1.5em !important;
@@ -802,6 +783,40 @@ template {
   }
   .--pagination-container {
     display: none;
+  }
+}
+.--addEventForm__modal {
+  animation: fadeInModal ease-in-out;
+}
+
+@keyframes fadeInModal {
+  0% {
+    opacity: 0;
+    transform: translateY(-5em);
+  }
+  15% {
+    opacity: 0.1;
+    transform: translateY(-2.5em);
+  }
+  25% {
+    opacity: 0.25;
+    transform: translateY(-1.5em);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  65% {
+    opacity: 0.65;
+    transform: translateY(0.65em);
+  }
+  75% {
+    opacity: 0.75;
+    transform: translateY(0.75em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(1em);
   }
 }
 .--addEventForm__modal {

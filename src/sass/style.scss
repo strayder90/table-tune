@@ -9,4 +9,5 @@
 @use 'modules/events/components/eventCard';
 @use 'modules/events/components/eventIndexButtons';
 @use 'modules/events/pages/eventsPage';
+@use 'app/components/CustomModal';
 @use 'modules/events/forms/addEventForm';
