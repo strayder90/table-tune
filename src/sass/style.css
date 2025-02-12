@@ -867,8 +867,8 @@ template {
   .--addEventForm__modal span i {
     display: none;
   }
-  .--addEventForm__modal .content .fields .react-datepicker-wrapper {
-    width: 50%;
+  .--addEventForm__modal .react-datepicker-wrapper {
+    width: 105px;
   }
 }
 
