@@ -868,6 +868,9 @@ template {
     display: none;
   }
   .--addEventForm__modal .react-datepicker-wrapper {
+    width: 50%;
+  }
+  .--addEventForm__modal .react-datepicker__input-container {
     width: 105px;
   }
 }
