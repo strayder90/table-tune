@@ -1,5 +1,20 @@
+@use '../abstracts' as a;
+
+.modals {
+  animation: fadeInBackground ease-in-out;
+}
+
 .--addEventForm__modal {
   animation: fadeInModal ease-in-out;
+}
+
+@keyframes fadeInBackground {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInModal {
