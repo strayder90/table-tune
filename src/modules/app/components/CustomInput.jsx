@@ -30,6 +30,7 @@ const CustomInput = forwardRef(({
                 <>
                     {type === 'date' ? (
                         <DatePicker
+                            className='--custom-input__datepicker'
                             {...field}
                             selected={field.value ? new Date(field.value) : defaultValue}
                             placeholderText={placeholder}
@@ -37,7 +38,7 @@ const CustomInput = forwardRef(({
                             ref={ref}
                         />
                     ) : type === 'checkbox' ? (
-                        <Form.Field error={errors[name] ? {content: errors[name]?.message, pointing: 'below'} : null}>
+                        <Form.Field className='--custom-input__checkbox' error={errors[name] ? {content: errors[name]?.message, pointing: 'below'} : null}>
                             <span>{label}</span>
                             <span><Icon name={icon} /></span>
                             <Checkbox

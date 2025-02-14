@@ -834,6 +834,17 @@ template {
     transform: translateY(1em);
   }
 }
+.--custom-input__datepicker {
+  margin-left: 7px !important;
+}
+
+.--custom-input__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-right: 7px !important;
+}
+
 .--addEventForm__modal {
   padding: 0.5em;
 }
@@ -841,21 +852,6 @@ template {
 .--addEventForm__modal .content .fields {
   justify-content: space-between;
   align-items: center;
-}
-
-.--addEventForm__modal .content .fields .react-datepicker-wrapper {
-  margin-left: 7px;
-}
-
-.--addEventForm__modal .content .fields .field {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1em;
-}
-
-.--addEventForm__modal .content .fields .checkbox {
-  margin-right: 7px;
 }
 
 .--addEventForm__modal input {
