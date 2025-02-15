@@ -645,6 +645,12 @@ template {
   margin-bottom: 3em;
 }
 
+@media screen and (max-width: 600px) {
+  .--dashboard-layout .main-content {
+    flex: 1;
+    margin: 0;
+  }
+}
 .main-content header h1 {
   color: #543A14 !important;
 }
