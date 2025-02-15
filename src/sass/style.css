@@ -565,7 +565,7 @@ template {
     bottom: 0;
     left: 0;
     width: 100% !important;
-    height: 8em !important;
+    height: 5em !important;
     background-color: #1b1c1d;
     display: flex;
     justify-content: space-between;
@@ -578,6 +578,7 @@ template {
     flex-direction: column;
     align-items: center;
     transition: color 0.3s;
+    padding-bottom: 1em;
   }
   .nav-item.active {
     color: #F0BB78;
