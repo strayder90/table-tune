@@ -1,7 +1,7 @@
 @use '../../../app/abstracts' as a;
 
 .--addEventForm__modal {
-  padding: 0.5em;
+  padding: 0;
 }
 
 .--addEventForm__modal .content .fields {
@@ -21,6 +21,7 @@
 
 .--addEventForm__submitButtons {
   margin: 10px auto !important;
+  width: 50% !important;
 }
 
 @media (max-width: 600px) {

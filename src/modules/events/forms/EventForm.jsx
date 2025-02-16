@@ -5,8 +5,7 @@ import {Button, ButtonGroup, ButtonOr, Form, FormGroup} from 'semantic-ui-react'
 import CustomInput from '@appComponents/CustomInput.jsx';
 import {prepareDataForSubmit} from '@modules/events/utils/helpers.js';
 import useDefaultForm from '@modules/app/hooks/useDefaultForm.jsx';
-
-import {events} from '../../../DB/events/events.js';
+import {events} from '@/DB/events/events.js';
 
 const EventForm = ({
     multiple,

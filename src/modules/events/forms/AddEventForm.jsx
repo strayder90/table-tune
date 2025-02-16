@@ -5,7 +5,7 @@ import EventForm from '@modules/events/forms/EventForm.jsx';
 import {AddEventModel} from '@modules/events/forms/AddEventModel.jsx';
 
 const AddEventForm = ({onClose}) => {
-    const Form = useCreateForm(EventForm, AddEventModel, {buttonTextSave: 'Save', buttonTextCancel: 'Cancel', closeModal: onClose});
+    const Form = useCreateForm(EventForm, AddEventModel, {buttonTextSave: 'Save', buttonTextCancel: 'Close', closeModal: onClose});
 
     return (
         <>
