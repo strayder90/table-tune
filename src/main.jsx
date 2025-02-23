@@ -10,12 +10,10 @@ import App from './App.jsx';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
-root.render(
-    <React.StrictMode>
-        <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
-            <ErrorBoundary>
-                <App/>
-            </ErrorBoundary>
-        </BrowserRouter>
-    </React.StrictMode>
-);
+root.render(<React.StrictMode>
+    <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
+        <ErrorBoundary>
+            <App/>
+        </ErrorBoundary>
+    </BrowserRouter>
+</React.StrictMode>);
