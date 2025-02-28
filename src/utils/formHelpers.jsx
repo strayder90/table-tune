@@ -7,9 +7,9 @@ export const useCreateForm = (FormComponent, Model, params = {}) => {
         <>
             <FormComponent
                 multiple={multiple}
-                formName={formName}
                 fields={fields}
                 formSchemaValidator={formSchemaValidator}
+                formName={formName}
                 {...params}
             />
         </>

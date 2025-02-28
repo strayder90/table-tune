@@ -11,15 +11,18 @@ import ReservationPage from '@modules/dashboard/pages/ReservationPage.jsx';
 import MenuPage from '@modules/dashboard/pages/MenuPage.jsx';
 import UserSettingsPage from '@modules/dashboard/pages/UserSettings.jsx';
 import EventsPage from '@modules/events/pages/EventsPage.jsx';
+import {Navigate} from 'react-router-dom';
+
+const isAuthenticated = () => !!localStorage.getItem('isAuthenticated');
 
 const routes = [
     {
         path: '/',
-        element: <LoginForm/>
+        element: isAuthenticated() ? <Navigate to='/tabletune/tables' replace /> : <LoginForm/>
     },
     {
         path: '/signup',
-        element: <SignupForm/>
+        element: isAuthenticated() ? <Navigate to='/tabletune/tables' replace /> : <SignupForm/>
     },
     {
         path: '/tabletune',
