@@ -19,7 +19,7 @@ const AuthGuard = ({children}) => {
                 navigate('/');
                 toast.warn('Please log in to continue to this page.');
             }
-        }, 5000);
+        }, 3000);
 
         return () => clearTimeout(timeout);
     }, [is_authenticated, navigate]);
