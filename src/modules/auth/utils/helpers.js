@@ -1,5 +1,6 @@
 import {toast} from 'react-toastify';
 
+import {login, logout} from '@/redux/authentication/AuthSlice';
 import {generateNumericID} from '@utils/utils.js';
 
 export const handleSignupFormSubmit = (data, navigate) => {
@@ -16,7 +17,7 @@ export const handleSignupFormSubmit = (data, navigate) => {
 };
 
 
-export const handleLoginFormSubmit = (data, navigate) => {
+export const handleLoginFormSubmit = (data, navigate, dispatch) => {
     if (!data) return;
 
     const wrongUserCredentials = validateLoginCredentials(data.username, data.password);
@@ -25,11 +26,15 @@ export const handleLoginFormSubmit = (data, navigate) => {
         return;
     }
 
-    localStorage.setItem('isAuthenticated', JSON.stringify(true));
-
+    dispatch(login());
     navigate('/tabletune/tables');
 };
 
+export const handleLogout = (navigate, dispatch) => {
+    dispatch(logout());
+
+    navigate('/');
+};
 
 export const validateUsersSignupCredentials = ({email, username}) => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -38,15 +43,13 @@ export const validateUsersSignupCredentials = ({email, username}) => {
 
     if (existingEmail) {
         return {
-            path: 'email',
-            message: 'Email is already in use.'
+            path: 'email', message: 'Email is already in use.'
         };
     }
 
     if (existingUsername) {
         return {
-            path: 'username',
-            message: 'Username is already in use.'
+            path: 'username', message: 'Username is already in use.'
         };
     }
 
@@ -82,7 +85,6 @@ export const sum = (a, b) => {
 
 export const prepareDataForSubmit = (data) => {
     return {
-        id: generateNumericID(),
-        ...data,
+        id: generateNumericID(), ...data
     };
 };

@@ -1,33 +1,39 @@
 import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {Dimmer, Loader} from 'semantic-ui-react';
+import {useSelector} from 'react-redux';
+import {Backdrop, LinearProgress, Typography, Box} from '@mui/material';
 import {toast} from 'react-toastify';
 
 const AuthGuard = ({children}) => {
     const navigate = useNavigate();
+    const is_authenticated = useSelector((state) => state.authSlice.is_authenticated);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
 
-            if (!isAuthenticated) {
+            if (is_authenticated) {
+                setLoading(false);
+            } else {
                 navigate('/');
                 toast.warn('Please log in to continue to this page.');
-            } else {
-                setLoading(false);
             }
-        }, 1000);
+        }, 5000);
 
         return () => clearTimeout(timeout);
-    }, [navigate]);
+    }, [is_authenticated, navigate]);
 
     if (loading) {
         return (
-            <Dimmer active inverted>
-                <Loader size='huge'>Loading</Loader>
-            </Dimmer>
+            <Backdrop open={true} invisible>
+                <Box sx={{width: '35%'}}>
+                    <Typography color='warning' variant='h4' align='center' gutterBottom>
+                        Loading...
+                    </Typography>
+                    <LinearProgress color='warning'/>
+                </Box>
+            </Backdrop>
         );
     }
 

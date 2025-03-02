@@ -1,6 +1,6 @@
 import {useRoutes} from 'react-router-dom';
 
-import routes from './routes.jsx';
+import routes from '@modules/routes.jsx';
 
 const TableTuneRouter = () => {
     return useRoutes(routes);

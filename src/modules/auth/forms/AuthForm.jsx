@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Button, Form, FormGroup} from 'semantic-ui-react';
 import {useNavigate} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
 
 import CustomInput from '@appComponents/CustomInput.jsx';
 import useDefaultForm from '@modules/app/hooks/useDefaultForm.jsx';
@@ -10,6 +11,7 @@ import {handleSignupFormSubmit, handleLoginFormSubmit} from '../utils/helpers.js
 
 const AuthForm = ({multiple, fields, formSchemaValidator, formName, buttonText}) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const {
         handleSubmit,
@@ -21,10 +23,10 @@ const AuthForm = ({multiple, fields, formSchemaValidator, formName, buttonText})
             if (formName === 'SignupForm') {
                 handleSignupFormSubmit(data, navigate);
             } else if (formName === 'LoginForm') {
-                handleLoginFormSubmit(data, navigate);
+                handleLoginFormSubmit(data, navigate, dispatch);
             }
         },
-        multiple
+        multiple: multiple
     });
 
     return (

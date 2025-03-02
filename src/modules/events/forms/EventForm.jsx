@@ -31,7 +31,7 @@ const EventForm = ({
                 console.log('in edit');
             }
         },
-        multiple
+        multiple: multiple
     });
 
     return (

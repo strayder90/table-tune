@@ -1,4 +1,5 @@
 import React from 'react';
+import {Navigate} from 'react-router-dom';
 
 import HomePage from '@modules/dashboard/pages/HomePage.jsx';
 import FallbackPage from '@modules/dashboard/pages/FallbackPage.jsx';
@@ -11,7 +12,6 @@ import ReservationPage from '@modules/dashboard/pages/ReservationPage.jsx';
 import MenuPage from '@modules/dashboard/pages/MenuPage.jsx';
 import UserSettingsPage from '@modules/dashboard/pages/UserSettings.jsx';
 import EventsPage from '@modules/events/pages/EventsPage.jsx';
-import {Navigate} from 'react-router-dom';
 
 const isAuthenticated = () => !!localStorage.getItem('isAuthenticated');
 
