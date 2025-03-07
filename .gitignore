@@ -26,3 +26,5 @@ dev-dist
 
 # Coverage directory
 coverage/
+
+.env
