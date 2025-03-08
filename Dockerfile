@@ -18,4 +18,3 @@ EXPOSE 5173
 
 # Command to run the app (use `npm run build` for production)
 CMD ["npm", "start"]
-

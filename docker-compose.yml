@@ -11,3 +11,5 @@ services:
     volumes:
       - ${FE_APP_PATH}:/usr/src/app
     command: [ "sh", "-c", "npm install --ignore-scripts && npm run start" ]
+    env_file:
+      - .env
