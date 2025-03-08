@@ -8,6 +8,9 @@ const authSlice = createSlice({
     name: 'authentication',
     initialState,
     reducers: {
+        checkAuth(state) {
+            state.is_authenticated = localStorage.getItem('is_authenticated') === 'true';
+        },
         login(state) {
             localStorage.setItem('is_authenticated', 'true');
             state.is_authenticated = true;
@@ -19,5 +22,5 @@ const authSlice = createSlice({
     }
 });
 
-export const {login, logout} = authSlice.actions;
+export const {checkAuth, login, logout} = authSlice.actions;
 export default authSlice.reducer;
