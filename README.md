@@ -39,4 +39,4 @@ This will show the permissions of the Docker binary.
 
 1. Clone this repo
 2. Go to repo root directory
-3. run docker compose up --build (add a -d flag if you don't want to see all process)
+3. Run docker-compose up --build (add the -d flag if you want to run it in detached mode and prevent output from displaying)
