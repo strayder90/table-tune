@@ -1,9 +1,27 @@
 # table-tune
 
 # Pre-install steps
-
 Make sure you have linux system like Ubuntu or any other.
+
 If not you can use WSL for windows and install sub-system like Ubuntu.
+
+WSL
+
+Install:
+
+Open PowerShell as Administrator and run the following commands:
+
+1. wsl --install -> This will install both WSL 2 and Ubuntu
+2. wsl --set-default-version 2 -> update to version 2
+3. wsl --list --verbose -> After installation, verify that WSL 2 is installed by running
+
+You should see something like:
+
+NAME * Ubuntu
+STATE *Running
+VERSION *2
+
+# GITHUB
 Make sure your git is installed and github profile is setup and ready to be used.
 
 # Docker
