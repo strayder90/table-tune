@@ -65,7 +65,7 @@ const EventsPage = () => {
                 <Message
                     className='--no-events-message'
                     icon='calendar times outline'
-                    header='No events found'
+                    header='There are no events found'
                 />
             )}
 
