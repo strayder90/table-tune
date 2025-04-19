@@ -4,16 +4,17 @@ import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import {Backdrop, LinearProgress, Typography, Box} from '@mui/material';
 import {toast} from 'react-toastify';
+import {selectIsAuthenticated} from "@/redux/authentication/authSelectors.js";
 
 const AuthGuard = ({children}) => {
     const navigate = useNavigate();
-    const is_authenticated = useSelector((state) => state.authSlice.is_authenticated);
+    const isAuthenticated = useSelector(selectIsAuthenticated);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
 
-            if (is_authenticated) {
+            if (isAuthenticated) {
                 setLoading(false);
             } else {
                 navigate('/');
@@ -22,7 +23,7 @@ const AuthGuard = ({children}) => {
         }, 3000);
 
         return () => clearTimeout(timeout);
-    }, [is_authenticated, navigate]);
+    }, [isAuthenticated, navigate]);
 
     if (loading) {
         return (

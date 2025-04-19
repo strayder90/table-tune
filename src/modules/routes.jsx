@@ -1,6 +1,5 @@
 import React from 'react';
 import {Navigate} from 'react-router-dom';
-import {useSelector} from 'react-redux';
 
 import HomePage from '@modules/dashboard/pages/HomePage.jsx';
 import FallbackPage from '@modules/dashboard/pages/FallbackPage.jsx';
@@ -13,10 +12,9 @@ import ReservationPage from '@modules/dashboard/pages/ReservationPage.jsx';
 import MenuPage from '@modules/dashboard/pages/MenuPage.jsx';
 import UserSettingsPage from '@modules/dashboard/pages/UserSettings.jsx';
 import EventsPage from '@modules/events/pages/EventsPage.jsx';
+import PropTypes from "prop-types";
 
-const RoutesConfig = () => {
-    const isAuthenticated = useSelector((state) => state.authSlice.is_authenticated);
-
+const RoutesConfig = ({isAuthenticated}) => {
     return [
         {
             path: '/',
@@ -48,5 +46,9 @@ const RoutesConfig = () => {
         }
     ];
 };
+
+RoutesConfig.propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired,
+}
 
 export default RoutesConfig;

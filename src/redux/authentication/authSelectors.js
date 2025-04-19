@@ -1,0 +1,1 @@
+export const selectIsAuthenticated = (state) => state.authSlice.is_authenticated;

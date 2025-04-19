@@ -4,10 +4,11 @@ import {useRoutes} from 'react-router-dom';
 
 import RoutesConfig from '@modules/routes.jsx';
 import {checkAuth} from '@/redux/authentication/AuthSlice.js';
+import {selectIsAuthenticated} from "@/redux/authentication/authSelectors.js";
 
 const TableTuneRouter = () => {
     const dispatch = useDispatch();
-    const isAuthenticated = useSelector((state) => state.authSlice.is_authenticated);
+    const isAuthenticated = useSelector(selectIsAuthenticated);
 
     useEffect(() => {
         dispatch(checkAuth());
