@@ -13,8 +13,12 @@ import MenuPage from '@modules/dashboard/pages/MenuPage.jsx';
 import UserSettingsPage from '@modules/dashboard/pages/UserSettings.jsx';
 import EventsPage from '@modules/events/pages/EventsPage.jsx';
 import PropTypes from "prop-types";
+import {useSelector} from "react-redux";
+import {selectIsAuthenticated} from "@/redux/authentication/authSelectors.js";
 
-const RoutesConfig = ({isAuthenticated}) => {
+const RoutesConfig = () => {
+    const isAuthenticated = useSelector(selectIsAuthenticated);
+
     return [
         {
             path: '/',
