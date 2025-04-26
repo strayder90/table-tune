@@ -27,7 +27,7 @@ export const handleLoginFormSubmit = (data, navigate, dispatch) => {
     }
 
     dispatch(login());
-    navigate('/tabletune/tables');
+    navigate('/table-tune/tables');
 };
 
 export const handleLogout = (navigate, dispatch) => {

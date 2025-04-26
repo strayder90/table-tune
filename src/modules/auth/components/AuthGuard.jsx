@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
 import {Backdrop, LinearProgress, Typography, Box} from '@mui/material';
 import {toast} from 'react-toastify';
-import {selectIsAuthenticated} from "@/redux/authentication/authSelectors.js";
+
+import {selectIsAuthenticated} from '@/redux/authentication/authSelectors.js';
 
 const AuthGuard = ({children}) => {
     const navigate = useNavigate();

@@ -29,7 +29,7 @@ const EventCard = ({title, supportedByDj, entry, date, isEventSupportedByDj = fa
             </CardDescription>
         </CardContent>
         <CardContent extra>
-            <Link to='/tabletune/crew'>
+            <Link to='/table-tune/crew'>
                 <Icon name='comment alternate outline'/>
                 Do I work?
             </Link>

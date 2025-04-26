@@ -11,7 +11,7 @@ export const Navbar = () => {
 
     return (
         <nav className='--navbar'>
-            <NavLink to='/tabletune/user-settings' className='nav-item'>
+            <NavLink to='/table-tune/user-settings' className='nav-item'>
                 <Icon name='user outline'/>
                 <span>John Doe</span>
             </NavLink>

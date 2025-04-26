@@ -15,19 +15,19 @@ export const AppSidebar = () => {
                 width='very thin'
             >
                 <h2>TT</h2>
-                <NavLink end to='/tabletune/tables' className='nav-item'>
+                <NavLink end to='/table-tune/tables' className='nav-item'>
                     <Icon size='large' name='table'/>
                     <span>Tables</span>
                 </NavLink>
-                <NavLink to='/tabletune/events' className='nav-item'>
+                <NavLink to='/table-tune/events' className='nav-item'>
                     <Icon size='large' name='calendar alternate outline'/>
                     <span>Events</span>
                 </NavLink>
-                <NavLink to='/tabletune/reservations' className='nav-item'>
+                <NavLink to='/table-tune/reservations' className='nav-item'>
                     <Icon size='large' name='list alternate outline'/>
                     <span>Bookings</span>
                 </NavLink>
-                <NavLink to='/tabletune/crew' className='nav-item'>
+                <NavLink to='/table-tune/crew' className='nav-item'>
                     <Icon size='large' name='users'/>
                     <span>Crew</span>
                 </NavLink>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Navigate} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
 import HomePage from '@modules/dashboard/pages/HomePage.jsx';
 import FallbackPage from '@modules/dashboard/pages/FallbackPage.jsx';
@@ -12,9 +13,7 @@ import ReservationPage from '@modules/dashboard/pages/ReservationPage.jsx';
 import MenuPage from '@modules/dashboard/pages/MenuPage.jsx';
 import UserSettingsPage from '@modules/dashboard/pages/UserSettings.jsx';
 import EventsPage from '@modules/events/pages/EventsPage.jsx';
-import PropTypes from "prop-types";
-import {useSelector} from "react-redux";
-import {selectIsAuthenticated} from "@/redux/authentication/authSelectors.js";
+import {selectIsAuthenticated} from '@/redux/authentication/authSelectors.js';
 
 const RoutesConfig = () => {
     const isAuthenticated = useSelector(selectIsAuthenticated);
@@ -22,14 +21,14 @@ const RoutesConfig = () => {
     return [
         {
             path: '/',
-            element: isAuthenticated ? <Navigate to='/tabletune/tables' replace/> : <LoginForm/>
+            element: isAuthenticated ? <Navigate to='/table-tune/tables' replace/> : <LoginForm/>
         },
         {
             path: '/signup',
-            element: isAuthenticated ? <Navigate to='/tabletune/tables' replace/> : <SignupForm/>
+            element: <SignupForm/>
         },
         {
-            path: '/tabletune',
+            path: '/table-tune',
             element: (
                 <AuthGuard>
                     <Dashboard/>
@@ -50,9 +49,5 @@ const RoutesConfig = () => {
         }
     ];
 };
-
-RoutesConfig.propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired,
-}
 
 export default RoutesConfig;
