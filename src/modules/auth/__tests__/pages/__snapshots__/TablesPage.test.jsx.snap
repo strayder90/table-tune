@@ -1,18 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`HomePage test suite > renders without crashing 1`] = `
-<div>
-  <h1>
-    Welcome to the Home Page!
-  </h1>
-  <button
-    class="ui red button"
-  >
-    Logout
-  </button>
-</div>
-`;
-
 exports[`TablesPage test suite > renders without crashing 1`] = `
 <div>
   <h1>

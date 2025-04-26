@@ -4,7 +4,7 @@ import {render, screen} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
 import {userEvent} from '@testing-library/user-event';
 
-import HomePage from '@modules/dashboard/pages/HomePage.jsx';
+import TablesPage from '@modules/dashboard/pages/TablesPage.jsx';
 
 const mockNavigate = vi.fn();
 vi.doMock('react-router-dom', () => ({
@@ -12,11 +12,11 @@ vi.doMock('react-router-dom', () => ({
     useNavigate: () => mockNavigate
 }));
 
-describe('HomePage test suite', () => {
+describe('TablesPage test suite', () => {
     test('renders without crashing', () => {
         const {container} = render(
             <MemoryRouter>
-                <HomePage/>
+                <TablesPage/>
             </MemoryRouter>
         );
         expect(container).toMatchSnapshot();
@@ -33,7 +33,7 @@ describe('HomePage test suite', () => {
 
         render(
             <MemoryRouter>
-                <HomePage/>
+                <TablesPage/>
             </MemoryRouter>
         );
 

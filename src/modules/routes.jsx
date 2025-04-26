@@ -2,7 +2,6 @@ import React from 'react';
 import {Navigate} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 
-import HomePage from '@modules/dashboard/pages/HomePage.jsx';
 import FallbackPage from '@modules/dashboard/pages/FallbackPage.jsx';
 import Dashboard from '@modules/dashboard/layout/Dashboard.jsx';
 import SignupForm from '@modules/auth/forms/SignupForm.jsx';
@@ -14,6 +13,7 @@ import MenuPage from '@modules/dashboard/pages/MenuPage.jsx';
 import UserSettingsPage from '@modules/dashboard/pages/UserSettings.jsx';
 import EventsPage from '@modules/events/pages/EventsPage.jsx';
 import {selectIsAuthenticated} from '@/redux/authentication/authSelectors.js';
+import TablesPage from '@modules/dashboard/pages/TablesPage.jsx';
 
 const RoutesConfig = () => {
     const isAuthenticated = useSelector(selectIsAuthenticated);
@@ -35,7 +35,7 @@ const RoutesConfig = () => {
                 </AuthGuard>
             ),
             children: [
-                {path: 'tables', element: <HomePage/>},
+                {path: 'tables', element: <TablesPage/>},
                 {path: 'events', element: <EventsPage/>},
                 {path: 'reservations', element: <ReservationPage/>},
                 {path: 'crew', element: <CrewPage/>},
