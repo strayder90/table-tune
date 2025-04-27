@@ -31,6 +31,10 @@ export const AppSidebar = () => {
                     <Icon size='large' name='users'/>
                     <span>Crew</span>
                 </NavLink>
+                <NavLink to='/table-tune/users' className='nav-item'>
+                    <Icon size='large' name='user plus'/>
+                    <span>Users</span>
+                </NavLink>
             </Sidebar>
         </>
     );

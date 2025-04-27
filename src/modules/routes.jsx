@@ -10,10 +10,11 @@ import AuthGuard from '@modules/auth/components/AuthGuard.jsx';
 import CrewPage from '@modules/dashboard/pages/CrewPage.jsx';
 import ReservationPage from '@modules/dashboard/pages/ReservationPage.jsx';
 import MenuPage from '@modules/dashboard/pages/MenuPage.jsx';
-import UserSettingsPage from '@modules/dashboard/pages/UserSettings.jsx';
 import EventsPage from '@modules/events/pages/EventsPage.jsx';
 import {selectIsAuthenticated} from '@/redux/authentication/authSelectors.js';
 import TablesPage from '@modules/dashboard/pages/TablesPage.jsx';
+import UsersPage from '@modules/users/pages/UsersPage.jsx';
+import UserSettingsPage from '@modules/dashboard/pages/UserSettings.jsx';
 
 const RoutesConfig = () => {
     const isAuthenticated = useSelector(selectIsAuthenticated);
@@ -40,6 +41,7 @@ const RoutesConfig = () => {
                 {path: 'reservations', element: <ReservationPage/>},
                 {path: 'crew', element: <CrewPage/>},
                 {path: 'menu', element: <MenuPage/>},
+                {path: 'users', element: <UsersPage/>},
                 {path: 'user-settings', element: <UserSettingsPage/>}
             ]
         },
