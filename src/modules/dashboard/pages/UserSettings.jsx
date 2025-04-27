@@ -1,9 +1,14 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
+
+import {selectUser} from '@/redux/authentication/authSelectors.js';
 
 const UserSettingsPage = () => {
+    const user = useSelector(selectUser);
+
     return (
         <>
-            <h1>Welcome to the USER SETTINGS Page!</h1>
+            <h1>{`Welcome ${user.firstName} to the USER SETTINGS Page!`}</h1>
         </>
     );
 };

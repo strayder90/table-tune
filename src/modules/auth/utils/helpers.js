@@ -5,13 +5,10 @@ import {generateNumericID} from '@utils/utils.js';
 
 export const handleSignupFormSubmit = (data, navigate) => {
     if (!data) return;
-    const users = JSON.parse(localStorage.getItem('users')) || [];
 
     const preparedUser = prepareDataForSubmit(data);
 
-    users.push(preparedUser);
-
-    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('user', JSON.stringify(preparedUser));
 
     navigate('/');
 };
@@ -20,13 +17,20 @@ export const handleSignupFormSubmit = (data, navigate) => {
 export const handleLoginFormSubmit = (data, navigate, dispatch) => {
     if (!data) return;
 
+    const user = JSON.parse(localStorage.getItem('user')) || {};
     const wrongUserCredentials = validateLoginCredentials(data.username, data.password);
 
     if (wrongUserCredentials) {
         return;
     }
 
-    dispatch(login());
+    const userData = {
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+    };
+
+    dispatch(login(userData));
     navigate('/table-tune/tables');
 };
 
@@ -57,10 +61,9 @@ export const validateUsersSignupCredentials = ({email, username}) => {
 };
 
 export const validateLoginCredentials = (username, password) => {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const existingUser = users.find(user => user.username === username && user.password === password);
-
-    if (!existingUser) {
+    const user = JSON.parse(localStorage.getItem('user')) || {};
+    
+    if (username !== user.username && password !== user.password) {
         return toast.error('Invalid username or password');
     }
 
