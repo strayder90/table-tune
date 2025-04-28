@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 import {useRoutes} from 'react-router-dom';
 
 import RoutesConfig from '@modules/routes.jsx';
-import {checkAuth} from '@/redux/authentication/AuthSlice.js';
+import {checkAuth} from '@/redux/authentication/authActions.js';
 
 const TableTuneRouter = () => {
     const dispatch = useDispatch();

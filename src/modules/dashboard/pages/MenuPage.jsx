@@ -3,7 +3,7 @@ import {Button} from '@mui/material';
 import {useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 
-import {logout} from '@/redux/authentication/AuthSlice';
+import {logout} from '@/redux/authentication/authActions.js';
 
 const MenuPage = () => {
     const dispatch = useDispatch();

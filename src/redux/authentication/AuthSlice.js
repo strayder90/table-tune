@@ -9,26 +9,18 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        checkAuth(state) {
-            const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
-            const user = JSON.parse(localStorage.getItem('user'));
-
-            state.isAuthenticated = isAuthenticated;
-            state.user = user;
-        },
-        login(state, action) {
-            localStorage.setItem('isAuthenticated', 'true');
-            localStorage.setItem('user', JSON.stringify(action.payload));
-            state.isAuthenticated = true;
+        setUser(state, action) {
             state.user = action.payload;
         },
-        logout(state) {
-            localStorage.removeItem('isAuthenticated');
+        setIsUserAuthenticated(state, action) {
+            state.isAuthenticated = action.payload.isAuthenticated;
+        },
+        clearAuth(state) {
             state.isAuthenticated = false;
             state.user = null;
         }
     }
 });
 
-export const {checkAuth, login, logout} = authSlice.actions;
+export const {setUser, setIsUserAuthenticated, clearAuth} = authSlice.actions;
 export default authSlice.reducer;

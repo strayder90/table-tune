@@ -1,14 +1,14 @@
 import {toast} from 'react-toastify';
 
-import {login, logout} from '@/redux/authentication/AuthSlice';
 import {generateNumericID} from '@utils/utils.js';
+import {registerUser, logout, login} from '@/redux/authentication/authActions.js';
 
-export const handleSignupFormSubmit = (data, navigate) => {
+export const handleSignupFormSubmit = (data, navigate, dispatch) => {
     if (!data) return;
 
     const preparedUser = prepareDataForSubmit(data);
 
-    localStorage.setItem('user', JSON.stringify(preparedUser));
+    dispatch(registerUser(preparedUser));
 
     navigate('/');
 };
@@ -17,20 +17,13 @@ export const handleSignupFormSubmit = (data, navigate) => {
 export const handleLoginFormSubmit = (data, navigate, dispatch) => {
     if (!data) return;
 
-    const user = JSON.parse(localStorage.getItem('user')) || {};
     const wrongUserCredentials = validateLoginCredentials(data.username, data.password);
 
     if (wrongUserCredentials) {
         return;
     }
 
-    const userData = {
-        id: user.id,
-        firstName: user.firstName,
-        lastName: user.lastName,
-    };
-
-    dispatch(login(userData));
+    dispatch(login());
     navigate('/table-tune/tables');
 };
 
@@ -62,7 +55,7 @@ export const validateUsersSignupCredentials = ({email, username}) => {
 
 export const validateLoginCredentials = (username, password) => {
     const user = JSON.parse(localStorage.getItem('user')) || {};
-    
+
     if (username !== user.username && password !== user.password) {
         return toast.error('Invalid username or password');
     }
@@ -86,8 +79,17 @@ export const sum = (a, b) => {
     return a + b;
 };
 
-export const prepareDataForSubmit = (data) => {
+export const prepareDataForSubmit = (user) => {
+    const userData = {
+        username: user.username,
+        email: user.email,
+        password: user.password,
+        firstName: user.firstName,
+        lastName: user.lastName,
+    };
+
     return {
-        id: generateNumericID(), ...data
+        id: generateNumericID(),
+        ...userData
     };
 };
