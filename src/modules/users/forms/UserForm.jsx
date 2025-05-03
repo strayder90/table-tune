@@ -28,6 +28,7 @@ const UserForm = ({
 
     return (
         <BaseForm
+            className='--users-form'
             multiple={multiple}
             fields={fields}
             formSchemaValidator={formSchemaValidator}

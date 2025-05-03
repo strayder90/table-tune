@@ -8,7 +8,7 @@ const UserSettingsPage = () => {
 
     return (
         <>
-            <h1>{`Welcome ${user.firstName} to the USER SETTINGS Page!`}</h1>
+            <h1>{`Welcome ${user?.firstName} to the USER SETTINGS Page!`}</h1>
         </>
     );
 };

@@ -675,65 +675,65 @@ template {
   color: #543A14 !important;
 }
 
-.--event-content-section .card {
+.--content-section .card {
   display: flex;
   flex-direction: column;
   height: 100%;
   margin-bottom: 1.5em !important;
 }
 
-.--event-content-section .content {
+.--content-section .content {
   padding-bottom: 0 !important;
 }
 
-.--event-content-section .extra {
+.--content-section .extra {
   padding: 0.5em 0 0.5em 0.5em !important;
 }
 
-.--event-content-section .column {
+.--content-section .column {
   padding-bottom: 1em;
 }
 
-.--event-content-section .header {
+.--content-section .header {
   font-size: 1.5em !important;
   color: #543A14 !important;
 }
 
-.--event-content-section .description {
+.--content-section .description {
   font-size: 18px !important;
   color: #543A14 !important;
 }
 
-.--event-content-section .content a {
+.--content-section .content a {
   font-weight: bold !important;
 }
 
-.--event-content-section p {
+.--content-section p {
   display: inline;
   font-size: 18px !important;
   margin-right: 5px !important;
 }
 
-.--event-content-section .description.--custom-card-description__negative {
+.--content-section .description.--custom-card-description__negative {
   display: inline;
   font-weight: bolder !important;
   color: #e31414 !important;
 }
 
-.--event-content-section .description.--custom-card-description__positive {
+.--content-section .description.--custom-card-description__positive {
   display: inline;
   font-weight: bolder !important;
   color: #00A500 !important;
 }
 
-.--event-content-section .icon-container {
+.--content-section .icon-container {
   float: right;
   display: flex;
   cursor: pointer;
   align-items: center;
 }
 
-.--event-content-section .icon-container .ui.basic.button {
+.--content-section .icon-container .ui.basic.button {
   margin-left: 1em;
   padding: 0;
 }
@@ -743,23 +743,23 @@ template {
   padding-bottom: 1em;
 }
 
-.--event-form-section {
+.--form-header-section {
   display: flex;
   padding-bottom: 1em;
   justify-content: space-between;
 }
 
-.--event-form-section input::placeholder {
+.--form-header-section input::placeholder {
   color: #969696 !important;
   font-size: 1.3em !important;
 }
 
-.--event-form-section button {
+.--form-header-section button {
   color: #543A14 !important;
   background: #F0BB78 !important;
 }
 
-.--event-content-section .content p {
+.--content-section .content p {
   color: #543A14 !important;
 }
 
@@ -787,14 +787,14 @@ template {
   .main-content header h1 {
     font-size: 1.5em !important;
   }
-  .--event-form-section {
+  .--form-section {
     gap: 0.5em;
   }
-  .--event-form-section input {
+  .--form-section input {
     border-radius: 2em !important;
     border: 1px solid #969696 !important;
   }
-  .--event-form-section input::placeholder {
+  .--form-section input::placeholder {
     color: #969696 !important;
     font-size: 18px !important;
   }
@@ -806,7 +806,7 @@ template {
   animation: fadeInBackground ease-in-out;
 }
 
-.--addEventForm__modal {
+.--add-form__modal {
   animation: fadeInModal ease-in-out;
 }
 
@@ -865,21 +865,21 @@ template {
     width: 46% !important;
   }
 }
-.--addEventForm__modal {
+.--add-form__modal {
   padding: 0;
 }
 
-.--addEventForm__modal .content .fields {
+.--add-form__modal .content .fields {
   justify-content: space-between;
   align-items: center;
 }
 
-.--addEventForm__modal input {
+.--add-form__modal input {
   width: 100% !important;
   border: 1px solid #c9c9c9 !important;
 }
 
-.--addEventForm__modal input::placeholder {
+.--add-form__modal input::placeholder {
   color: #969696 !important;
   font-size: 18px !important;
 }
@@ -890,13 +890,13 @@ template {
 }
 
 @media (max-width: 600px) {
-  .--addEventForm__modal .fields {
+  .--add-form__modal .fields {
     margin-bottom: 1em !important;
   }
-  .--addEventForm__modal .content .field {
+  .--add-form__modal .content .field {
     width: 50%;
   }
-  .--addEventForm__modal span i {
+  .--add-form__modal span i {
     display: none;
   }
 }

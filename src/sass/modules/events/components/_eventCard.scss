@@ -4,65 +4,65 @@
   color: a.$brown !important;
 }
 
-.--event-content-section .card {
+.--content-section .card {
   display: flex;
   flex-direction: column;
   height: 100%;
   margin-bottom: 1.5em !important;
 }
 
-.--event-content-section .content {
+.--content-section .content {
   padding-bottom: 0 !important;
 }
 
-.--event-content-section .extra {
+.--content-section .extra {
   padding: 0.5em 0 0.5em 0.5em !important;
 }
 
-.--event-content-section .column {
+.--content-section .column {
   padding-bottom: 1em;
 }
 
-.--event-content-section .header {
+.--content-section .header {
   font-size: a.$font-size-xxlarge !important;
   color: a.$brown !important;
 }
 
-.--event-content-section .description {
+.--content-section .description {
   font-size: a.$font-size-large !important;
   color: a.$brown !important;
 }
 
-.--event-content-section .content a {
+.--content-section .content a {
   font-weight: a.$font-weight-bold !important;
 }
 
-.--event-content-section p {
+.--content-section p {
   display: inline;
   font-size: a.$font-size-large !important;
   margin-right: 5px !important;
 }
 
-.--event-content-section .description.--custom-card-description__negative {
+.--content-section .description.--custom-card-description__negative {
   display: inline;
   font-weight: a.$font-weight-bolder !important;
   color: a.$red !important;
 }
 
-.--event-content-section .description.--custom-card-description__positive {
+.--content-section .description.--custom-card-description__positive {
   display: inline;
   font-weight: a.$font-weight-bolder !important;
   color: a.$green !important;
 }
 
-.--event-content-section .icon-container {
+.--content-section .icon-container {
   float: right;
   display: flex;
   cursor: pointer;
   align-items: center;
 }
 
-.--event-content-section .icon-container .ui.basic.button {
+.--content-section .icon-container .ui.basic.button {
   margin-left: 1em;
   padding: 0;
 }

@@ -13,8 +13,8 @@ const UsersPage = () => {
     return (
         <>
             <HeaderRenderer
-                className='--event-form-section'
-                pageTitle={'List of users'}
+                className='--form-header-section'
+                pageTitle={'Users'}
                 buttons={UsersIndexButtons}
                 buttonsProps={{addNewUser: setIsVisible}}
                 filters={EventFilters}
@@ -24,7 +24,7 @@ const UsersPage = () => {
 
             {
                 <CustomModal
-                    className='--addEventForm__modal'
+                    className='--add-form__modal'
                     header='Add new User'
                     content={<AddUserForm onClose={() => setIsVisible(false)}/>}
                     isVisible={isVisible}

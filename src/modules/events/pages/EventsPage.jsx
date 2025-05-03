@@ -37,7 +37,7 @@ const EventsPage = () => {
     return (
         <>
             <HeaderRenderer
-                className='--event-form-section'
+                className='--form-header-section'
                 pageTitle={'Andreana Cekic - FR, 13.12.2024 - 20€'}
                 buttons={EventIndexButtons}
                 buttonsProps={{addNewEvent: setIsVisible}}
@@ -47,7 +47,7 @@ const EventsPage = () => {
 
             {currentEvents && filteredEvents.length > 0 ? (
                 <>
-                    <Grid className='--event-content-section'>
+                    <Grid className='--content-section'>
                         <GridRow>{renderEventCards(currentEvents)}</GridRow>
                     </Grid>
 
@@ -71,7 +71,7 @@ const EventsPage = () => {
 
             {
                 <CustomModal
-                    className='--addEventForm__modal'
+                    className='--add-form__modal'
                     header='Add new Event'
                     content={<AddEventForm onClose={() => setIsVisible(false)}/>}
                     isVisible={isVisible}

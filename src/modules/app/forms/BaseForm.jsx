@@ -7,6 +7,7 @@ import CustomInput from '@appComponents/CustomInput.jsx';
 import {chunkArray} from '@utils/formHelpers.jsx';
 
 const BaseForm = ({
+    className = '',
     formSchemaValidator,
     onSubmit,
     fields,
@@ -67,6 +68,7 @@ const BaseForm = ({
                 ?.filter((field) => !multiple || !multiple.some((mf) => mf.key === field.key))
                 .map((field) => (
                     <CustomInput
+                        className={className}
                         key={field.key}
                         name={field.name}
                         control={control}
@@ -86,6 +88,7 @@ const BaseForm = ({
 };
 
 BaseForm.propTypes = {
+    className: PropTypes.string,
     formSchemaValidator: PropTypes.object.isRequired,
     onSubmit: PropTypes.func.isRequired,
     fields: PropTypes.array.isRequired,

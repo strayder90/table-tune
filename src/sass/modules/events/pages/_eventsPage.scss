@@ -5,23 +5,23 @@
   padding-bottom: 1em;
 }
 
-.--event-form-section {
+.--form-header-section {
   display: flex;
   padding-bottom: 1em;
   justify-content: space-between;
 }
 
-.--event-form-section input::placeholder {
+.--form-header-section input::placeholder {
   color: a.$gray !important;
   font-size: a.$font-size-xlarge !important;
 }
 
-.--event-form-section button {
+.--form-header-section button {
   color: a.$brown !important;
   background: a.$beige !important;
 }
 
-.--event-content-section .content p {
+.--content-section .content p {
   color: a.$brown !important;
 }
 
@@ -50,16 +50,16 @@
     font-size: a.$font-size-xxlarge !important;
   }
 
-  .--event-form-section {
+  .--form-section {
     gap: 0.5em;
   }
 
-  .--event-form-section input {
+  .--form-section input {
     border-radius: 2em !important;
     border: 1px solid a.$gray !important;
   }
 
-  .--event-form-section input::placeholder {
+  .--form-section input::placeholder {
     color: a.$gray !important;
     font-size: a.$font-size-large !important;
   }

@@ -1,20 +1,20 @@
 @use '../../../app/abstracts' as a;
 
-.--addEventForm__modal {
+.--add-form__modal {
   padding: 0;
 }
 
-.--addEventForm__modal .content .fields {
+.--add-form__modal .content .fields {
   justify-content: space-between;
   align-items: center;
 }
 
-.--addEventForm__modal input {
+.--add-form__modal input {
   width: 100% !important;
   border: 1px solid #c9c9c9 !important;
 }
 
-.--addEventForm__modal input::placeholder {
+.--add-form__modal input::placeholder {
   color: a.$gray !important;
   font-size: a.$font-size-large !important;
 }
@@ -25,15 +25,15 @@
 }
 
 @media (max-width: 600px) {
-  .--addEventForm__modal .fields {
+  .--add-form__modal .fields {
     margin-bottom: 1em !important;
   }
 
-  .--addEventForm__modal .content .field {
+  .--add-form__modal .content .field {
     width: 50%;
   }
 
-  .--addEventForm__modal span i {
+  .--add-form__modal span i {
     display: none;
   }
 }
