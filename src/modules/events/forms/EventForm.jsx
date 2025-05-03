@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button, ButtonGroup, ButtonOr, Form, FormGroup} from 'semantic-ui-react';
+import {Button, ButtonGroup, ButtonOr} from 'semantic-ui-react';
 
-import CustomInput from '@appComponents/CustomInput.jsx';
 import {prepareDataForSubmit} from '@modules/events/utils/helpers.js';
-import useDefaultForm from '@modules/app/hooks/useDefaultForm.jsx';
 import {events} from '@/DB/events/events.js';
-import {chunkArray} from '@utils/formHelpers.jsx';
+import BaseForm from '@modules/app/forms/BaseForm.jsx';
 
 const EventForm = ({
     multiple,
@@ -17,66 +15,31 @@ const EventForm = ({
     buttonTextCancel,
     closeModal
 }) => {
-    const {
-        handleSubmit,
-        control,
-        errors
-    } = useDefaultForm({
-        formSchemaValidator,
-        onSubmit: (data) => {
-            if (formName === 'add') {
-                const formData = prepareDataForSubmit(data);
-                events.unshift(formData);
-                closeModal();
-            } else if (formName === 'edit') {
-                console.log('in edit');
-            }
-        },
-        multiple: multiple
-    });
+    const onSubmit = (data) => {
+        if (formName === 'add') {
+            const formData = prepareDataForSubmit(data);
+            events.unshift(formData);
+            closeModal();
+        } else if (formName === 'edit') {
+            console.log('in edit');
+        }
+    };
 
     return (
-        <Form onSubmit={handleSubmit}>
-            {multiple && chunkArray(multiple, 2).map((row, rowIndex) => (
-                <FormGroup key={rowIndex}>
-                    {row.map((field) => (
-                        <CustomInput
-                            key={field.key}
-                            name={field.name}
-                            control={control}
-                            defaultValue={field.defaultValue}
-                            label={field.label}
-                            icon={field.icon}
-                            type={field.type}
-                            placeholder={field.placeholder}
-                            errors={errors}
-                        />
-                    ))}
-                </FormGroup>
-            ))}
-
-            {fields
-                ?.filter((field) => !multiple || !multiple.some((mf) => mf.key === field.key))
-                .map((field) => (
-                    <CustomInput
-                        key={field.key}
-                        name={field.name}
-                        control={control}
-                        defaultValue={field.defaultValue}
-                        label={field.label}
-                        icon={field.icon}
-                        type={field.type}
-                        placeholder={field.placeholder}
-                        hidden={field.hidden}
-                        errors={errors}
-                    />
-                ))}
-            <ButtonGroup className='--addEventForm__submitButtons' widths={2} floated='right'>
-                <Button primary>{buttonTextSave}</Button>
-                <ButtonOr/>
-                <Button onClick={closeModal}>{buttonTextCancel}</Button>
-            </ButtonGroup>
-        </Form>
+        <BaseForm
+            formSchemaValidator={formSchemaValidator}
+            fields={fields}
+            multiple={multiple}
+            onSubmit={onSubmit}
+            chunkMultiple={true}
+            renderButtons={() => (
+                <ButtonGroup className='--addEventForm__submitButtons' widths={2} floated='right'>
+                    <Button primary>{buttonTextSave}</Button>
+                    <ButtonOr />
+                    <Button onClick={closeModal}>{buttonTextCancel}</Button>
+                </ButtonGroup>
+            )}
+        />
     );
 };
 

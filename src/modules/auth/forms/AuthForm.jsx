@@ -1,11 +1,11 @@
+// AuthForm.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Button, Form, FormGroup} from 'semantic-ui-react';
+import {Button} from 'semantic-ui-react';
 import {useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
-import CustomInput from '@appComponents/CustomInput.jsx';
-import useDefaultForm from '@modules/app/hooks/useDefaultForm.jsx';
+import BaseForm from '@modules/app/forms/BaseForm.jsx';
 
 import {handleSignupFormSubmit, handleLoginFormSubmit} from '../utils/helpers.js';
 
@@ -13,60 +13,26 @@ const AuthForm = ({multiple, fields, formSchemaValidator, formName, buttonText})
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const {
-        handleSubmit,
-        control,
-        errors
-    } = useDefaultForm({
-        formSchemaValidator,
-        onSubmit: (data) => {
-            if (formName === 'SignupForm') {
-                handleSignupFormSubmit(data, navigate, dispatch);
-            } else if (formName === 'LoginForm') {
-                handleLoginFormSubmit(data, navigate, dispatch);
-            }
-        },
-        multiple: multiple
-    });
+    const onSubmit = (data) => {
+        if (formName === 'SignupForm') {
+            handleSignupFormSubmit(data, navigate, dispatch);
+        } else if (formName === 'LoginForm') {
+            handleLoginFormSubmit(data, navigate, dispatch);
+        }
+    };
 
     return (
-        <Form onSubmit={handleSubmit}>
-            {multiple && (
-                <FormGroup widths='equal'>
-                    {multiple.map((field) => (
-                        <CustomInput
-                            key={field.key}
-                            name={field.name}
-                            control={control}
-                            defaultValue={field.defaultValue}
-                            label={field.label}
-                            icon={field.icon}
-                            type={field.type}
-                            placeholder={field.placeholder}
-                            errors={errors}
-                        />
-                    ))}
-                </FormGroup>
+        <BaseForm
+            multiple={multiple}
+            fields={fields}
+            formSchemaValidator={formSchemaValidator}
+            onSubmit={onSubmit}
+            renderButtons={() => (
+                <Button primary type='submit' fluid>
+                    {buttonText}
+                </Button>
             )}
-            {fields
-                .filter((field) => !multiple || !multiple.some((mf) => mf.key === field.key))
-                .map((field) => (
-                    <CustomInput
-                        key={field.key}
-                        name={field.name}
-                        control={control}
-                        defaultValue={field.defaultValue}
-                        label={field.label}
-                        icon={field.icon}
-                        type={field.type}
-                        placeholder={field.placeholder}
-                        errors={errors}
-                    />
-                ))}
-            <Button primary type='submit' fluid>
-                {buttonText}
-            </Button>
-        </Form>
+        />
     );
 };
 
