@@ -71,8 +71,8 @@ CustomInput.displayName = 'CustomInput';
 
 CustomInput.propTypes = {
     className: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    control: PropTypes.object.isRequired,
+    name: PropTypes.string,
+    control: PropTypes.object,
     defaultValue: PropTypes.any,
     label: PropTypes.string,
     icon: PropTypes.string,

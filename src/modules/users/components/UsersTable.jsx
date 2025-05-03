@@ -6,7 +6,7 @@ import Columns from '@modules/users/components/Table/Columns.jsx';
 
 function UsersTable() {
     return (
-        <CustomTable columns={Columns} data={Rows} />
+        <CustomTable columns={Columns} data={Rows}  />
     );
 }
 export default UsersTable;

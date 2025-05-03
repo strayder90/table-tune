@@ -45,7 +45,7 @@ const UserList = ({data}) => {
 };
 
 UserList.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired,
+    data: PropTypes.arrayOf(PropTypes.object),
     onUserClick: PropTypes.func
 };
 

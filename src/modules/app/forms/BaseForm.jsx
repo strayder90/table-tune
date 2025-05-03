@@ -89,9 +89,9 @@ const BaseForm = ({
 
 BaseForm.propTypes = {
     className: PropTypes.string,
-    formSchemaValidator: PropTypes.object.isRequired,
-    onSubmit: PropTypes.func.isRequired,
-    fields: PropTypes.array.isRequired,
+    formSchemaValidator: PropTypes.object,
+    onSubmit: PropTypes.func,
+    fields: PropTypes.array,
     multiple: PropTypes.array,
     chunkMultiple: PropTypes.bool,
     renderButtons: PropTypes.func

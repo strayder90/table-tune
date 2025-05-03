@@ -46,12 +46,12 @@ const UserForm = ({
 
 UserForm.propTypes = {
     multiple: PropTypes.array,
-    fields: PropTypes.array.isRequired,
-    formSchemaValidator: PropTypes.object.isRequired,
-    formName: PropTypes.string.isRequired,
-    buttonTextSave: PropTypes.string.isRequired,
-    buttonTextCancel: PropTypes.string.isRequired,
-    closeModal: PropTypes.func.isRequired
+    fields: PropTypes.array,
+    formSchemaValidator: PropTypes.object,
+    formName: PropTypes.string,
+    buttonTextSave: PropTypes.string,
+    buttonTextCancel: PropTypes.string,
+    closeModal: PropTypes.func
 };
 
 export default UserForm;

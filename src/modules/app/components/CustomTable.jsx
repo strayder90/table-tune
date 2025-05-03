@@ -53,12 +53,12 @@ const CustomTable = ({columns, data}) => {
 CustomTable.propTypes = {
     columns: PropTypes.arrayOf(
         PropTypes.shape({
-            field: PropTypes.string.isRequired,
-            headerName: PropTypes.string.isRequired,
+            field: PropTypes.string,
+            headerName: PropTypes.string,
             align: PropTypes.oneOf(['left', 'right', 'center'])
         })
-    ).isRequired,
-    data: PropTypes.arrayOf(PropTypes.object).isRequired
+    ),
+    data: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default CustomTable;

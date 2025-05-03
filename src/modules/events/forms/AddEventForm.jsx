@@ -15,6 +15,6 @@ const AddEventForm = ({onClose}) => {
 };
 
 AddEventForm.propTypes = {
-    onClose: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
 };
 export default AddEventForm;

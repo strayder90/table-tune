@@ -30,7 +30,12 @@ const AuthGuard = ({children}) => {
         return (
             <Backdrop open={true} invisible>
                 <Box sx={{width: '35%'}}>
-                    <Typography color='warning' variant='h4' align='center' gutterBottom>
+                    <Typography
+                        color='warning'
+                        variant='h4'
+                        align='center'
+                        gutterBottom
+                    >
                         Loading...
                     </Typography>
                     <LinearProgress color='warning'/>

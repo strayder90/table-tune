@@ -51,7 +51,7 @@ const CustomNavigationMenu = ({title, items}) => {
 };
 
 CustomNavigationMenu.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     items: PropTypes.array
 };
 

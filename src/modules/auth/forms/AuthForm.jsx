@@ -1,4 +1,3 @@
-// AuthForm.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Button} from 'semantic-ui-react';
@@ -38,10 +37,10 @@ const AuthForm = ({multiple, fields, formSchemaValidator, formName, buttonText})
 
 AuthForm.propTypes = {
     multiple: PropTypes.array,
-    fields: PropTypes.array.isRequired,
-    formSchemaValidator: PropTypes.object.isRequired,
-    formName: PropTypes.string.isRequired,
-    buttonText: PropTypes.string.isRequired
+    fields: PropTypes.array,
+    formSchemaValidator: PropTypes.object,
+    formName: PropTypes.string,
+    buttonText: PropTypes.string
 };
 
 export default AuthForm;

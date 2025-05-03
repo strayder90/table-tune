@@ -48,10 +48,10 @@ const EventCard = ({title, supportedByDj, entry, date, isEventSupportedByDj = fa
 );
 
 EventCard.propTypes = {
-    title: PropTypes.string.isRequired,
-    supportedByDj: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    supportedByDj: PropTypes.string,
     entry: PropTypes.number,
-    date: PropTypes.string.isRequired,
+    date: PropTypes.string,
     isEventSupportedByDj: PropTypes.bool,
 };
 

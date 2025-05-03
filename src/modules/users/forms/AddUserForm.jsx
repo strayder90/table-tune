@@ -15,6 +15,6 @@ const AddUserForm = ({onClose}) => {
 };
 
 AddUserForm.propTypes = {
-    onClose: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
 };
 export default AddUserForm;
