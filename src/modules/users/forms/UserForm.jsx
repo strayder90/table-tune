@@ -33,6 +33,7 @@ const UserForm = ({
             fields={fields}
             formSchemaValidator={formSchemaValidator}
             onSubmit={onSubmit}
+            chunkMultiple={true}
             renderButtons={() => (
                 <ButtonGroup className='--addEventForm__submitButtons' widths={2} floated='right'>
                     <Button primary>{buttonTextSave}</Button>

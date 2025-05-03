@@ -3,8 +3,7 @@ import {addUserSchema} from '@modules/users/utils/formSchemas.jsx';
 export const AddUserModel = () => ({
     formName: 'add',
     formSchemaValidator: addUserSchema,
-    multiple: [],
-    fields: [
+    multiple: [
         {
             key: 'Full name',
             name: 'Full name',
@@ -38,4 +37,5 @@ export const AddUserModel = () => ({
             placeholder: 'Status'
         },
     ],
+    fields: [],
 });
