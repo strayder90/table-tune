@@ -1,4 +1,5 @@
-.--custom-input__datepicker {
+.react-datepicker-wrapper {
+  width: 38% !important;
   margin-left: 7px !important;
 }
 
@@ -6,7 +7,13 @@
   display: flex;
   align-items: center;
   gap: 1em;
-  margin-right: 7px !important;
+  justify-content: right;
+}
+
+@media screen and (max-width: 600px) {
+  .react-datepicker-wrapper {
+    width: 46% !important;
+  }
 }
 
 /*# sourceMappingURL=CustomInput.css.map */

@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const CustomInput = forwardRef(({
+    className = '',
     key,
     name,
     control,
@@ -30,7 +31,6 @@ const CustomInput = forwardRef(({
                 <>
                     {type === 'date' ? (
                         <DatePicker
-                            className='--custom-input__datepicker'
                             {...field}
                             selected={field.value ? new Date(field.value) : defaultValue}
                             placeholderText={placeholder}
@@ -48,6 +48,7 @@ const CustomInput = forwardRef(({
                         </Form.Field>
                     ) : (
                         <Form.Input
+                            className={className}
                             {...field}
                             label={label}
                             icon={icon}
@@ -66,6 +67,7 @@ const CustomInput = forwardRef(({
 CustomInput.displayName = 'CustomInput';
 
 CustomInput.propTypes = {
+    className: PropTypes.string,
     key: PropTypes.string,
     name: PropTypes.string,
     control: PropTypes.object,

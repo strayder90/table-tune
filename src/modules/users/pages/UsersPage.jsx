@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-import {useSelector} from 'react-redux';
 
-import {selectUser} from '@/redux/authentication/authSelectors.js';
 import HeaderRenderer from '@appComponents/HeaderRenderer.jsx';
 import EventFilters from '@modules/events/components/EventFilters.jsx';
 import UsersIndexButtons from '@modules/users/components/UsersIndexButtons.jsx';
@@ -10,25 +8,7 @@ import AddUserForm from '@modules/users/forms/AddUserForm.jsx';
 import UsersTable from '@modules/users/components/UsersTable.jsx';
 
 const UsersPage = () => {
-    const user = useSelector(selectUser);
     const [isVisible, setIsVisible] = useState(false);
-
-    const users = [
-        {
-            name: 'Srdjan',
-            email: 'test@test.com',
-            role: 'super admin',
-            status: 'active',
-            action: 'All',
-        },
-        {
-            name: 'Nevena',
-            email: 'test2@test.com',
-            role: 'admin',
-            status: 'inactive',
-            action: 'Edit, View, Delete',
-        }
-    ];
 
     return (
         <>
@@ -40,7 +20,7 @@ const UsersPage = () => {
                 filters={EventFilters}
             />
 
-            <UsersTable users={users} />
+            <UsersTable/>
 
             {
                 <CustomModal

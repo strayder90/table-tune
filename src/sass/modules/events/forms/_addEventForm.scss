@@ -29,15 +29,11 @@
     margin-bottom: 1em !important;
   }
 
-  .--addEventForm__modal span i {
-    display: none;
-  }
-
-  .--addEventForm__modal .react-datepicker-wrapper {
+  .--addEventForm__modal .content .field {
     width: 50%;
   }
 
-  .--addEventForm__modal .react-datepicker__input-container {
-    width: 105px;
+  .--addEventForm__modal span i {
+    display: none;
   }
 }

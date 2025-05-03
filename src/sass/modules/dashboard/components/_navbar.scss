@@ -22,21 +22,15 @@
 }
 
 .--navbar .nav-item span {
-  margin-top: 3px;
-  font-size: a.$font-size-medium;
+  margin-top: 2px;
 }
 
 .--navbar .nav-item.active {
   color: a.$beige;
 }
 
-.--navbar .nav-item:hover {;
+.--navbar .nav-item:hover {
   color: a.$beige;
-}
-
-.--navbar .icon {
-  margin: 0;
-  font-size: a.$font-size-xlarge;
 }
 
 @media (max-width: 600px) {

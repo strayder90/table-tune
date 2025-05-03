@@ -18,13 +18,13 @@
   }
 
   .nav-item {
-    width: 5em;
+    width: 6em;
     color: a.$white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: color 0.3s;
     padding-bottom: 1em;
+    font-size: a.$font-size-small;
   }
 
   .nav-item.active {

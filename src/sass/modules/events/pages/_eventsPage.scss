@@ -2,12 +2,12 @@
 
 .main-content header {
   margin: 0;
-  padding: 1em;
+  padding-bottom: 1em;
 }
 
 .--event-form-section {
   display: flex;
-  padding: 0 1em;
+  padding-bottom: 1em;
   justify-content: space-between;
 }
 
@@ -19,10 +19,6 @@
 .--event-form-section button {
   color: a.$brown !important;
   background: a.$beige !important;
-}
-
-.--event-content-section {
-  margin: 0 !important;
 }
 
 .--event-content-section .content p {

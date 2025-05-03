@@ -529,7 +529,6 @@ template {
   align-items: center;
   color: #ffffff;
   font-size: 14px;
-  transition: color 0.3s, transform 0.1s ease-in;
 }
 
 .--appSidebar .nav-item:hover {
@@ -570,13 +569,13 @@ template {
     align-items: center;
   }
   .nav-item {
-    width: 5em;
+    width: 6em;
     color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: color 0.3s;
     padding-bottom: 1em;
+    font-size: 12px;
   }
   .nav-item.active {
     color: #F0BB78;
@@ -611,8 +610,7 @@ template {
 }
 
 .--navbar .nav-item span {
-  margin-top: 3px;
-  font-size: 14px;
+  margin-top: 2px;
 }
 
 .--navbar .nav-item.active {
@@ -621,11 +619,6 @@ template {
 
 .--navbar .nav-item:hover {
   color: #F0BB78;
-}
-
-.--navbar .icon {
-  margin: 0;
-  font-size: 1.3em;
 }
 
 @media (max-width: 600px) {
@@ -641,12 +634,41 @@ template {
   flex: 1;
   margin-top: 3.5em;
   margin-bottom: 3em;
+  padding: 1em !important;
 }
 
 @media screen and (max-width: 600px) {
   .--dashboard-layout .main-content {
     flex: 1;
     margin: 0;
+  }
+}
+@media (max-width: 600px) {
+  h4 {
+    margin: 1em 0 !important;
+  }
+  .--menuPage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .--menuPage span {
+    font-size: 18px;
+  }
+  .--menuPage_cardContent {
+    width: 100%;
+    text-align: center;
+  }
+  .--menuPage_cardContent nav {
+    margin-bottom: 3em;
+  }
+  .--menu_button button {
+    float: right;
+    background: #F0BB78;
+    color: #1b1c1d;
+    font-size: 14px;
   }
 }
 .main-content header h1 {
@@ -694,16 +716,12 @@ template {
 
 .--event-content-section .description.--custom-card-description__negative {
   display: inline;
-  margin-top: 1em;
-  font-size: 1.3em !important;
   font-weight: bolder !important;
   color: #e31414 !important;
 }
 
 .--event-content-section .description.--custom-card-description__positive {
   display: inline;
-  margin-top: 1em;
-  font-size: 1.3em !important;
   font-weight: bolder !important;
   color: #00A500 !important;
 }
@@ -720,19 +738,14 @@ template {
   padding: 0;
 }
 
-.--event-index-dropdownButtons {
-  margin: 0 !important;
-  align-content: center;
-}
-
 .main-content header {
   margin: 0;
-  padding: 1em;
+  padding-bottom: 1em;
 }
 
 .--event-form-section {
   display: flex;
-  padding: 0 1em;
+  padding-bottom: 1em;
   justify-content: space-between;
 }
 
@@ -744,10 +757,6 @@ template {
 .--event-form-section button {
   color: #543A14 !important;
   background: #F0BB78 !important;
-}
-
-.--event-content-section {
-  margin: 0 !important;
 }
 
 .--event-content-section .content p {
@@ -839,7 +848,8 @@ template {
     transform: translateY(1em);
   }
 }
-.--custom-input__datepicker {
+.react-datepicker-wrapper {
+  width: 38% !important;
   margin-left: 7px !important;
 }
 
@@ -847,9 +857,14 @@ template {
   display: flex;
   align-items: center;
   gap: 1em;
-  margin-right: 7px !important;
+  justify-content: right;
 }
 
+@media screen and (max-width: 600px) {
+  .react-datepicker-wrapper {
+    width: 46% !important;
+  }
+}
 .--addEventForm__modal {
   padding: 0;
 }
@@ -878,15 +893,15 @@ template {
   .--addEventForm__modal .fields {
     margin-bottom: 1em !important;
   }
+  .--addEventForm__modal .content .field {
+    width: 50%;
+  }
   .--addEventForm__modal span i {
     display: none;
   }
-  .--addEventForm__modal .react-datepicker-wrapper {
-    width: 50%;
-  }
-  .--addEventForm__modal .react-datepicker__input-container {
-    width: 105px;
-  }
+}
+.--users-form {
+  width: 100% !important;
 }
 
 /*# sourceMappingURL=style.css.map */

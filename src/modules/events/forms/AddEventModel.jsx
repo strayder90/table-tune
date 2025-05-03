@@ -19,9 +19,7 @@ export const AddEventModel = () => ({
             icon: 'headphones',
             defaultValue: false,
             type: 'checkbox',
-        }
-    ],
-    fields: [
+        },
         {
             key: 'title',
             name: 'title',
@@ -31,20 +29,11 @@ export const AddEventModel = () => ({
             placeholder: 'Title',
         },
         {
-            key: 'supportedByDj',
-            name: 'supportedByDj',
-            defaultValue: '',
-            icon: 'headphones',
-            type: 'text',
-            placeholder: 'Dj',
-            hidden: true,
-        },
-        {
             key: 'entry',
             name: 'entry',
             defaultValue: '',
             icon: 'money bill alternate outline',
-            type: 'string',
+            type: 'text',
             placeholder: 'Entry'
         },
     ],

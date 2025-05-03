@@ -1,5 +1,4 @@
 import React from 'react';
-import {Divider} from 'semantic-ui-react';
 
 import {useCreateForm} from '@/utils/formHelpers.jsx';
 
@@ -12,7 +11,6 @@ const SignupForm = () => {
 
     return (
         <AuthLayout>
-            <Divider/>
             <Form/>
         </AuthLayout>
     );

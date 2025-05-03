@@ -1,0 +1,36 @@
+@use '../../../app/abstracts' as a;
+
+@media (max-width: 600px) {
+  h4 {
+    margin: 1em 0 !important;
+  }
+
+  .--menuPage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .--menuPage span {
+    font-size: a.$font-size-large;
+  }
+
+  .--menuPage_cardContent {
+    width: 100%;
+    text-align: center;
+  }
+
+  .--menuPage_cardContent nav {
+    margin-bottom: 3em;
+  }
+
+  .--menu_button button {
+    float: right;
+    background: #F0BB78;
+    color: a.$dark-gray;
+    font-size: 14px;
+  }
+}
+

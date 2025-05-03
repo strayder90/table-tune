@@ -6,6 +6,7 @@ import CustomInput from '@appComponents/CustomInput.jsx';
 import {prepareDataForSubmit} from '@modules/events/utils/helpers.js';
 import useDefaultForm from '@modules/app/hooks/useDefaultForm.jsx';
 import {events} from '@/DB/events/events.js';
+import {chunkArray} from '@utils/formHelpers.jsx';
 
 const EventForm = ({
     multiple,
@@ -36,9 +37,9 @@ const EventForm = ({
 
     return (
         <Form onSubmit={handleSubmit}>
-            {multiple && (
-                <FormGroup>
-                    {multiple.map((field) => (
+            {multiple && chunkArray(multiple, 2).map((row, rowIndex) => (
+                <FormGroup key={rowIndex}>
+                    {row.map((field) => (
                         <CustomInput
                             key={field.key}
                             name={field.name}
@@ -52,9 +53,10 @@ const EventForm = ({
                         />
                     ))}
                 </FormGroup>
-            )}
+            ))}
+
             {fields
-                .filter((field) => !multiple || !multiple.some((mf) => mf.key === field.key))
+                ?.filter((field) => !multiple || !multiple.some((mf) => mf.key === field.key))
                 .map((field) => (
                     <CustomInput
                         key={field.key}

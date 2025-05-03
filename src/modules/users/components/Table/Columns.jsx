@@ -3,7 +3,7 @@ const Columns = [
     {field: 'email', headerName: 'Email'},
     {field: 'role', headerName: 'Role'},
     {field: 'status', headerName: 'Status'},
-    {field: 'actions', headerName: 'Actions'}
+    {field: 'actions', headerName: 'Actions', align: 'right'},
 ];
 
 export default Columns;

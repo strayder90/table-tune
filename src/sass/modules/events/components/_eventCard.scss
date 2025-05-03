@@ -34,7 +34,7 @@
 }
 
 .--event-content-section .content a {
-  font-weight: bold !important;
+  font-weight: a.$font-weight-bold !important;
 }
 
 .--event-content-section p {
@@ -45,17 +45,13 @@
 
 .--event-content-section .description.--custom-card-description__negative {
   display: inline;
-  margin-top: 1em;
-  font-size: a.$font-size-xlarge !important;
-  font-weight: bolder !important;
+  font-weight: a.$font-weight-bolder !important;
   color: a.$red !important;
 }
 
 .--event-content-section .description.--custom-card-description__positive {
   display: inline;
-  margin-top: 1em;
-  font-size: a.$font-size-xlarge !important;
-  font-weight: bolder !important;
+  font-weight: a.$font-weight-bolder !important;
   color: a.$green !important;
 }
 

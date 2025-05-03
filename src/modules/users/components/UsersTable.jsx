@@ -9,6 +9,4 @@ function UsersTable() {
         <CustomTable columns={Columns} data={Rows} />
     );
 }
-
-UsersTable.propTypes = {};
 export default UsersTable;

@@ -6,9 +6,10 @@
 @use 'modules/dashboard/components/bottomNav';
 @use 'modules/dashboard/components/navbar';
 @use 'modules/dashboard/layout/dashboard';
+@use 'modules/dashboard/pages/menuPage';
 @use 'modules/events/components/eventCard';
-@use 'modules/events/components/eventIndexButtons';
 @use 'modules/events/pages/eventsPage';
 @use 'app/components/CustomModal';
 @use 'app/components/CustomInput';
 @use 'modules/events/forms/addEventForm';
+@use 'modules/users/forms/addUserForm';

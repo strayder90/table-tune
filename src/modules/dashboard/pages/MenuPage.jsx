@@ -1,31 +1,19 @@
 import React from 'react';
-import {Button} from '@mui/material';
-import {useDispatch} from 'react-redux';
-import {useNavigate} from 'react-router-dom';
 
-import {logout} from '@/redux/authentication/authActions.js';
+import CustomNavigationMenu from '@modules/app/components/CustomNavigationMenu.jsx';
 
 const MenuPage = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    const handleLogout = () => {
-        dispatch(logout());
-
-        navigate('/');
-    };
+    const menuItems = [
+        {label: 'Analytics', path: '#'},
+        {label: 'Users', path: '/table-tune/users'},
+        {label: 'Settings', path: '/table-tune/user-settings'}
+    ];
 
     return (
-        <div>
-            <h1>Welcome to the MENU Page!</h1>
-            <Button
-                variant='contained'
-                color='primary'
-                onClick={handleLogout}
-            >
-                Log out
-            </Button>
-        </div>
+        <CustomNavigationMenu
+            title='Menu'
+            items={menuItems}
+        />
     );
 };
 

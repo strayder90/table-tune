@@ -30,14 +30,6 @@ export const AddUserModel = () => ({
             placeholder: 'Role'
         },
         {
-            key: 'Actions',
-            name: 'Actions',
-            defaultValue: '',
-            icon: 'handshake outline',
-            type: 'text',
-            placeholder: 'Actions'
-        },
-        {
             label: 'Active',
             key: 'Status',
             name: 'Status',

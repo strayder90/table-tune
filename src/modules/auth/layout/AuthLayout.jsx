@@ -25,6 +25,8 @@ const AuthLayout = ({children}) => {
                                 Create a new account
                             </h1>
                             <p>It’s quick and easy.</p>
+
+                            <Divider/>
                         </>
                     )}
 

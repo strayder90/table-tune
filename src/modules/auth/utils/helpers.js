@@ -13,7 +13,6 @@ export const handleSignupFormSubmit = (data, navigate, dispatch) => {
     navigate('/');
 };
 
-
 export const handleLoginFormSubmit = (data, navigate, dispatch) => {
     if (!data) return;
 

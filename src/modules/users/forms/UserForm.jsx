@@ -57,6 +57,7 @@ const UserForm = ({
                 .filter((field) => !multiple || !multiple.some((mf) => mf.key === field.key))
                 .map((field) => (
                     <CustomInput
+                        className='--users-form'
                         key={field.key}
                         name={field.name}
                         control={control}
