@@ -8,10 +8,10 @@ import {chunkArray} from '@utils/formHelpers.jsx';
 
 const BaseForm = ({
     className = '',
+    multiple,
+    fields,
     formSchemaValidator,
     onSubmit,
-    fields,
-    multiple,
     chunkMultiple = false,
     renderButtons
 }) => {
@@ -40,6 +40,7 @@ const BaseForm = ({
                                 icon={field.icon}
                                 type={field.type}
                                 placeholder={field.placeholder}
+                                options={field.options}
                                 errors={errors}
                             />
                         ))}

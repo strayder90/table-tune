@@ -10,6 +10,10 @@
   justify-content: right;
 }
 
+.--custom-input__dropdown {
+  width: 40.5% !important;
+}
+
 @media screen and (max-width: 600px) {
   .react-datepicker-wrapper {
     width: 46% !important;

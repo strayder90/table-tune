@@ -860,6 +860,10 @@ template {
   justify-content: right;
 }
 
+.--custom-input__dropdown {
+  width: 40.5% !important;
+}
+
 @media screen and (max-width: 600px) {
   .react-datepicker-wrapper {
     width: 46% !important;
@@ -872,16 +876,6 @@ template {
 .--add-form__modal .content .fields {
   justify-content: space-between;
   align-items: center;
-}
-
-.--add-form__modal input {
-  width: 100% !important;
-  border: 1px solid #c9c9c9 !important;
-}
-
-.--add-form__modal input::placeholder {
-  color: #969696 !important;
-  font-size: 18px !important;
 }
 
 .--addEventForm__submitButtons {

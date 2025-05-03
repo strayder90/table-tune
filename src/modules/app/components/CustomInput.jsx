@@ -14,6 +14,7 @@ const CustomInput = forwardRef(({
     icon,
     type,
     placeholder,
+    options = [],
     hidden = false,
     errors
 }, ref) => {
@@ -48,6 +49,21 @@ const CustomInput = forwardRef(({
                                 <Checkbox {...field} toggle/>
                             </Form.Field>
                         );
+                    case 'dropdown':
+                        return (
+                            <Form.Field
+                                className='--custom-input__dropdown'
+                                error={fieldError ? {content: fieldError.message, pointing: 'below'} : null}
+                            >
+                                <Form.Select
+                                    {...field}
+                                    options={options}
+                                    placeholder={placeholder}
+                                    onChange={(e, {value}) => field.onChange(value)}
+                                    value={field.value}
+                                />
+                            </Form.Field>
+                        );
                     default:
                         return (
                             <Form.Input
@@ -78,6 +94,13 @@ CustomInput.propTypes = {
     icon: PropTypes.string,
     type: PropTypes.oneOf(['text', 'password', 'email', 'number', 'date', 'checkbox']),
     placeholder: PropTypes.string,
+    options: PropTypes.arrayOf(
+        PropTypes.shape({
+            key: PropTypes.string,
+            value: PropTypes.any,
+            text: PropTypes.string
+        })
+    ),
     hidden: PropTypes.bool,
     errors: PropTypes.objectOf(
         PropTypes.shape({
