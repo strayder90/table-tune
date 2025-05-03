@@ -27,9 +27,9 @@ export const AppSidebar = () => {
                     <Icon size='large' name='list alternate outline'/>
                     <span>Bookings</span>
                 </NavLink>
-                <NavLink to='/table-tune/crew' className='nav-item'>
+                <NavLink to='/table-tune/team' className='nav-item'>
                     <Icon size='large' name='users'/>
-                    <span>Crew</span>
+                    <span>Team</span>
                 </NavLink>
                 <NavLink to='/table-tune/users' className='nav-item'>
                     <Icon size='large' name='user plus'/>

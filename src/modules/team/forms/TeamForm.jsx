@@ -6,7 +6,7 @@ import {prepareDataForSubmit} from '@modules/events/utils/helpers.js';
 import {events} from '@/DB/events/events.js';
 import BaseForm from '@modules/app/forms/BaseForm.jsx';
 
-const UserForm = ({
+const TeamForm = ({
     multiple,
     fields,
     formSchemaValidator,
@@ -27,7 +27,6 @@ const UserForm = ({
 
     return (
         <BaseForm
-            className='--users-form'
             multiple={multiple}
             fields={fields}
             formSchemaValidator={formSchemaValidator}
@@ -44,7 +43,7 @@ const UserForm = ({
     );
 };
 
-UserForm.propTypes = {
+TeamForm.propTypes = {
     multiple: PropTypes.array,
     fields: PropTypes.array,
     formSchemaValidator: PropTypes.object,
@@ -54,4 +53,4 @@ UserForm.propTypes = {
     closeModal: PropTypes.func
 };
 
-export default UserForm;
+export default TeamForm;

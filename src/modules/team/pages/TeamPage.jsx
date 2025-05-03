@@ -1,32 +1,32 @@
 import React, {useState} from 'react';
 
 import HeaderRenderer from '@appComponents/HeaderRenderer.jsx';
-import UsersIndexButtons from '@modules/users/components/UsersIndexButtons.jsx';
 import CustomModal from '@appComponents/CustomModal.jsx';
-import AddUserForm from '@modules/users/forms/AddUserForm.jsx';
-import UsersTable from '@modules/users/components/UsersTable.jsx';
+import TeamIndexButtons from '@modules/team/components/TeamIndexButtons.jsx';
+import TeamTable from '@modules/team/components/TeamTable.jsx';
+import AddTeamForm from '@modules/team/forms/AddTeamForm.jsx';
 import CommonFilters from '@appComponents/CommonFilters.jsx';
 
-const UsersPage = () => {
+const TeamPage = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     return (
         <>
             <HeaderRenderer
                 className='--form-header-section'
-                pageTitle={'Users'}
-                buttons={UsersIndexButtons}
-                buttonsProps={{addNewUser: setIsVisible}}
+                pageTitle={'Crew'}
+                buttons={TeamIndexButtons}
+                buttonsProps={{addTeamMember: setIsVisible}}
                 filters={CommonFilters}
             />
 
-            <UsersTable/>
+            <TeamTable/>
 
             {
                 <CustomModal
                     className='--add-form__modal'
-                    header='Add new User'
-                    content={<AddUserForm onClose={() => setIsVisible(false)}/>}
+                    header='Add team'
+                    content={<AddTeamForm onClose={() => setIsVisible(false)}/>}
                     isVisible={isVisible}
                     onClose={() => setIsVisible(false)}
                 />
@@ -35,4 +35,4 @@ const UsersPage = () => {
     );
 };
 
-export default UsersPage;
+export default TeamPage;

@@ -17,9 +17,9 @@ export const BottomNav = () => {
                 <Icon name='table'/>
                 <span>Tables</span>
             </NavLink>
-            <NavLink to='/table-tune/crew' className='nav-item'>
+            <NavLink to='/table-tune/team' className='nav-item'>
                 <Icon name='users'/>
-                <span>Crew</span>
+                <span>Team</span>
             </NavLink>
             <NavLink to='/table-tune/menu' className='nav-item'>
                 <Icon name='bars'/>

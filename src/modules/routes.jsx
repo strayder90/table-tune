@@ -7,7 +7,7 @@ import Dashboard from '@modules/dashboard/layout/Dashboard.jsx';
 import SignupForm from '@modules/auth/forms/SignupForm.jsx';
 import LoginForm from '@modules/auth/forms/LoginForm.jsx';
 import AuthGuard from '@modules/auth/components/AuthGuard.jsx';
-import CrewPage from '@modules/dashboard/pages/CrewPage.jsx';
+import TeamPage from '@modules/team/pages/TeamPage.jsx';
 import ReservationPage from '@modules/dashboard/pages/ReservationPage.jsx';
 import MenuPage from '@modules/dashboard/pages/MenuPage.jsx';
 import EventsPage from '@modules/events/pages/EventsPage.jsx';
@@ -39,7 +39,7 @@ const RoutesConfig = () => {
                 {path: 'tables', element: <TablesPage/>},
                 {path: 'events', element: <EventsPage/>},
                 {path: 'reservations', element: <ReservationPage/>},
-                {path: 'crew', element: <CrewPage/>},
+                {path: 'team', element: <TeamPage/>},
                 {path: 'menu', element: <MenuPage/>},
                 {path: 'users', element: <UsersPage/>},
                 {path: 'user-settings', element: <UserSettingsPage/>}

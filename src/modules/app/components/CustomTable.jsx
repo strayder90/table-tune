@@ -11,14 +11,14 @@ import {
 } from '@mui/material';
 import PropTypes from 'prop-types';
 
-import UserList from '@modules/users/components/UsersList.jsx';
+import CustomList from '@appComponents/CustomList.jsx';
 
 const CustomTable = ({columns, data}) => {
     const isMobile = useMediaQuery('(max-width:600px)');
 
     if (isMobile) {
         return (
-            <UserList data={data}/>
+            <CustomList data={data}/>
         );
     }
 

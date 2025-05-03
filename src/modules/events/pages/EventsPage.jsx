@@ -6,11 +6,11 @@ import EventCard from '@modules/events/components/EventCard.jsx';
 import {EVENTS_PER_PAGE} from '@/utils/constants.js';
 import {rangeOfEventsToBeDisplayed, calculateTotalPages} from '@modules/events/utils/helpers.js';
 import HeaderRenderer from '@appComponents/HeaderRenderer.jsx';
-import EventFilters from '@modules/events/components/EventFilters.jsx';
 import EventIndexButtons from '@modules/events/components/EventIndexButtons.jsx';
 import AddEventForm from '@modules/events/forms/AddEventForm.jsx';
 import {events} from '@/DB/events/events.js';
 import CustomModal from '@appComponents/CustomModal.jsx';
+import CommonFilters from '@appComponents/CommonFilters.jsx';
 
 const EventsPage = () => {
     const [activePage, setActivePage] = useState(1);
@@ -41,7 +41,7 @@ const EventsPage = () => {
                 pageTitle={'Andreana Cekic - FR, 13.12.2024 - 20€'}
                 buttons={EventIndexButtons}
                 buttonsProps={{addNewEvent: setIsVisible}}
-                filters={EventFilters}
+                filters={CommonFilters}
                 filtersProps={{searchQuery, handleSearch}}
             />
 

@@ -10,7 +10,7 @@ import {
 import PropTypes from 'prop-types';
 import {useNavigate} from 'react-router-dom';
 
-const UserList = ({data}) => {
+const CustomList = ({data}) => {
     const navigate = useNavigate();
     const handleNavigation = (path) => {
         console.log('clicked');
@@ -44,13 +44,8 @@ const UserList = ({data}) => {
     );
 };
 
-UserList.propTypes = {
+CustomList.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object),
-    onUserClick: PropTypes.func
 };
 
-UserList.defaultProps = {
-    onUserClick: () => {}
-};
-
-export default UserList;
+export default CustomList;

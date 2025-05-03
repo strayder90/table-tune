@@ -2,7 +2,7 @@ import React from 'react';
 import {Form, Input} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
-const EventFilters = ({
+const CommonFilters = ({
     searchQuery,
     handleSearch,
 }) => {
@@ -20,9 +20,9 @@ const EventFilters = ({
     );
 };
 
-EventFilters.propTypes = {
+CommonFilters.propTypes = {
     searchQuery: PropTypes.string,
     handleSearch: PropTypes.func,
 };
 
-export default EventFilters;
+export default CommonFilters;
