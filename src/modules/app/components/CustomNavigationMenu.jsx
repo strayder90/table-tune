@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import {useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
-import {logout} from '@/redux/authentication/authActions.js';
+import {logoutUser} from '@/redux/authentication/authActions.js';
 
 const CustomNavigationMenu = ({title, items}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        dispatch(logout());
+        dispatch(logoutUser());
         navigate('/');
     };
 

@@ -1,14 +1,11 @@
 import {toast} from 'react-toastify';
 
-import {generateNumericID} from '@utils/utils.js';
-import {registerUser, logout, login} from '@/redux/authentication/authActions.js';
+import {registerUser, loginUser, logoutUser} from '@/redux/authentication/authActions.js';
 
 export const handleSignupFormSubmit = (data, navigate, dispatch) => {
     if (!data) return;
 
-    const preparedUser = prepareDataForSubmit(data);
-
-    dispatch(registerUser(preparedUser));
+    dispatch(registerUser(data.email, data.password));
 
     navigate('/');
 };
@@ -16,18 +13,12 @@ export const handleSignupFormSubmit = (data, navigate, dispatch) => {
 export const handleLoginFormSubmit = (data, navigate, dispatch) => {
     if (!data) return;
 
-    const wrongUserCredentials = validateLoginCredentials(data.username, data.password);
-
-    if (wrongUserCredentials) {
-        return;
-    }
-
-    dispatch(login());
+    dispatch(loginUser(data.email, data.password));
     navigate('/table-tune/tables');
 };
 
 export const handleLogout = (navigate, dispatch) => {
-    dispatch(logout());
+    dispatch(logoutUser());
 
     navigate('/');
 };
@@ -52,6 +43,7 @@ export const validateUsersSignupCredentials = ({email, username}) => {
     return null;
 };
 
+//  Use firebase to get data and validate credentials
 export const validateLoginCredentials = (username, password) => {
     const user = JSON.parse(localStorage.getItem('user')) || {};
 
@@ -76,19 +68,4 @@ export const isOnlyNumbers = (input) => {
 
 export const sum = (a, b) => {
     return a + b;
-};
-
-export const prepareDataForSubmit = (user) => {
-    const userData = {
-        username: user.username,
-        email: user.email,
-        password: user.password,
-        firstName: user.firstName,
-        lastName: user.lastName,
-    };
-
-    return {
-        id: generateNumericID(),
-        ...userData
-    };
 };

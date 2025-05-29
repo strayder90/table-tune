@@ -14,7 +14,7 @@ const TeamPage = () => {
         <>
             <HeaderRenderer
                 className='--form-header-section'
-                pageTitle={'Crew'}
+                pageTitle={'Team'}
                 buttons={TeamIndexButtons}
                 buttonsProps={{addTeamMember: setIsVisible}}
                 filters={CommonFilters}

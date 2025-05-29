@@ -5,12 +5,12 @@ export const LoginFormModel = () => ({
     formSchemaValidator: logInSchema,
     fields: [
         {
-            key: 'username',
-            name: 'username',
+            key: 'email',
+            name: 'email',
             defaultValue: '',
-            icon: 'user',
+            icon: 'mail',
             type: 'text',
-            placeholder: 'Username'
+            placeholder: 'Email'
         },
         {
             key: 'password',
