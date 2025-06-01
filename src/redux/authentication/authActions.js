@@ -13,9 +13,11 @@ import {
 export const registerUser = (email, password) => async (dispatch) => {
     try {
         const userCredential = await register(email, password);
-        const user = userCredential.user;
 
-        dispatch(setUser(user));
+        dispatch(setUser({
+            id: userCredential.uid,
+            email: userCredential.email
+        }));
         dispatch(setIsUserAuthenticated({isAuthenticated: true}));
     } catch (error) {
         const message = extractFirebaseError(error);
@@ -28,9 +30,11 @@ export const registerUser = (email, password) => async (dispatch) => {
 export const loginUser = (email, password) => async (dispatch) => {
     try {
         const userCredential = await firebaseLogin(email, password);
-        const user = userCredential.user;
 
-        dispatch(setUser(user));
+        dispatch(setUser({
+            id: userCredential.uid,
+            email: userCredential.email
+        }));
         dispatch(setIsUserAuthenticated({isAuthenticated: true}));
     } catch (error) {
         const message = extractFirebaseError(error);
@@ -56,7 +60,10 @@ export const logoutUser = () => async (dispatch) => {
 export const observeAuthState = () => (dispatch) => {
     onAuthChange((user) => {
         if (user) {
-            dispatch(setUser(user));
+            dispatch(setUser({
+                id: user.uid,
+                email: user.email
+            }));
             dispatch(setIsUserAuthenticated({isAuthenticated: true}));
         } else {
             dispatch(clearAuth());

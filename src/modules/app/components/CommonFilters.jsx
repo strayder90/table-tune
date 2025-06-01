@@ -1,15 +1,14 @@
 import React from 'react';
-import {Form, Input} from 'semantic-ui-react';
+import {Form} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 const CommonFilters = ({
-    searchQuery,
-    handleSearch,
+    searchQuery = '',
+    handleSearch = () => {},
 }) => {
     return (
         <>
-            <Form.Field
-                as={Input}
+            <Form.Input
                 icon='search'
                 placeholder='Search...'
                 type='text'

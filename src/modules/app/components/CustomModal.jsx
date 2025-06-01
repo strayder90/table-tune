@@ -34,7 +34,7 @@ const CustomModal = ({
             className={className}
             open={isVisible}
             onClose={onClose}
-            dimmer={dimmer ? dimmer : ''}
+            dimmer={dimmer ? dimmer : false}
             size={size}
             closeIcon
         >
