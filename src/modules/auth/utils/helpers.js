@@ -14,6 +14,7 @@ export const handleLoginFormSubmit = (data, navigate, dispatch) => {
     if (!data) return;
 
     dispatch(loginUser(data.email, data.password));
+
     navigate('/table-tune/tables');
 };
 

@@ -9,7 +9,6 @@ import {
     onAuthChange
 } from '../../firebase/helpers/authorization/authService.js';
 
-// Register user
 export const registerUser = (email, password) => async (dispatch) => {
     try {
         const userCredential = await register(email, password);
@@ -18,6 +17,7 @@ export const registerUser = (email, password) => async (dispatch) => {
             id: userCredential.uid,
             email: userCredential.email
         }));
+
         dispatch(setIsUserAuthenticated({isAuthenticated: true}));
     } catch (error) {
         const message = extractFirebaseError(error);
@@ -26,7 +26,6 @@ export const registerUser = (email, password) => async (dispatch) => {
     }
 };
 
-// Login user
 export const loginUser = (email, password) => async (dispatch) => {
     try {
         const userCredential = await firebaseLogin(email, password);
@@ -35,7 +34,8 @@ export const loginUser = (email, password) => async (dispatch) => {
             id: userCredential.uid,
             email: userCredential.email
         }));
-        dispatch(setIsUserAuthenticated({isAuthenticated: true}));
+
+        dispatch(setIsUserAuthenticated({isAuthenticated: false}));
     } catch (error) {
         const message = extractFirebaseError(error);
 
@@ -43,7 +43,6 @@ export const loginUser = (email, password) => async (dispatch) => {
     }
 };
 
-// Logout user
 export const logoutUser = () => async (dispatch) => {
     try {
         await firebaseLogout();
@@ -56,22 +55,28 @@ export const logoutUser = () => async (dispatch) => {
     }
 };
 
-// Listen to auth state changes (optional on app load)
-export const observeAuthState = () => (dispatch) => {
-    onAuthChange((user) => {
-        if (user) {
-            dispatch(setUser({
-                id: user.uid,
-                email: user.email
-            }));
-            dispatch(setIsUserAuthenticated({isAuthenticated: true}));
-        } else {
-            dispatch(clearAuth());
-        }
-    });
+const processLoggedOutUser = (dispatch) => {
+    dispatch(clearAuth());
 };
 
-// Change/remove this and throw nice error
+const processLoggedInUser = (dispatch, user) => {
+    dispatch(setUser({
+        id: user.uid,
+        email: user.email
+    }));
+
+    dispatch(setIsUserAuthenticated({isAuthenticated: true}));
+};
+
+const handleUserAuthChange = (dispatch, user) => {
+    user ? processLoggedInUser(dispatch, user) : processLoggedOutUser(dispatch, user);
+};
+
+// Listen to auth state changes (optional on app load)
+export const observeAuthState = () => (dispatch) => {
+    onAuthChange((user) => (handleUserAuthChange(dispatch, user)));
+};
+
 function extractFirebaseError(error) {
     if (!error || !error.code) return 'An unknown error occurred.';
 
@@ -82,7 +87,7 @@ function extractFirebaseError(error) {
         'auth/user-not-found': 'User not found.',
         'auth/wrong-password': 'Incorrect password.',
         'auth/too-many-requests': 'Too many attempts. Try again later.',
-        'auth/invalid-credential': 'Email or password is wrong.',
+        'auth/invalid-credential': 'Email or password is wrong.'
     };
 
     return errorMap[error.code] || error.message || 'An error occurred.';
