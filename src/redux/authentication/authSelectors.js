@@ -1,3 +1,3 @@
 export const selectUser = (state) => state.auth.user;
-export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
-export const selectIsAuthLoading = (state) => state.auth.isAuthLoading;
+export const selectIsUserAuthenticated = (state) => state.auth.isUserAuthenticated;
+export const selectIsAuthenticationInProgress = (state) => state.auth.isAuthenticationInProgress;

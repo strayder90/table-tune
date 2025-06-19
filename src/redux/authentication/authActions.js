@@ -1,6 +1,12 @@
 import {toast} from 'react-toastify';
 
-import {setUser, setIsUserAuthenticated, clearAuth} from '@/redux/authentication/AuthSlice.js';
+import {
+    setUser,
+    setIsUserAuthenticated,
+    clearAuth,
+    setAuthenticationInProgress,
+} from '@/redux/authentication/AuthSlice.js';
+import {formatTimestamp} from '@utils/utils.js';
 
 import {
     register,
@@ -17,8 +23,6 @@ export const registerUser = (email, password) => async (dispatch) => {
             id: userCredential.uid,
             email: userCredential.email
         }));
-
-        dispatch(setIsUserAuthenticated({isAuthenticated: true}));
     } catch (error) {
         const message = extractFirebaseError(error);
 
@@ -27,6 +31,8 @@ export const registerUser = (email, password) => async (dispatch) => {
 };
 
 export const loginUser = (email, password) => async (dispatch) => {
+    dispatch(setAuthenticationInProgress(true));
+
     try {
         const userCredential = await firebaseLogin(email, password);
 
@@ -35,11 +41,13 @@ export const loginUser = (email, password) => async (dispatch) => {
             email: userCredential.email
         }));
 
-        dispatch(setIsUserAuthenticated({isAuthenticated: false}));
+        dispatch(setIsUserAuthenticated({isUserAuthenticated: true}));
     } catch (error) {
         const message = extractFirebaseError(error);
 
         toast.error(`Login failed: ${message}`);
+    } finally {
+        dispatch(setAuthenticationInProgress(false));
     }
 };
 
@@ -62,10 +70,12 @@ const processLoggedOutUser = (dispatch) => {
 const processLoggedInUser = (dispatch, user) => {
     dispatch(setUser({
         id: user.uid,
-        email: user.email
+        email: user.email,
+        createdAt: formatTimestamp(user.metadata.createdAt),
+        lastLoginAt: formatTimestamp(user.metadata.lastLoginAt)
     }));
 
-    dispatch(setIsUserAuthenticated({isAuthenticated: true}));
+    dispatch(setIsUserAuthenticated({isUserAuthenticated: true}));
 };
 
 const handleUserAuthChange = (dispatch, user) => {
@@ -74,7 +84,15 @@ const handleUserAuthChange = (dispatch, user) => {
 
 // Listen to auth state changes (optional on app load)
 export const observeAuthState = () => (dispatch) => {
-    onAuthChange((user) => (handleUserAuthChange(dispatch, user)));
+    dispatch(setAuthenticationInProgress(true));
+
+    const handleAuthStateChanged = (user) => {
+        handleUserAuthChange(dispatch, user);
+
+        dispatch(setAuthenticationInProgress(false));
+    };
+
+    onAuthChange(handleAuthStateChanged);
 };
 
 function extractFirebaseError(error) {

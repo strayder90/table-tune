@@ -11,7 +11,7 @@ export const handleSignupFormSubmit = (data, navigate, dispatch) => {
 };
 
 export const handleLoginFormSubmit = (data, navigate, dispatch) => {
-    if (!data) return;
+    if (!data) return null;
 
     dispatch(loginUser(data.email, data.password));
 

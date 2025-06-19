@@ -1,23 +1,14 @@
-import {useNavigate} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
-import {Loader} from 'semantic-ui-react';
+import {Navigate} from 'react-router-dom';
 
-import {selectIsAuthenticated} from '@/redux/authentication/authSelectors.js';
+import {selectIsUserAuthenticated} from '@/redux/authentication/authSelectors';
 
 const AuthGuard = ({children}) => {
-    const navigate = useNavigate();
-    const isAuthenticated = useSelector(selectIsAuthenticated);
+    const isUserAuthenticated = useSelector(selectIsUserAuthenticated);
 
-    // TODO: A bug here, whe try to access from url, i get infinite loader.
-    if (!isAuthenticated) {
-        navigate('/');
-
-        return (
-            <div className='--app_loader'>
-                <Loader active inline='centered' size='large'>Loading...</Loader>
-            </div>
-        );
+    if (!isUserAuthenticated) {
+        return <Navigate to='/' replace/>;
     }
 
     return children;

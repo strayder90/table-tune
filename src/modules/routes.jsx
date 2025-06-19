@@ -2,12 +2,11 @@ import {getPublicRoutes} from '@modules/routes/public/publicRoutes.jsx';
 import {getFallbackRoute} from '@modules/routes/fallbackRoute.jsx';
 import {getProtectedRoutes} from '@modules/routes/protected/protectedRoutes.jsx';
 
-
-const RoutesConfig = (isAuthenticated) => {
+const RoutesConfig = (isUserAuthenticated) => {
     return [
-        ...getPublicRoutes(isAuthenticated),
+        ...getPublicRoutes(isUserAuthenticated),
         ...getProtectedRoutes(),
-        ...getFallbackRoute()
+        ...getFallbackRoute(),
     ];
 };
 
