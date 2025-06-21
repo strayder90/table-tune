@@ -78,6 +78,8 @@ const processLoggedInUser = (dispatch, user) => {
         createdAt: formatTimestamp(user.metadata.createdAt),
         lastLoginAt: formatTimestamp(user.metadata.lastLoginAt)
     }));
+
+    dispatch(setIsUserAuthenticated({isUserAuthenticated: true}));
 };
 
 const handleUserAuthChange = (dispatch, user) => {
@@ -86,8 +88,11 @@ const handleUserAuthChange = (dispatch, user) => {
 
 // Listen to auth state changes (optional on an app load)
 export const observeAuthState = () => (dispatch) => {
+    dispatch(setAuthenticationInProgress(true));
+
     const handleAuthStateChanged = (user) => {
         handleUserAuthChange(dispatch, user);
+        dispatch(setAuthenticationInProgress(false));
     };
 
     onAuthChange(handleAuthStateChanged);
