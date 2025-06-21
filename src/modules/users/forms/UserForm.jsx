@@ -27,12 +27,10 @@ const UserForm = ({
 
     return (
         <BaseForm
-            className='--users-form'
             multiple={multiple}
             fields={fields}
             formSchemaValidator={formSchemaValidator}
             onSubmit={onSubmit}
-            chunkMultiple={true}
             renderButtons={() => (
                 <ButtonGroup className='--addEventForm__submitButtons' widths={2} floated='right'>
                     <Button primary>{buttonTextSave}</Button>
@@ -40,6 +38,8 @@ const UserForm = ({
                     <Button onClick={closeModal}>{buttonTextCancel}</Button>
                 </ButtonGroup>
             )}
+            className='--users-form'
+            chunkMultiple={true}
         />
     );
 };

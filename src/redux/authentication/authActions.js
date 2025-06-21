@@ -52,6 +52,8 @@ export const loginUser = (email, password) => async (dispatch) => {
 };
 
 export const logoutUser = () => async (dispatch) => {
+    dispatch(setAuthenticationInProgress(true));
+
     try {
         await firebaseLogout();
 
@@ -60,6 +62,8 @@ export const logoutUser = () => async (dispatch) => {
         const message = extractFirebaseError(error);
 
         toast.error(`Logout failed: ${message}`);
+    } finally {
+        dispatch(setAuthenticationInProgress(false));
     }
 };
 
@@ -82,14 +86,10 @@ const handleUserAuthChange = (dispatch, user) => {
     user ? processLoggedInUser(dispatch, user) : processLoggedOutUser(dispatch, user);
 };
 
-// Listen to auth state changes (optional on app load)
+// Listen to auth state changes (optional on an app load)
 export const observeAuthState = () => (dispatch) => {
-    dispatch(setAuthenticationInProgress(true));
-
     const handleAuthStateChanged = (user) => {
         handleUserAuthChange(dispatch, user);
-
-        dispatch(setAuthenticationInProgress(false));
     };
 
     onAuthChange(handleAuthStateChanged);

@@ -8,11 +8,11 @@ import MenuPage from '@modules/dashboard/pages/MenuPage.jsx';
 import UsersPage from '@modules/users/pages/UsersPage.jsx';
 import UserSettingsPage from '@modules/dashboard/pages/UserSettings.jsx';
 
-export const getProtectedRoutes = () => [
+export const getProtectedRoutes = (isUserAuthenticated) => [
     {
         path: '/table-tune',
         element: (
-            <AuthGuard>
+            <AuthGuard isUserAuthenticated={isUserAuthenticated}>
                 <Dashboard/>
             </AuthGuard>
         ),

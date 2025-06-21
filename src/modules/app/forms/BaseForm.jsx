@@ -7,13 +7,13 @@ import CustomInput from '@appComponents/CustomInput.jsx';
 import {chunkArray} from '@utils/formHelpers.jsx';
 
 const BaseForm = ({
-    className = '',
     multiple,
     fields,
     formSchemaValidator,
     onSubmit,
-    chunkMultiple = false,
-    renderButtons
+    renderButtons,
+    className = '',
+    chunkMultiple = false
 }) => {
     const {
         handleSubmit,

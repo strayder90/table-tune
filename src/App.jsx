@@ -17,7 +17,7 @@ const App = () => {
     const isUserAuthenticated = useSelector(selectIsUserAuthenticated);
     const isAuthenticationInProgress = useSelector(selectIsAuthenticationInProgress);
 
-    // Handles checking if user is logged in or out
+    // Handles checking if a user is logged in or out
     useEffect(() => {
         dispatch(observeAuthState(isUserAuthenticated));
     }, [isUserAuthenticated]);

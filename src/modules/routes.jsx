@@ -5,7 +5,7 @@ import {getProtectedRoutes} from '@modules/routes/protected/protectedRoutes.jsx'
 const RoutesConfig = (isUserAuthenticated) => {
     return [
         ...getPublicRoutes(isUserAuthenticated),
-        ...getProtectedRoutes(),
+        ...getProtectedRoutes(isUserAuthenticated),
         ...getFallbackRoute(),
     ];
 };
