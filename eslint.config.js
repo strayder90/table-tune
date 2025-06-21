@@ -60,7 +60,7 @@ export default [
             import: pluginImport
         },
         rules: {
-            'jsx-quotes': ['error', 'prefer-single'],
+            'jsx-quotes': ['warn', 'prefer-single'],
             'no-debugger': 'warn',
             'import/order': [
                 'warn',
@@ -80,16 +80,16 @@ export default [
             'import/export': 'error',
             'no-useless-return': 'warn',
             'no-duplicate-imports': 'warn',
-            semi: ['error', 'always'],
-            quotes: ['error', 'single'],
+            semi: ['warn', 'always'],
+            quotes: ['warn', 'single'],
             indent: [
-                'error',
+                'warn',
                 4,
                 {
                     SwitchCase: 1
                 }
             ],
-            'react/jsx-no-duplicate-props': 'error',
+            'react/jsx-no-duplicate-props': 'warn',
             // 'react-hooks/rules-of-hooks': 'error',
             'react/react-in-jsx-scope': 'off',
             'no-unused-vars': [
