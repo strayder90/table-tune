@@ -78,8 +78,6 @@ const processLoggedInUser = (dispatch, user) => {
         createdAt: formatTimestamp(user.metadata.createdAt),
         lastLoginAt: formatTimestamp(user.metadata.lastLoginAt)
     }));
-
-    dispatch(setIsUserAuthenticated({isUserAuthenticated: true}));
 };
 
 const handleUserAuthChange = (dispatch, user) => {

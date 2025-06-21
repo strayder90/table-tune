@@ -19,7 +19,7 @@ const App = () => {
 
     // Handles checking if a user is logged in or out
     useEffect(() => {
-        dispatch(observeAuthState(isUserAuthenticated));
+        dispatch(observeAuthState());
     }, [isUserAuthenticated]);
 
     if (isAuthenticationInProgress) {
