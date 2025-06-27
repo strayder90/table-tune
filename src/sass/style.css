@@ -436,13 +436,8 @@ template {
   line-height: 20px !important;
 }
 
-.--custom-input-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.--custom-input-wrapper.--has-error .--custom-input input {
-  border: 1px solid red !important;
+.--custom-input.--has-error .--custom-input input {
+  border: 1px solid #e31414 !important;
   background-color: #f7eded !important;
   box-shadow: none !important;
 }
@@ -469,6 +464,14 @@ template {
     padding: 0 10px;
     margin: 0 !important;
     height: 100vh;
+  }
+  .--custom-input {
+    width: auto !important;
+  }
+  .--custom-input.--has-error .--custom-input input {
+    border: 1px solid #e31414 !important;
+    background-color: #f7eded !important;
+    box-shadow: none !important;
   }
 }
 .fallback-page-container {

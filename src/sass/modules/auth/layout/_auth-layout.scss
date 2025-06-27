@@ -41,13 +41,8 @@
   line-height: 20px !important;
 }
 
-.--custom-input-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.--custom-input-wrapper.--has-error .--custom-input input {
-  border: 1px solid red !important;
+.--custom-input.--has-error .--custom-input input {
+  border: 1px solid a.$red !important;
   background-color: a.$lightRed !important;
   box-shadow: none !important;
 }
@@ -75,5 +70,15 @@
     padding: 0 10px;
     margin: 0 !important;
     height: 100vh;
+  }
+
+  .--custom-input {
+    width: auto !important;
+  }
+
+  .--custom-input.--has-error .--custom-input input {
+    border: 1px solid a.$red !important;
+    background-color: a.$lightRed !important;
+    box-shadow: none !important;
   }
 }

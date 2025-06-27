@@ -70,7 +70,7 @@ const CustomInput = forwardRef(({
                             <Form.Field className={className}>
                                 {label && <label>{label}</label>}
 
-                                <div className={`--custom-input-wrapper ${fieldError ? '--has-error' : ''}`}>
+                                <div className={`--custom-input ${fieldError ? '--has-error' : ''}`}>
                                     <Form.Input
                                         {...field}
                                         icon={icon}
