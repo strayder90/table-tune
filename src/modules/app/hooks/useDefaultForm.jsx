@@ -5,8 +5,8 @@ import {useState, useEffect} from 'react';
 const useDefaultForm = ({
     formSchemaValidator,
     onSubmit,
-    initialData = {},
-    multiple = []
+    multiple = [],
+    initialData = {}
 }) => {
     const {
         handleSubmit,
@@ -25,12 +25,15 @@ const useDefaultForm = ({
             onSubmit(data);
         }
 
-        reset();
+        // reset();
     };
 
     useEffect(() => {
-        reset(formData);
+        if (Object.keys(formData).length > 0) {
+            reset(formData);
+        }
     }, [formData, reset]);
+
 
     return {
         handleSubmit: handleSubmit(handleFormSubmit),
