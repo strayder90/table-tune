@@ -1,9 +1,9 @@
 import React, {forwardRef} from 'react';
 import {Controller} from 'react-hook-form';
-import {Form, Checkbox, Icon} from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import DatePicker from 'react-datepicker';
+
 import 'react-datepicker/dist/react-datepicker.css';
+import InputField from '@appComponents/subComponents/InputField.jsx';
 
 const CustomInput = forwardRef(({
     className = '',
@@ -28,68 +28,20 @@ const CustomInput = forwardRef(({
             name={name}
             control={control}
             defaultValue={defaultValue}
-            render={({field}) => {
-                switch (type) {
-                    case 'date':
-                        return (
-                            <DatePicker
-                                {...field}
-                                selected={field.value ? new Date(field.value) : defaultValue}
-                                placeholderText={placeholder}
-                                dateFormat='dd-MM-yyyy'
-                            />
-                        );
-                    case 'checkbox':
-                        return (
-                            <Form.Field
-                                className='--custom-input__checkbox'
-                                error={fieldError ? {content: fieldError.message, pointing: 'below'} : null}
-                            >
-                                <span>{label}</span>
-                                <span><Icon name={icon}/></span>
-                                <Checkbox {...field} toggle/>
-                            </Form.Field>
-                        );
-                    case 'dropdown':
-                        return (
-                            <Form.Field
-                                className='--custom-input__dropdown'
-                                error={fieldError ? {content: fieldError.message, pointing: 'below'} : null}
-                            >
-                                <Form.Select
-                                    {...field}
-                                    options={options}
-                                    placeholder={placeholder}
-                                    onChange={(e, {value}) => field.onChange(value)}
-                                    value={field.value}
-                                />
-                            </Form.Field>
-                        );
-                    default:
-                        return (
-                            <Form.Field className={className}>
-                                {label && <label>{label}</label>}
-
-                                <div className={`--custom-input ${fieldError ? '--has-error' : ''}`}>
-                                    <Form.Input
-                                        {...field}
-                                        icon={icon}
-                                        type={type}
-                                        placeholder={placeholder}
-                                        maxLength={maxLength}
-                                        ref={ref}
-                                        className='--custom-input'
-                                    />
-                                    {fieldError && (
-                                        <span className='--custom-error-text'>
-                                            {fieldError.message}
-                                        </span>
-                                    )}
-                                </div>
-                            </Form.Field>
-                        );
-                }
-            }}
+            render={({field}) => (
+                <InputField
+                    field={field}
+                    type={type}
+                    label={label}
+                    icon={icon}
+                    placeholder={placeholder}
+                    maxLength={maxLength}
+                    options={options}
+                    fieldError={fieldError}
+                    ref={ref}
+                    className={className}
+                />
+            )}
         />
     );
 });
@@ -103,7 +55,7 @@ CustomInput.propTypes = {
     defaultValue: PropTypes.any,
     label: PropTypes.string,
     icon: PropTypes.string,
-    type: PropTypes.oneOf(['text', 'password', 'email', 'number', 'date', 'checkbox']),
+    type: PropTypes.oneOf(['text', 'password', 'email', 'number', 'date', 'checkbox', 'dropdown']),
     placeholder: PropTypes.string,
     maxLength: PropTypes.number,
     options: PropTypes.arrayOf(

@@ -29,28 +29,12 @@ export const SignupFormModel = () => ({
             placeholder: 'Email'
         },
         {
-            key: 'username',
-            name: 'username',
-            defaultValue: '',
-            icon: 'user',
-            type: 'text',
-            placeholder: 'Username'
-        },
-        {
             key: 'password',
             name: 'password',
             defaultValue: '',
             icon: 'lock',
             type: 'password',
             placeholder: 'Password'
-        },
-        {
-            key: 'confirmPassword',
-            name: 'confirmPassword',
-            defaultValue: '',
-            icon: 'lock',
-            type: 'password',
-            placeholder: 'Confirm password'
         }
     ],
 });

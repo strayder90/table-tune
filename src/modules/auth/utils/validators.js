@@ -16,13 +16,9 @@ export const SignupFormValidators = {
     email: z.string().refine(value => value.trim() !== '', {
         message: 'Email is required',
     }),
-    username: z.string().refine(value => value.trim() !== '', {
-        message: 'Username is required',
-    }),
     password: z.string().refine(value => value.trim() !== '', {
         message: 'Password is required',
     }),
-    confirmPassword: z.string()
 };
 
 export const LoginFormValidators = {

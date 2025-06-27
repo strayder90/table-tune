@@ -40,6 +40,7 @@ const BaseForm = ({
                             {row.map((field) => (
                                 <CustomInput
                                     key={field.key}
+                                    className={className}
                                     name={field.name}
                                     control={control}
                                     defaultValue={field.defaultValue}

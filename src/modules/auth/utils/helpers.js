@@ -24,6 +24,7 @@ export const handleLogout = (navigate, dispatch) => {
     navigate('/');
 };
 
+// TODO: adjust method to new logic
 export const validateUsersSignupCredentials = ({email, username}) => {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const existingEmail = users.some(user => user.email === email);

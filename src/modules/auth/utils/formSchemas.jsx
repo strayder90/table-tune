@@ -1,18 +1,32 @@
 import {z} from 'zod';
 
-import {validateUsersSignupCredentials} from '@modules/auth/utils/helpers.js';
+// import {validateUsersSignupCredentials} from '@modules/auth/utils/helpers.js';
 import {LoginFormValidators, SignupFormValidators} from '@modules/auth/utils/validators.js';
 import {emailRegex} from '@utils/regexExpressions.js';
 
 export const signUpSchema = z.object(SignupFormValidators).superRefine((data, ctx) => {
-    const {email, username, password, confirmPassword} = data;
+    const {firstName, lastName, email, password} = data;
 
-    const validatedExistingUser = validateUsersSignupCredentials({email, username});
+    // TODO: fix this method
+    // const validatedExistingUser = validateUsersSignupCredentials({email});
 
-    if (validatedExistingUser) {
+    // if (validatedExistingUser) {
+    //     ctx.addIssue({
+    //         path: [validatedExistingUser.path],
+    //         message: validatedExistingUser.message
+    //     });
+    // }
+    if (firstName && firstName.length < 3) {
         ctx.addIssue({
-            path: [validatedExistingUser.path],
-            message: validatedExistingUser.message
+            path: ['firstName'],
+            message: 'First name should be at least 3 character long'
+        });
+    }
+
+    if (lastName && lastName.length < 3) {
+        ctx.addIssue({
+            path: ['lastName'],
+            message: 'Last name should be at least 3 character long'
         });
     }
 
@@ -23,24 +37,10 @@ export const signUpSchema = z.object(SignupFormValidators).superRefine((data, ct
         });
     }
 
-    if (username && username.length < 3) {
-        ctx.addIssue({
-            path: ['username'],
-            message: 'Username should have at least 3 characters long'
-        });
-    }
-
     if (password && password.length < 6) {
         ctx.addIssue({
             path: ['password'],
-            message: 'Password should have at least 6 character long'
-        });
-    }
-
-    if (password !== confirmPassword) {
-        ctx.addIssue({
-            path: ['confirmPassword'],
-            message: 'Passwords must match'
+            message: 'Password should be at least 6 character long'
         });
     }
 });
