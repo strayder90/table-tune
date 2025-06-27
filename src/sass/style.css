@@ -436,17 +436,18 @@ template {
   line-height: 20px !important;
 }
 
-.--custom-input.--has-error .--custom-input input {
-  border: 1px solid #e31414 !important;
+.--custom-input.--has-error input {
+  border: 0.5px solid #e31414 !important;
   background-color: #f7eded !important;
   box-shadow: none !important;
 }
 
 .--custom-error-text {
+  display: block;
   color: #e31414;
   font-size: 1rem;
   letter-spacing: 0.02em;
-  margin-top: -12px;
+  margin-top: 5px;
 }
 
 @media screen and (max-width: 600px) {
@@ -468,8 +469,8 @@ template {
   .--custom-input {
     width: auto !important;
   }
-  .--custom-input.--has-error .--custom-input input {
-    border: 1px solid #e31414 !important;
+  .--custom-input.--has-error input {
+    border: 0.5px solid #e31414 !important;
     background-color: #f7eded !important;
     box-shadow: none !important;
   }

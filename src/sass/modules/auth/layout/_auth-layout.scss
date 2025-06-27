@@ -41,17 +41,18 @@
   line-height: 20px !important;
 }
 
-.--custom-input.--has-error .--custom-input input {
-  border: 1px solid a.$red !important;
+.--custom-input.--has-error input {
+  border: 0.5px solid a.$red !important;
   background-color: a.$lightRed !important;
   box-shadow: none !important;
 }
 
 .--custom-error-text {
+  display: block;
   color: a.$red;
   font-size: 1rem;
   letter-spacing: 0.02em;
-  margin-top: -12px;
+  margin-top: 5px;
 }
 
 @media screen and (max-width: 600px) {
@@ -76,8 +77,8 @@
     width: auto !important;
   }
 
-  .--custom-input.--has-error .--custom-input input {
-    border: 1px solid a.$red !important;
+  .--custom-input.--has-error input {
+    border: 0.5px solid a.$red !important;
     background-color: a.$lightRed !important;
     box-shadow: none !important;
   }

@@ -88,7 +88,6 @@ const CustomInput = forwardRef(({
                                 </div>
                             </Form.Field>
                         );
-
                 }
             }}
         />
