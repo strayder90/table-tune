@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Button, Divider, Header, Image, Segment} from 'semantic-ui-react';
-import {Link, useLocation} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-const AuthLayout = ({children}) => {
-    const {pathname} = useLocation();
-
+const AuthLayout = ({mode, children}) => {
     return (
         <div className='--auth-layout-container'>
             <Segment className='--auth-layout'>
@@ -19,7 +17,7 @@ const AuthLayout = ({children}) => {
                         />
                     </Header>
 
-                    {pathname === '/signup' && (
+                    {mode === 'signup' && (
                         <>
                             <h1>
                                 Create a new account
@@ -34,7 +32,7 @@ const AuthLayout = ({children}) => {
 
                     <Divider horizontal>Or</Divider>
 
-                    {pathname === '/' && (
+                    {mode === 'login' && (
                         <>
                             <p>
                                 <Link to='#'>Forgot password?</Link>
@@ -49,7 +47,7 @@ const AuthLayout = ({children}) => {
                         </>
                     )}
 
-                    {pathname === '/signup' && (
+                    {mode === 'signup' && (
                         <p>
                             <Link to='/'>Already have an account?</Link>
                         </p>
@@ -61,6 +59,7 @@ const AuthLayout = ({children}) => {
 };
 
 AuthLayout.propTypes = {
+    mode: PropTypes.string,
     children: PropTypes.node
 };
 

@@ -10,7 +10,7 @@ const SignupForm = () => {
     const Form = useCreateForm(AuthForm, SignupFormModel, {buttonText: 'Create account'});
 
     return (
-        <AuthLayout>
+        <AuthLayout  mode='signup'>
             <Form/>
         </AuthLayout>
     );

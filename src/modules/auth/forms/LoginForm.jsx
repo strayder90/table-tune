@@ -10,7 +10,7 @@ const LoginForm = () => {
     const Form = useCreateForm(AuthForm, LoginFormModel, {buttonText: 'Log in'});
 
     return (
-        <AuthLayout>
+        <AuthLayout mode='login'>
             <Form/>
         </AuthLayout>
     );
