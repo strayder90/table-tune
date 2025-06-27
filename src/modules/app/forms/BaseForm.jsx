@@ -34,44 +34,25 @@ const BaseForm = ({
             {/*Render multiple form input fields one near another one*/}
             {
                 multiple && (
-                    chunkMultiple
-                        ? chunkArray(multiple, 2).map((row, rowIndex) => (
-                            // eslint-disable-next-line react/no-array-index-key
-                            <FormGroup key={rowIndex}>
-                                {row.map((field) => (
-                                    <CustomInput
-                                        key={field.key}
-                                        name={field.name}
-                                        control={control}
-                                        defaultValue={field.defaultValue}
-                                        label={field.label}
-                                        icon={field.icon}
-                                        type={field.type}
-                                        placeholder={field.placeholder}
-                                        options={field.options}
-                                        errors={errors}
-                                    />
-                                ))}
-                            </FormGroup>
-                        ))
-                        : (
-                            <FormGroup widths='equal'>
-                                {multiple.map((field) => (
-                                    <CustomInput
-                                        key={field.key}
-                                        name={field.name}
-                                        control={control}
-                                        defaultValue={field.defaultValue}
-                                        label={field.label}
-                                        icon={field.icon}
-                                        type={field.type}
-                                        placeholder={field.placeholder}
-                                        options={field.options}
-                                        errors={errors}
-                                    />
-                                ))}
-                            </FormGroup>
-                        )
+                    (chunkMultiple ? chunkArray(multiple, 2) : [multiple]).map((row, rowIndex) => (
+                        // eslint-disable-next-line react/no-array-index-key
+                        <FormGroup key={rowIndex} widths={chunkMultiple ? undefined : 'equal'}>
+                            {row.map((field) => (
+                                <CustomInput
+                                    key={field.key}
+                                    name={field.name}
+                                    control={control}
+                                    defaultValue={field.defaultValue}
+                                    label={field.label}
+                                    icon={field.icon}
+                                    type={field.type}
+                                    placeholder={field.placeholder}
+                                    options={field.options}
+                                    errors={errors}
+                                />
+                            ))}
+                        </FormGroup>
+                    ))
                 )
             }
 
