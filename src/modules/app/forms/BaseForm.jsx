@@ -63,17 +63,17 @@ const BaseForm = ({
                     ?.filter((field) => !multiple || !multiple.some((mf) => mf.key === field.key))
                     .map((field) => (
                         <CustomInput
-                            className={className}
                             key={field.key}
+                            className={className}
                             name={field.name}
                             control={control}
-                            defaultValue={field.defaultValue}
                             label={field.label}
                             icon={field.icon}
                             type={field.type}
                             placeholder={field.placeholder}
                             maxLength={field.maxLength}
                             hidden={field.hidden}
+                            defaultValue={field.defaultValue}
                             errors={errors}
                         />
                     ))

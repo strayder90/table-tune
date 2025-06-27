@@ -9,7 +9,6 @@ const CustomInput = forwardRef(({
     className = '',
     name,
     control,
-    defaultValue = null,
     label,
     icon,
     type,
@@ -17,7 +16,8 @@ const CustomInput = forwardRef(({
     maxLength,
     options = [],
     hidden = false,
-    errors
+    defaultValue = null,
+    errors = {}
 }, ref) => {
     if (hidden) return null;
 
