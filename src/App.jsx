@@ -16,10 +16,10 @@ const App = () => {
     const dispatch = useDispatch();
     const isAuthenticationInProgress = useSelector(selectIsAuthenticationInProgress);
 
-    // Handles checking if a user is logged in or out
     useEffect(() => {
-        dispatch(observeAuthState());
-    }, []);
+        const unsubscribe = dispatch(observeAuthState());
+        return () => unsubscribe && unsubscribe();
+    }, [dispatch]);
 
     if (isAuthenticationInProgress) {
         return (

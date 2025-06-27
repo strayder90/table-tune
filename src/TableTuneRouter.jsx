@@ -7,9 +7,7 @@ import {selectIsUserAuthenticated} from '@/redux/authentication/authSelectors.js
 const TableTuneRouter = () => {
     const isUserAuthenticated = useSelector(selectIsUserAuthenticated);
 
-    const routes = RoutesConfig(isUserAuthenticated);
-
-    return useRoutes(routes);
+    return useRoutes(RoutesConfig(isUserAuthenticated));
 };
 
 export default TableTuneRouter;

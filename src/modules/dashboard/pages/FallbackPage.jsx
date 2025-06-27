@@ -17,10 +17,10 @@ const FallbackPage = () => {
                         <h3>It&#39;s just a 404 Error!</h3>
                         <h3>The page you are looking for might have been removed, deleted or non existing.</h3>
                     </Grid.Column>
-                    <Link to='/table-tune'>
+                    <Link to='/table-tune/tables'>
                         <Button size='large' color='yellow' className='fallback-page-button'>
                             <Icon name='angle double left'/>
-                            Go back to Home
+                            Go back
                         </Button>
                     </Link>
                 </Grid.Row>
