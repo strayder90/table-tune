@@ -1,7 +1,7 @@
 import {logInSchema} from '@modules/auth/utils/formSchemas.jsx';
 
 export const LoginFormModel = () => ({
-    formName: 'LoginForm',
+    formName: 'login',
     formSchemaValidator: logInSchema,
     fields: [
         {
@@ -18,7 +18,8 @@ export const LoginFormModel = () => ({
             defaultValue: '',
             icon: 'lock',
             type: 'password',
-            placeholder: 'Password'
+            placeholder: 'Password',
+            maxLength: 7,
         },
     ],
 });

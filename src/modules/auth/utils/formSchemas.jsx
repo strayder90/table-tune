@@ -30,10 +30,10 @@ export const signUpSchema = z.object(SignupFormValidators).superRefine((data, ct
         });
     }
 
-    if (password && password.length < 5) {
+    if (password && password.length < 6) {
         ctx.addIssue({
             path: ['password'],
-            message: 'Password should have at least 5 character long'
+            message: 'Password should have at least 6 character long'
         });
     }
 
@@ -55,7 +55,7 @@ export const logInSchema = z.object(LoginFormValidators).superRefine((data, ctx)
         });
     }
 
-    if (password && password.length < 5) {
+    if (password && password.length < 6) {
         ctx.addIssue({
             path: ['password'],
             message: 'Password should have at least 6 character long'

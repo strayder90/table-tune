@@ -1,7 +1,7 @@
 import {signUpSchema} from '@modules/auth/utils/formSchemas.jsx';
 
 export const SignupFormModel = () => ({
-    formName: 'SignupForm',
+    formName: 'signup',
     formSchemaValidator: signUpSchema,
     multiple: [
         {

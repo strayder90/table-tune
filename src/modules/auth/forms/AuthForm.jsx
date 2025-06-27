@@ -13,9 +13,9 @@ const AuthForm = ({multiple, fields, formSchemaValidator, formName, buttonText})
     const dispatch = useDispatch();
 
     const onSubmit = (data) => {
-        if (formName === 'SignupForm') {
+        if (formName === 'signup') {
             handleSignupFormSubmit(data, navigate, dispatch);
-        } else if (formName === 'LoginForm') {
+        } else if (formName === 'login') {
             handleLoginFormSubmit(data, navigate, dispatch);
         }
     };
