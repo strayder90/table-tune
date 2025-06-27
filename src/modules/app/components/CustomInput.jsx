@@ -14,6 +14,7 @@ const CustomInput = forwardRef(({
     icon,
     type,
     placeholder,
+    maxLength,
     options = [],
     hidden = false,
     errors
@@ -75,6 +76,7 @@ const CustomInput = forwardRef(({
                                         icon={icon}
                                         type={type}
                                         placeholder={placeholder}
+                                        maxLength={maxLength}
                                         ref={ref}
                                         className='--custom-input'
                                     />
@@ -104,6 +106,7 @@ CustomInput.propTypes = {
     icon: PropTypes.string,
     type: PropTypes.oneOf(['text', 'password', 'email', 'number', 'date', 'checkbox']),
     placeholder: PropTypes.string,
+    maxLength: PropTypes.number,
     options: PropTypes.arrayOf(
         PropTypes.shape({
             key: PropTypes.string,

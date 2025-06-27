@@ -47,6 +47,7 @@ const BaseForm = ({
                                     icon={field.icon}
                                     type={field.type}
                                     placeholder={field.placeholder}
+                                    maxLength={field.maxLength}
                                     options={field.options}
                                     errors={errors}
                                 />
@@ -71,6 +72,7 @@ const BaseForm = ({
                             icon={field.icon}
                             type={field.type}
                             placeholder={field.placeholder}
+                            maxLength={field.maxLength}
                             hidden={field.hidden}
                             errors={errors}
                         />
