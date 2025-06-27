@@ -66,17 +66,27 @@ const CustomInput = forwardRef(({
                         );
                     default:
                         return (
-                            <Form.Input
-                                {...field}
-                                className={className}
-                                label={label}
-                                icon={icon}
-                                type={type}
-                                placeholder={placeholder}
-                                ref={ref}
-                                error={fieldError ? {content: fieldError.message, pointing: 'below'} : null}
-                            />
+                            <Form.Field className={className}>
+                                {label && <label>{label}</label>}
+
+                                <div className={`--custom-input-wrapper ${fieldError ? '--has-error' : ''}`}>
+                                    <Form.Input
+                                        {...field}
+                                        icon={icon}
+                                        type={type}
+                                        placeholder={placeholder}
+                                        ref={ref}
+                                        className='--custom-input'
+                                    />
+                                    {fieldError && (
+                                        <span className='--custom-error-text'>
+                                            {fieldError.message}
+                                        </span>
+                                    )}
+                                </div>
+                            </Form.Field>
                         );
+
                 }
             }}
         />

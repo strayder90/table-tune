@@ -436,6 +436,24 @@ template {
   line-height: 20px !important;
 }
 
+.--custom-input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.--custom-input-wrapper.--has-error .--custom-input input {
+  border: 1px solid red !important;
+  background-color: #f7eded !important;
+  box-shadow: none !important;
+}
+
+.--custom-error-text {
+  color: #e31414;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  margin-top: -12px;
+}
+
 @media screen and (max-width: 600px) {
   .--auth-layout-container {
     position: relative;
