@@ -45,4 +45,20 @@ export const signUpSchema = z.object(SignupFormValidators).superRefine((data, ct
     }
 });
 
-export const logInSchema = z.object(LoginFormValidators);
+export const logInSchema = z.object(LoginFormValidators).superRefine((data, ctx) => {
+    const {email, password} = data;
+
+    if (!emailRegex(email)) {
+        ctx.addIssue({
+            path: ['email'],
+            message: 'Please enter a valid email format (e.g., user@example.com)'
+        });
+    }
+
+    if (password && password.length < 5) {
+        ctx.addIssue({
+            path: ['password'],
+            message: 'Password should have at least 6 character long'
+        });
+    }
+});
