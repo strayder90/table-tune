@@ -19,28 +19,28 @@ export const signUpSchema = z.object(SignupFormValidators).superRefine((data, ct
     if (firstName && firstName.length < 3) {
         ctx.addIssue({
             path: ['firstName'],
-            message: 'First name should be at least 3 character long'
+            message: 'Min 3 characters'
         });
     }
 
     if (lastName && lastName.length < 3) {
         ctx.addIssue({
             path: ['lastName'],
-            message: 'Last name should be at least 3 character long'
+            message: 'Min 3 characters'
         });
     }
 
     if (!emailRegex(email)) {
         ctx.addIssue({
             path: ['email'],
-            message: 'Please enter a valid email format (e.g., user@example.com)'
+            message: 'Invalid email format (e.g., user@example.com)'
         });
     }
 
     if (password && password.length < 6) {
         ctx.addIssue({
             path: ['password'],
-            message: 'Password should be at least 6 character long'
+            message: 'Min 6 characters'
         });
     }
 });
@@ -51,14 +51,14 @@ export const logInSchema = z.object(LoginFormValidators).superRefine((data, ctx)
     if (!emailRegex(email)) {
         ctx.addIssue({
             path: ['email'],
-            message: 'Please enter a valid email format (e.g., user@example.com)'
+            message: 'Invalid email format (e.g., user@example.com)'
         });
     }
 
     if (password && password.length < 6) {
         ctx.addIssue({
             path: ['password'],
-            message: 'Password should have at least 6 character long'
+            message: 'Min 6 characters'
         });
     }
 });

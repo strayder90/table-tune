@@ -18,8 +18,7 @@ export const LoginFormModel = () => ({
             defaultValue: '',
             icon: 'lock',
             type: 'password',
-            placeholder: 'Password',
-            maxLength: 6,
+            placeholder: 'Password'
         },
     ],
 });

@@ -20,7 +20,7 @@ export const useCreateForm = (FormComponent, Model, params = {}) => {
     return FormWrapper;
 };
 
-// Groups array items into smaller arrays of given size (used for form row layout)
+// Groups array items into smaller arrays of given size (used for form row layout) => [[1, 2], [3, 4]]
 export const chunkArray = (arr, size) => {
     const result = [];
 
