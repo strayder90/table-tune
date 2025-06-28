@@ -15,7 +15,9 @@ import {
     onAuthChange
 } from '../../firebase/helpers/authorization/authService.js';
 
-export const registerUser = (email, password) => async (dispatch) => {
+export const registerUser = ({email, password}) => async (dispatch) => {
+    dispatch(setAuthenticationInProgress(true));
+
     try {
         const userCredential = await register(email, password);
 
@@ -27,10 +29,12 @@ export const registerUser = (email, password) => async (dispatch) => {
         const message = extractFirebaseError(error);
 
         toast.error(`Registration failed: ${message}`);
+    } finally {
+        dispatch(setAuthenticationInProgress(false));
     }
 };
 
-export const loginUser = (email, password) => async (dispatch) => {
+export const loginUser = ({email, password}) => async (dispatch) => {
     dispatch(setAuthenticationInProgress(true));
 
     try {

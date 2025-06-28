@@ -29,10 +29,18 @@ const useDefaultForm = ({
 
     const [formData, setFormData] = useState(initialData);
 
-    const handleFormSubmit = useCallback((data) => {
-        onSubmit?.(data);
+    const handleFormSubmit = useCallback(async (data) => {
+        try {
+            if (onSubmit) {
+                await onSubmit(data);
+            }
 
-        if (shouldResetAfterSubmit) reset();
+            if (shouldResetAfterSubmit) {
+                reset();
+            }
+        } catch (err) {
+            console.error('Form submission error:', err);
+        }
     }, [onSubmit, reset, shouldResetAfterSubmit]);
 
     useEffect(() => {

@@ -1,24 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Button} from 'semantic-ui-react';
-import {useNavigate} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
 
 import BaseForm from '@modules/app/forms/BaseForm.jsx';
-
-import {handleSignupFormSubmit, handleLoginFormSubmit} from '../utils/helpers.js';
+import useFormSubmit from '@modules/app/hooks/useFormSubmit.jsx';
+import {registerUser, loginUser} from '@/redux/authentication/authActions.js';
 
 const AuthForm = ({multiple, fields, formSchemaValidator, formName, buttonText}) => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-
-    const onSubmit = (data) => {
-        if (formName === 'signup') {
-            handleSignupFormSubmit(data, navigate, dispatch);
-        } else if (formName === 'login') {
-            handleLoginFormSubmit(data, navigate, dispatch);
-        }
-    };
+    const onSubmit = useFormSubmit({
+        action: formName === 'signup' ? registerUser : loginUser,
+        navigateTo: formName === 'signup' ? '/' : '/table-tune/tables',
+    });
 
     return (
         <BaseForm
