@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useEffect} from 'react';
 import {Loader} from 'semantic-ui-react';
 
-import {selectIsAuthenticationInProgress} from '@/redux/authentication/authSelectors.js';
+import {selectIsAuthenticationInProgress, selectIsUserAuthenticated} from '@/redux/authentication/authSelectors.js';
 import {observeAuthState} from '@/redux/authentication/authActions.js';
 
 import TableTuneRouter from './TableTuneRouter';
@@ -15,9 +15,10 @@ import TableTuneRouter from './TableTuneRouter';
 const App = () => {
     const dispatch = useDispatch();
     const isAuthenticationInProgress = useSelector(selectIsAuthenticationInProgress);
+    const isUserAuthenticated = useSelector(selectIsUserAuthenticated);
 
     useEffect(() => {
-        const unsubscribe = dispatch(observeAuthState());
+        const unsubscribe = dispatch(observeAuthState(isUserAuthenticated));
         return () => unsubscribe && unsubscribe();
     }, [dispatch]);
 

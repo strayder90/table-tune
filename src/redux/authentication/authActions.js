@@ -82,24 +82,24 @@ const processLoggedInUser = (dispatch, user) => {
         createdAt: formatTimestamp(user.metadata.createdAt),
         lastLoginAt: formatTimestamp(user.metadata.lastLoginAt)
     }));
-
-    dispatch(setIsUserAuthenticated({isUserAuthenticated: true}));
-};
-
-const handleUserAuthChange = (dispatch, user) => {
-    user ? processLoggedInUser(dispatch, user) : processLoggedOutUser(dispatch, user);
 };
 
 // Listen to auth state changes (optional on an app load)
-export const observeAuthState = () => (dispatch) => {
+export const observeAuthState = (isUserAuthenticated) => (dispatch) => {
     dispatch(setAuthenticationInProgress(true));
 
     const handleAuthStateChanged = (user) => {
-        handleUserAuthChange(dispatch, user);
+        if (user && isUserAuthenticated) {
+            processLoggedInUser(dispatch, user);
+            dispatch(setIsUserAuthenticated({isUserAuthenticated: true}));
+        } else {
+            processLoggedOutUser(dispatch);
+        }
+
         dispatch(setAuthenticationInProgress(false));
     };
 
-    onAuthChange(handleAuthStateChanged);
+    return onAuthChange(handleAuthStateChanged);
 };
 
 function extractFirebaseError(error) {
