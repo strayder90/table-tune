@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
 import {logoutUser} from '@/redux/authentication/authActions.js';
+import routesMap from '@modules/routesMap.js';
 
 const CustomNavigationMenu = ({title, items}) => {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const CustomNavigationMenu = ({title, items}) => {
 
     const handleLogout = () => {
         dispatch(logoutUser());
-        navigate('/');
+        navigate(routesMap.index);
     };
 
     const handleNavigation = (path) => {

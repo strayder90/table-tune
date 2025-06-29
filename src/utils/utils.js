@@ -37,3 +37,34 @@ export const formatTimestamp = (timestamp) => {
 
     return `${day}-${month}-${year}, ${hours}:${minutes}:${seconds}`;
 };
+
+// Path generator helper
+export const buildFullPaths = (base, routes) => {
+    if (typeof routes === 'string') {
+        if (routes === '') {
+            return '/';
+        }
+
+        if (routes === 'signup') {
+            return '/signup';
+        }
+
+        return `${base}/${routes}`;
+    }
+
+    if (typeof routes === 'object') {
+        const result = {};
+
+        for (const key in routes) {
+            if (key === 'path') {
+                result.path = `${base}/${routes.path}`;
+            } else {
+                result[key] = buildFullPaths(result.path || base, routes[key]);
+            }
+        }
+
+        return result;
+    }
+
+    return base;
+};

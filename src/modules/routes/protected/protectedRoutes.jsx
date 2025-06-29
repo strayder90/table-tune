@@ -7,23 +7,24 @@ import TeamPage from '@modules/team/pages/TeamPage.jsx';
 import MenuPage from '@modules/dashboard/pages/MenuPage.jsx';
 import UsersPage from '@modules/users/pages/UsersPage.jsx';
 import UserSettingsPage from '@modules/dashboard/pages/UserSettings.jsx';
+import routesMap from '@modules/routesMap.js';
 
 export const getProtectedRoutes = (isUserAuthenticated) => [
     {
-        path: '/table-tune',
+        path: routesMap.path,
         element: (
             <AuthGuard isUserAuthenticated={isUserAuthenticated}>
                 <Dashboard/>
             </AuthGuard>
         ),
         children: [
-            {path: 'tables', element: <TablesPage/>},
-            {path: 'events', element: <EventsPage/>},
-            {path: 'reservations', element: <ReservationPage/>},
-            {path: 'team', element: <TeamPage/>},
-            {path: 'menu', element: <MenuPage/>},
-            {path: 'users', element: <UsersPage/>},
-            {path: 'user-settings', element: <UserSettingsPage/>}
+            {path: routesMap.tables.path, element: <TablesPage/>},
+            {path: routesMap.events.path, element: <EventsPage/>},
+            {path: routesMap.reservations.path, element: <ReservationPage/>},
+            {path: routesMap.team.path, element: <TeamPage/>},
+            {path: routesMap.menu.path, element: <MenuPage/>},
+            {path: routesMap.menu.users.path, element: <UsersPage/>},
+            {path: routesMap.userSettings.path, element: <UserSettingsPage/>}
         ]
     }
 ];

@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Header, Button, Image, Grid, Icon} from 'semantic-ui-react';
 
+import routesMap from '@modules/routesMap.js';
+
 const FallbackPage = () => {
     return (
         <Container className='fallback-page-container'>
@@ -17,7 +19,7 @@ const FallbackPage = () => {
                         <h3>It&#39;s just a 404 Error!</h3>
                         <h3>The page you are looking for might have been removed, deleted or non existing.</h3>
                     </Grid.Column>
-                    <Link to='/table-tune/tables'>
+                    <Link to={routesMap.tables.path}>
                         <Button size='large' color='yellow' className='fallback-page-button'>
                             <Icon name='angle double left'/>
                             Go back

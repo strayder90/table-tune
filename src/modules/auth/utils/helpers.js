@@ -1,6 +1,7 @@
 import {toast} from 'react-toastify';
 
 import {registerUser, loginUser, logoutUser} from '@/redux/authentication/authActions.js';
+import routesMap from '@modules/routesMap.js';
 
 export const handleSignupFormSubmit = (data, navigate, dispatch) => {
     if (!data) return;
@@ -21,7 +22,7 @@ export const handleLoginFormSubmit = (data, navigate, dispatch) => {
 export const handleLogout = (navigate, dispatch) => {
     dispatch(logoutUser());
 
-    navigate('/');
+    navigate(routesMap.index);
 };
 
 // TODO: adjust method to new logic

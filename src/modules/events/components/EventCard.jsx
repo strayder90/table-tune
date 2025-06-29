@@ -2,6 +2,7 @@ import React from 'react';
 import {CardHeader, CardDescription, CardContent, Card, Icon, Button, ButtonGroup} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import routesMap from '@modules/routesMap.js';
 
 const editEvent = () => {
     console.log('edit');
@@ -29,7 +30,7 @@ const EventCard = ({title, supportedByDj, entry, date, isEventSupportedByDj = fa
             </CardDescription>
         </CardContent>
         <CardContent extra>
-            <Link to='/table-tune/team'>
+            <Link to={routesMap.team.path}>
                 <Icon name='comment alternate outline'/>
                 Do I work?
             </Link>
