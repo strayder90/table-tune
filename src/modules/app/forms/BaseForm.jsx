@@ -34,9 +34,9 @@ const BaseForm = ({
             {/*Render multiple form input fields one near another one*/}
             {
                 multiple && (
-                    (chunkMultiple ? chunkArray(multiple, 2) : [multiple]).map((row, rowIndex) => (
+                    (chunkArray(multiple, 2)).map((row, rowIndex) => (
                         // eslint-disable-next-line react/no-array-index-key
-                        <FormGroup key={rowIndex} widths={chunkMultiple ? undefined : 'equal'}>
+                        <FormGroup key={rowIndex} widths='equal'>
                             {row.map((field) => (
                                 <CustomInput
                                     key={field.key}

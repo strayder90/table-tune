@@ -18,6 +18,20 @@ export const SignupFormModel = () => ({
             type: 'text',
             placeholder: 'Last name'
         },
+        {
+            key: 'phoneNumber',
+            name: 'phoneNumber',
+            defaultValue: '',
+            type: 'text',
+            placeholder: 'Phone number'
+        },
+        {
+            key: 'clubName',
+            name: 'clubName',
+            defaultValue: '',
+            type: 'text',
+            placeholder: 'Club name'
+        },
     ],
     fields: [
         {
