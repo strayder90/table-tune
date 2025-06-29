@@ -36,7 +36,7 @@ const BaseForm = ({
                 multiple && (
                     (chunkArray(multiple, 2)).map((row, rowIndex) => (
                         // eslint-disable-next-line react/no-array-index-key
-                        <FormGroup key={rowIndex} widths='equal'>
+                        <FormGroup key={rowIndex} widths={chunkMultiple ? '' : 'equal'}>
                             {row.map((field) => (
                                 <CustomInput
                                     key={field.key}

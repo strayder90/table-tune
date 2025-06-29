@@ -24,7 +24,7 @@ export const AddEventModel = () => ({
             key: 'title',
             name: 'title',
             defaultValue: '',
-            icon: 'user',
+            icon: 'pencil alternate',
             type: 'text',
             placeholder: 'Title',
         },

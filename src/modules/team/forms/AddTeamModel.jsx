@@ -24,12 +24,12 @@ export const AddTeamModel = () => ({
             key: 'Zone',
             name: 'Zone',
             defaultValue: '',
-            icon: 'book',
             type: 'dropdown',
             placeholder: 'Zone',
             options: [
                 {key: 'vip', value: 'vip', text: 'VIP'},
                 {key: 'entrance', value: 'entrance', text: 'Entrance'},
+                {key: 'wardrobe', value: 'wardrobe', text: 'Wardrobe'},
                 {key: 'bar', value: 'bar', text: 'Bar'},
                 {key: 'garden ', value: 'garden ', text: 'Garden '},
                 {key: 'storage', value: 'storage', text: 'Storage'},
@@ -40,9 +40,8 @@ export const AddTeamModel = () => ({
             label: 'Active',
             key: 'Status',
             name: 'Status',
-            defaultValue: true,
+            defaultValue: false,
             type: 'checkbox',
-            placeholder: 'Status'
         }
     ],
     fields: []

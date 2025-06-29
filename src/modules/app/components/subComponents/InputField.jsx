@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Form, Checkbox, Icon} from 'semantic-ui-react';
+import {Form, Checkbox} from 'semantic-ui-react';
 import DatePicker from 'react-datepicker';
 
 const InputField = ({
@@ -33,7 +33,6 @@ const InputField = ({
                     error={fieldError ? {content: fieldError.message, pointing: 'below'} : null}
                 >
                     <span>{label}</span>
-                    <span><Icon name={icon}/></span>
                     <Checkbox {...field} toggle/>
                 </Form.Field>
             );
