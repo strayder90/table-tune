@@ -19,12 +19,7 @@ export const registerUser = ({email, password}) => async (dispatch) => {
     dispatch(setAuthenticationInProgress(true));
 
     try {
-        const userCredential = await register(email, password);
-
-        dispatch(setUser({
-            id: userCredential.uid,
-            email: userCredential.email
-        }));
+        return await register(email, password);
     } catch (error) {
         const message = extractFirebaseError(error);
 
@@ -38,11 +33,11 @@ export const loginUser = ({email, password}) => async (dispatch) => {
     dispatch(setAuthenticationInProgress(true));
 
     try {
-        const userCredential = await firebaseLogin(email, password);
+        const user = await firebaseLogin(email, password);
 
         dispatch(setUser({
-            id: userCredential.uid,
-            email: userCredential.email
+            id: user.uid,
+            email: user.email,
         }));
 
         dispatch(setIsUserAuthenticated({isUserAuthenticated: true}));
@@ -91,7 +86,6 @@ export const observeAuthState = (isUserAuthenticated) => (dispatch) => {
     const handleAuthStateChanged = (user) => {
         if (user && isUserAuthenticated) {
             processLoggedInUser(dispatch, user);
-            dispatch(setIsUserAuthenticated({isUserAuthenticated: true}));
         } else {
             processLoggedOutUser(dispatch);
         }
