@@ -1,6 +1,6 @@
 import AuthGuard from '@modules/auth/components/AuthGuard.jsx';
 import Dashboard from '@modules/dashboard/layout/Dashboard.jsx';
-import TablesPage from '@modules/dashboard/pages/TablesPage.jsx';
+import TablesPage from '@modules/tables/pages/TablesPage.jsx';
 import EventsPage from '@modules/events/pages/EventsPage.jsx';
 import ReservationPage from '@modules/dashboard/pages/ReservationPage.jsx';
 import TeamPage from '@modules/team/pages/TeamPage.jsx';

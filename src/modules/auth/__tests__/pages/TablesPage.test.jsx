@@ -4,7 +4,7 @@ import {render, screen} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
 import {userEvent} from '@testing-library/user-event';
 
-import TablesPage from '@modules/dashboard/pages/TablesPage.jsx';
+import TablesPage from '@modules/tables/pages/TablesPage.jsx';
 
 const mockNavigate = vi.fn();
 vi.doMock('react-router-dom', () => ({
