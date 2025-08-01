@@ -143,7 +143,32 @@ const Floor = () => {
             lockScalingFlip: true
         });
         
-        fabricCanvasRef.current.add(circle1, circle2, square1, square2, square3, square4);
+        const line1 = new fabric.Line([0, 0, 0, 150], {
+            id: 'line-1',
+            stroke: 'gold',
+            strokeWidth: 3,
+            selectable: true,
+            hasControls: true,
+            lockScalingFlip: true,
+            left: margin + 20,
+            top: margin + 400,
+        });
+        
+        const line2 = new fabric.Line([150, 0, 0, 0], {
+            id: 'line-1',
+            stroke: 'green',
+            strokeWidth: 3,
+            selectable: true,
+            hasControls: true,
+            lockScalingFlip: true,
+            left: margin + 100,
+            top: margin + 400,
+        });
+        
+        fabricCanvasRef.current.add(line1);
+        
+        
+        fabricCanvasRef.current.add(circle1, circle2, square1, square2, square3, square4, line1, line2);
         
         // Restrict objects from moving outside margin border
         fabricCanvasRef.current.on('object:moving', (e) => {
