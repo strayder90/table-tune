@@ -16,7 +16,7 @@ const Floor = () => {
         }
         
         fabricCanvasRef.current = new fabric.Canvas(canvasRef.current, {
-            width, height, backgroundColor: '#c9c9c9'
+            width, height, backgroundColor: '#494949'
         });
         
         // Draw the visible border rectangle for margin
@@ -34,19 +34,38 @@ const Floor = () => {
         
         // Helper function to clamp object position inside the margin border
         const clampPosition = (obj) => {
-            const objWidth = obj.getScaledWidth();
-            const objHeight = obj.getScaledHeight();
+            const canvas = fabricCanvasRef.current;
+            const bounds = obj.getBoundingRect(true); // rotated bounding box
             
-            // Minimum and maximum allowed positions
-            const minLeft = margin;
-            const maxLeft = width - margin - objWidth;
-            const minTop = margin;
-            const maxTop = height - margin - objHeight;
+            let dx = 0;
+            let dy = 0;
             
-            if (obj.left < minLeft) obj.left = minLeft;
-            if (obj.left > maxLeft) obj.left = maxLeft;
-            if (obj.top < minTop) obj.top = minTop;
-            if (obj.top > maxTop) obj.top = maxTop;
+            // Clamp left side
+            if (bounds.left < 0) {
+                dx = 0 - bounds.left;
+            }
+            
+            // Clamp right side
+            if (bounds.left + bounds.width > canvas.width) {
+                dx = canvas.width - (bounds.left + bounds.width);
+            }
+            
+            // Clamp top side
+            if (bounds.top < 0) {
+                dy = 0 - bounds.top;
+            }
+            
+            // Clamp bottom side
+            if (bounds.top + bounds.height > canvas.height) {
+                dy = canvas.height - (bounds.top + bounds.height);
+            }
+            
+            // Adjust object position accordingly
+            obj.left += dx;
+            obj.top += dy;
+            
+            // Make sure Fabric knows position changed
+            obj.setCoords();
         };
         
         // Create shapes with initial positions inside margin
@@ -99,13 +118,45 @@ const Floor = () => {
             hasControls: true,
             lockScalingFlip: true
         });
+        const square3 = new fabric.Rect({
+            id: 'table-4',
+            left: margin + 140,
+            top: margin + 300,
+            width: 60,
+            height: 60,
+            fill: '#e36a14',
+            stroke: 'black',
+            strokeWidth: 2,
+            hasControls: true,
+            lockScalingFlip: true
+        });
+        const square4 = new fabric.Rect({
+            id: 'table-4',
+            left: margin + 10,
+            top: margin + 300,
+            width: 60,
+            height: 60,
+            fill: '#bd14e3',
+            stroke: 'yellog',
+            strokeWidth: 2,
+            hasControls: true,
+            lockScalingFlip: true
+        });
         
-        fabricCanvasRef.current.add(circle1, circle2, square1, square2);
+        fabricCanvasRef.current.add(circle1, circle2, square1, square2, square3, square4);
         
         // Restrict objects from moving outside margin border
         fabricCanvasRef.current.on('object:moving', (e) => {
             const obj = e.target;
             clampPosition(obj);
+        });
+        
+        fabricCanvasRef.current.on('object:moving', (e) => {
+            clampPosition(e.target);
+        });
+        
+        fabricCanvasRef.current.on('object:rotating', (e) => {
+            clampPosition(e.target);
         });
         
         // Optional: also clamp on scaling or rotating, if you want
